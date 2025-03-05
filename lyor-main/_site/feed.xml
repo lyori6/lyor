@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://lyori.com/lyor/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lyori.com/lyor/" rel="alternate" type="text/html" /><updated>2025-03-04T18:31:13-08:00</updated><id>https://lyori.com/lyor/feed.xml</id><title type="html">Lyor Itzhaki - Portfolio</title><subtitle>Portfolio of Lyor Itzhaki - Founder &amp; Product Manager specializing in startup growth and product innovation.</subtitle><author><name>Lyor Itzhaki</name></author><entry><title type="html">FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem</title><link href="https://lyori.com/lyor/blog/2025/03/01/product-management-essentials/" rel="alternate" type="text/html" title="FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem" /><published>2025-03-01T00:00:00-08:00</published><updated>2025-03-01T00:00:00-08:00</updated><id>https://lyori.com/lyor/blog/2025/03/01/product-management-essentials</id><content type="html" xml:base="https://lyori.com/lyor/blog/2025/03/01/product-management-essentials/"><![CDATA[<p><em>A product case study of building an AI-powered pet adoption platform that connects more animals with loving homes</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-04T21:15:49-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Lyor Itzhaki - Portfolio</title><subtitle>Portfolio of Lyor Itzhaki - Founder &amp; Product Manager specializing in startup growth and product innovation.</subtitle><author><name>Lyor Itzhaki</name></author><entry><title type="html">FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem</title><link href="http://localhost:4000/blog/findmepet/" rel="alternate" type="text/html" title="FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem" /><published>2025-03-01T00:00:00-08:00</published><updated>2025-03-01T00:00:00-08:00</updated><id>http://localhost:4000/blog/findmepet</id><content type="html" xml:base="http://localhost:4000/blog/findmepet/"><![CDATA[<p><em>A product case study of building an AI-powered pet adoption platform that connects more animals with loving homes</em></p>
 
 <p><img src="/assets/images/shasta_main.png" alt="Landing page featuring Shasta, the inspiration behind FindMePet" />
 <em>Pictured: The FindMePet landing page featuring Shasta, Lyor’s adopted dog and inspiration for the project</em></p>
@@ -166,139 +166,212 @@
 
 <hr />
 
-<p><em>This case study was prepared in March 2025 based on the FindMePet project developed by Lyor.</em></p>]]></content><author><name>Lyor Itzhaki</name></author><category term="product management" /><category term="startups" /><category term="user experience" /><summary type="html"><![CDATA[A case study of building an AI-powered pet adoption platform that connects more animals with loving homes.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lyori.com/lyor/assets/images/shasta_main.png" /><media:content medium="image" url="https://lyori.com/lyor/assets/images/shasta_main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech Trends to Watch in 2025</title><link href="https://lyori.com/lyor/blog/2025/01/20/tech-trends-2025/" rel="alternate" type="text/html" title="Tech Trends to Watch in 2025" /><published>2025-01-20T00:00:00-08:00</published><updated>2025-01-20T00:00:00-08:00</updated><id>https://lyori.com/lyor/blog/2025/01/20/tech-trends-2025</id><content type="html" xml:base="https://lyori.com/lyor/blog/2025/01/20/tech-trends-2025/"><![CDATA[<p>As we move further into 2025, several technology trends are emerging that will significantly impact businesses and consumers alike. Based on my experience working with innovative startups and established tech companies, here are the trends I believe will define the year ahead.</p>
+<p><em>This case study was prepared in March 2025 based on the FindMePet project developed by Lyor.</em></p>]]></content><author><name>Lyor Itzhaki</name></author><category term="product management" /><category term="startups" /><category term="user experience" /><summary type="html"><![CDATA[A case study of building an AI-powered pet adoption platform that connects more animals with loving homes.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/shasta_main.png" /><media:content medium="image" url="http://localhost:4000/assets/images/shasta_main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt</title><link href="http://localhost:4000/blog/debtcat/" rel="alternate" type="text/html" title="DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt" /><published>2025-01-11T00:00:00-08:00</published><updated>2025-01-11T00:00:00-08:00</updated><id>http://localhost:4000/blog/debtcat</id><content type="html" xml:base="http://localhost:4000/blog/debtcat/"><![CDATA[<p><img src="/assets/images/debtcat_1.png" alt="DebtCat: A tool to help people manage debt" /></p>
 
-<h2 id="ai-integration-becomes-mainstream">AI Integration Becomes Mainstream</h2>
+<h1 id="debtcat-building-a-no-bs-first-aid-kit-for-people-drowning-in-debt">DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt</h1>
 
-<p>Artificial Intelligence is no longer just for tech giants and specialized startups:</p>
+<p><em>A product case study of how a former debt collection Product manager built a tool to empower consumers with insider knowledge and actionable steps to challenge unfair debt collection practices</em></p>
 
-<ul>
-  <li><strong>Democratized AI Tools</strong>: User-friendly AI platforms that require minimal technical expertise</li>
-  <li><strong>AI-Enhanced Productivity</strong>: Tools that automate routine tasks and augment human capabilities</li>
-  <li><strong>Personalization at Scale</strong>: AI-driven personalization across customer touchpoints</li>
-</ul>
+<p><img src="placeholder-image" alt="DebtCat homepage showing the &quot;Break Debt, Not Sweat&quot; headline" /></p>
 
-<p>The companies that will thrive are those that view AI not as a standalone technology but as a capability that can be woven throughout their products and services.</p>
+<h2 id="the-problem-debt-collection-is-unfair">The Problem: Debt Collection is Unfair</h2>
 
-<h2 id="sustainable-technology">Sustainable Technology</h2>
+<p>Everyone knows debt is complicated, but here’s what most don’t realize: the debt collection system is fundamentally designed to exploit consumer confusion and shame.</p>
 
-<p>Environmental concerns are driving innovation in sustainable technology:</p>
+<p>Over 70 million Americans have debts in collections, yet only a tiny fraction know their rights or how to effectively dispute questionable claims. The statistics are staggering:</p>
 
 <ul>
-  <li><strong>Green Cloud Computing</strong>: Energy-efficient data centers and carbon-neutral cloud services</li>
-  <li><strong>Circular Economy Tech</strong>: Solutions that extend product lifecycles and reduce waste</li>
-  <li><strong>Climate Tech</strong>: Technologies specifically designed to address climate change challenges</li>
+  <li>35% of American adults with credit files have debts in collection</li>
+  <li>44% of consumers report feeling “scared,” “confused,” or “helpless” when contacted by collectors</li>
+  <li>Only 1 in 20 consumers dispute a debt, despite studies showing that up to 59% of debt portfolios contain inaccuracies</li>
+  <li>The average consumer spends 45+ hours trying to resolve debt-related issues</li>
 </ul>
 
-<p>Sustainability is no longer just a corporate social responsibility initiative—it’s becoming a core business strategy and competitive advantage.</p>
+<p>And when we talk to these consumers, a clear pattern emerges: they’re not looking for shortcuts or ways to dodge legitimate obligations. They simply want clarity, fairness, and a way to challenge mistakes.</p>
 
-<h2 id="decentralized-finance-defi-evolution">Decentralized Finance (DeFi) Evolution</h2>
+<p>This is exactly where DebtCat founder Lyor saw a profound market gap. As someone who had worked inside the debt collection industry, he had unique insight into how the system operates—and how consumers could level the playing field.</p>
 
-<p>The DeFi landscape continues to mature:</p>
+<h2 id="the-vision-democratizing-debt-knowledge-without-the-subscriptions">The Vision: Democratizing Debt Knowledge Without the Subscriptions</h2>
+
+<p>“When I worked in collections, I saw firsthand how disempowered consumers feel,” explains Lyor. “People in my community started asking for help navigating the system. That’s when I realized: what if everyone had access to insider knowledge about how to handle debt collectors?”</p>
+
+<p>DebtCat’s vision crystallized around a simple but powerful concept: a “first aid kit for consumers in debt” that demystifies the process and provides practical tools without expensive subscriptions or counseling plans.</p>
+
+<p>Unlike most fintech products targeting debt, DebtCat deliberately avoids:</p>
 
 <ul>
-  <li><strong>Institutional Adoption</strong>: Traditional financial institutions embracing DeFi principles</li>
-  <li><strong>Regulatory Clarity</strong>: Clearer regulatory frameworks providing stability to the market</li>
-  <li><strong>Real-World Asset Tokenization</strong>: Bringing tangible assets into the blockchain ecosystem</li>
+  <li>Requiring sign-ups or storing personal information</li>
+  <li>Pushing subscription models</li>
+  <li>Offering general advice without actionable steps</li>
+  <li>Focusing on debt consolidation (which often just shifts debt around)</li>
 </ul>
 
-<p>While cryptocurrency volatility remains a concern, the underlying blockchain technology is finding practical applications beyond speculative investments.</p>
-
-<h2 id="extended-reality-goes-practical">Extended Reality Goes Practical</h2>
-
-<p>Extended Reality (XR)—encompassing virtual, augmented, and mixed reality—is moving beyond gaming:</p>
-
-<ul>
-  <li><strong>Remote Collaboration</strong>: Immersive virtual workspaces that enhance remote team collaboration</li>
-  <li><strong>Industrial Applications</strong>: XR tools for training, maintenance, and design in manufacturing</li>
-  <li><strong>Retail Experiences</strong>: Virtual try-before-you-buy experiences that reduce returns and increase conversion</li>
-</ul>
-
-<p>The hardware is becoming more affordable and comfortable, removing barriers to widespread adoption.</p>
-
-<h2 id="privacy-first-technology">Privacy-First Technology</h2>
-
-<p>As data privacy concerns grow, we’re seeing a shift toward privacy-first approaches:</p>
-
-<ul>
-  <li><strong>Zero-Knowledge Proofs</strong>: Cryptographic methods that verify information without revealing underlying data</li>
-  <li><strong>Federated Learning</strong>: AI models that learn from data without centralizing sensitive information</li>
-  <li><strong>Privacy UX</strong>: User experiences designed around transparency and control of personal data</li>
-</ul>
-
-<p>Companies that build privacy into their products from the ground up will gain consumer trust and avoid regulatory headaches.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>These trends represent significant opportunities for businesses that can adapt quickly and thoughtfully. The most successful organizations will be those that not only adopt these technologies but also consider their ethical implications and align them with genuine customer needs.</p>
-
-<p>What technology trends are you most excited about or concerned with for 2025? I’d love to hear your thoughts in the comments.</p>]]></content><author><name>Lyor Itzhaki</name></author><category term="technology" /><category term="trends" /><category term="innovation" /><summary type="html"><![CDATA[An analysis of emerging technology trends that will shape the business landscape in 2025 and beyond.]]></summary></entry><entry><title type="html">DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt</title><link href="https://lyori.com/lyor/blog/2025/01/11/startup-growth-strategies/" rel="alternate" type="text/html" title="DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt" /><published>2025-01-11T00:00:00-08:00</published><updated>2025-01-11T00:00:00-08:00</updated><id>https://lyori.com/lyor/blog/2025/01/11/startup-growth-strategies</id><content type="html" xml:base="https://lyori.com/lyor/blog/2025/01/11/startup-growth-strategies/"><![CDATA[<p>Growing a startup is one of the most challenging aspects of entrepreneurship. Having worked with several early-stage companies, I’ve seen firsthand what works and what doesn’t when it comes to sustainable growth.</p>
-
-<h2 id="focus-on-product-market-fit-first">Focus on Product-Market Fit First</h2>
-
-<p>Before you can effectively grow, you need to ensure you’ve achieved product-market fit:</p>
-
-<ul>
-  <li><strong>Listen to Early Users</strong>: Your first users provide invaluable feedback that can shape your product</li>
-  <li><strong>Iterate Quickly</strong>: Make rapid improvements based on user feedback</li>
-  <li><strong>Measure Retention</strong>: If users aren’t sticking around, you haven’t found product-market fit yet</li>
-</ul>
-
-<h2 id="customer-acquisition-channels">Customer Acquisition Channels</h2>
-
-<p>Not all growth channels are created equal. The most effective channels for your startup will depend on your specific product and target audience:</p>
-
-<h3 id="organic-channels">Organic Channels</h3>
-
-<ul>
-  <li><strong>Content Marketing</strong>: Creating valuable content that attracts your target audience</li>
-  <li><strong>SEO</strong>: Optimizing your website to rank for relevant search terms</li>
-  <li><strong>Community Building</strong>: Fostering a community around your product or industry</li>
-</ul>
-
-<h3 id="paid-channels">Paid Channels</h3>
-
-<ul>
-  <li><strong>Paid Advertising</strong>: Strategic use of platforms like Google Ads or social media advertising</li>
-  <li><strong>Partnerships</strong>: Collaborating with complementary businesses to reach new audiences</li>
-  <li><strong>Influencer Marketing</strong>: Working with industry influencers to promote your product</li>
-</ul>
-
-<h2 id="growth-metrics-that-matter">Growth Metrics That Matter</h2>
-
-<p>Tracking the right metrics is crucial for understanding your growth trajectory:</p>
+<p>Instead, DebtCat focuses on three core pillars:</p>
 
 <ol>
-  <li><strong>Customer Acquisition Cost (CAC)</strong>: How much does it cost to acquire a new customer?</li>
-  <li><strong>Lifetime Value (LTV)</strong>: How much revenue does a customer generate over their lifetime?</li>
-  <li><strong>LTV:CAC Ratio</strong>: Aim for at least 3:1 to ensure sustainable growth</li>
-  <li><strong>Churn Rate</strong>: What percentage of customers are you losing each month?</li>
-  <li><strong>Activation Rate</strong>: What percentage of new users complete key actions in your product?</li>
+  <li><strong>Education</strong>: Clear, jargon-free guides about consumer rights</li>
+  <li><strong>Conversation</strong>: An AI chatbot that answers specific questions</li>
+  <li><strong>Action</strong>: A dispute letter generator that creates legally-sound communications</li>
 </ol>
 
-<h2 id="building-a-growth-team">Building a Growth Team</h2>
+<p><img src="placeholder-image" alt="The DebtCat dispute tool interface" /></p>
 
-<p>As your startup scales, consider building a dedicated growth team:</p>
+<h2 id="the-journey-from-wordpress-to-firebase-with-some-technical-debt">The Journey: From WordPress to Firebase (with Some Technical Debt)</h2>
 
+<p>Building DebtCat was as much about product decisions as it was about technical flexibility. The journey through three different tech stacks illustrates how early-stage products often need to pivot quickly based on changing requirements.</p>
+
+<p>“I started with WordPress and Elementor because it was the fastest way to get content online,” says Lyor. “But as soon as we hired design talent, we realized we needed more design flexibility.”</p>
+
+<h3 id="tech-stack-evolution">Tech Stack Evolution</h3>
+
+<h4 id="phase-1-wordpress--elementor">Phase 1: WordPress + Elementor</h4>
+<p><strong>Strengths</strong>:</p>
 <ul>
-  <li><strong>Cross-Functional Expertise</strong>: Include team members with skills in marketing, product, engineering, and data analysis</li>
-  <li><strong>Experimentation Framework</strong>: Establish a systematic approach to testing growth hypotheses</li>
-  <li><strong>Growth Rituals</strong>: Regular meetings to review metrics and prioritize growth initiatives</li>
+  <li>Fast launch</li>
+  <li>Familiar CMS</li>
 </ul>
 
-<h2 id="common-growth-pitfalls">Common Growth Pitfalls</h2>
-
-<p>Avoid these common mistakes that can derail your growth efforts:</p>
-
+<p><strong>Weaknesses</strong>:</p>
 <ul>
-  <li><strong>Premature Scaling</strong>: Trying to grow before achieving product-market fit</li>
-  <li><strong>Channel Dependency</strong>: Relying too heavily on a single acquisition channel</li>
-  <li><strong>Ignoring Unit Economics</strong>: Focusing on growth at the expense of profitability</li>
-  <li><strong>Neglecting Customer Experience</strong>: Prioritizing acquisition over retention</li>
+  <li>Design limitations</li>
+  <li>Performance issues</li>
 </ul>
 
-<h2 id="conclusion">Conclusion</h2>
+<h4 id="phase-2-webflow">Phase 2: Webflow</h4>
+<p><strong>Strengths</strong>:</p>
+<ul>
+  <li>Superior design control</li>
+  <li>Visual editing</li>
+</ul>
 
-<p>Sustainable startup growth requires a balanced approach that focuses on both acquisition and retention. By finding product-market fit, identifying effective acquisition channels, tracking the right metrics, and building a strong growth team, you can set your startup on a path to long-term success.</p>
+<p><strong>Weaknesses</strong>:</p>
+<ul>
+  <li>Cost (especially as content grew)</li>
+  <li>Limited technical extensibility</li>
+</ul>
 
-<p>What growth strategies have worked for your startup? Share your experiences in the comments below.</p>]]></content><author><name>Lyor Itzhaki</name></author><category term="fintech" /><category term="product-development" /><category term="consumer-empowerment" /><summary type="html"><![CDATA[A product case study of how a former debt collection Product manager built a tool to empower consumers with insider knowledge and actionable steps to challenge unfair debt collection practices.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lyori.com/lyor/assets/images/debtcat_1.png" /><media:content medium="image" url="https://lyori.com/lyor/assets/images/debtcat_1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<h4 id="phase-3-firebase">Phase 3: Firebase</h4>
+<p><strong>Strengths</strong>:</p>
+<ul>
+  <li>Scalable</li>
+  <li>Low cost</li>
+  <li>Better developer control</li>
+</ul>
+
+<p><strong>Weaknesses</strong>:</p>
+<ul>
+  <li>Lost CMS functionality</li>
+  <li>Required rebuilding components</li>
+</ul>
+
+<p>“The choice to move from Webflow to Firebase was financially driven,” explains Lyor. “We were paying for capabilities we didn’t need yet, and I wanted to allocate resources to user acquisition.”</p>
+
+<h2 id="building-solo-with-ai-as-a-force-multiplier">Building Solo with AI as a Force Multiplier</h2>
+
+<p>What makes the DebtCat story particularly interesting from a product development perspective is how AI tools enabled a non-developer to build and deploy a sophisticated web application.</p>
+
+<p>“A few years ago, building DebtCat would have required a full development team,” notes Lyor. “But with the advances in AI coding assistants, I was able to leverage tools like ChatGPT, Cursor, and Windsurf to accelerate development dramatically.”</p>
+
+<p>The AI development process followed a consistent pattern:</p>
+
+<ol>
+  <li><strong>Planning</strong>: Define the feature and user flow using traditional PM methods</li>
+  <li><strong>Component Design</strong>: Use AI to generate baseline HTML/CSS components</li>
+  <li><strong>Integration</strong>: Leverage AI to connect components and add functionality</li>
+  <li><strong>Debugging</strong>: Use AI to identify and fix issues in the implementation</li>
+</ol>
+
+<p>“The AI didn’t replace product thinking,” Lyor emphasizes. “But it did reduce the technical barrier to implementation. I could focus on ‘what should we build?’ rather than getting stuck on ‘how do I write this code?’”</p>
+
+<p><img src="placeholder-image" alt="AI-powered chatbot interface" /></p>
+
+<h2 id="product-design-optimizing-for-trust-and-low-friction">Product Design: Optimizing for Trust and Low Friction</h2>
+
+<p>For a product dealing with sensitive financial information, building trust while minimizing friction presented a unique challenge:</p>
+
+<ul>
+  <li><strong>No Account Creation</strong>: Users can generate dispute letters without creating an account or storing data</li>
+  <li><strong>Progressive Disclosure</strong>: Information is presented in bite-sized chunks to avoid overwhelming users</li>
+  <li><strong>Transparent Business Model</strong>: Clear pricing only for premium features (mailing services)</li>
+  <li><strong>Education-First Approach</strong>: Deep content library builds credibility before asking users to take action</li>
+</ul>
+
+<p>“Our biggest design insight was that users needed to feel safe before they’d engage,” says Dalma, the product designer. “We removed as many friction points as possible, even if it meant sacrificing some ‘nice-to-have’ features.”</p>
+
+<h2 id="key-challenges-doubt-distribution-and-technical-debt">Key Challenges: Doubt, Distribution, and Technical Debt</h2>
+
+<h3 id="1-credibility-in-a-sea-of-scams">1. Credibility in a Sea of Scams</h3>
+
+<p>The debt relief space is notoriously filled with predatory services. Establishing DebtCat as a legitimate, consumer-friendly alternative required careful positioning.</p>
+
+<p>“We had to overcome the inherent skepticism people have around debt products,” explains Lyor. “This influenced everything from our messaging to our refusal to ask for payment information upfront.”</p>
+
+<h3 id="2-distribution-roadblocks">2. Distribution Roadblocks</h3>
+
+<p>“Email service providers were hesitant to work with us because we mentioned ‘debt’ in our content,” says Lyor. “Even Google presented similar challenges with our ads. We never expected that helping consumers would trigger the same red flags as predatory lending!”</p>
+
+<p>This forced the team to rely heavily on social channels and direct community engagement rather than conventional growth tactics.</p>
+
+<h3 id="3-technical-constraints-and-tradeoffs">3. Technical Constraints and Tradeoffs</h3>
+
+<p>“When we migrated from Webflow to Firebase, many styling features and CMS-related articles broke,” recalls Lyor. “I spent a weekend rebuilding headers, footers, and article pages, knowing I was accumulating technical debt for the sake of speed.”</p>
+
+<h2 id="results-and-impact-early-signs-of-success">Results and Impact: Early Signs of Success</h2>
+
+<p>While DebtCat is still in public beta, early engagement metrics show promise:</p>
+
+<ul>
+  <li>Over 1,200 dispute letters generated in the first three months</li>
+  <li>Average chat session length of 8.5 minutes (indicating deep engagement)</li>
+  <li>92% of users report feeling “more confident” after using DebtCat</li>
+  <li>78% of surveyed users have successfully disputed at least one debt item</li>
+</ul>
+
+<p>“The numbers are encouraging, but the user stories are what keep us going,” says Lyor. “When someone tells us they successfully removed an error from their credit report using our letter generator, that’s when we know we’re making a difference.”</p>
+
+<p><img src="placeholder-image" alt="User testimonial from someone who successfully disputed a debt" /></p>
+
+<h2 id="lessons-for-product-leaders">Lessons for Product Leaders</h2>
+
+<h3 id="1-insider-knowledge-creates-unique-product-opportunities">1. Insider Knowledge Creates Unique Product Opportunities</h3>
+
+<p>Lyor’s experience in collections gave him perspective that would be difficult to acquire through traditional market research. Domain expertise revealed both the problem and the solution in ways that might not be obvious to outsiders.</p>
+
+<p><strong>Takeaway</strong>: Look for product opportunities where your unique background gives you insight others might miss.</p>
+
+<h3 id="2-technical-stack-should-follow-product-needs-not-vice-versa">2. Technical Stack Should Follow Product Needs, Not Vice Versa</h3>
+
+<p>The willingness to migrate between three platforms demonstrates how product requirements should drive technical decisions, not the other way around.</p>
+
+<p><strong>Takeaway</strong>: Be ready to change technical direction when product needs evolve, even if it means short-term inconvenience.</p>
+
+<h3 id="3-ai-tools-are-changing-the-product-development-equation">3. AI Tools Are Changing the Product Development Equation</h3>
+
+<p>The ability to build DebtCat with minimal development resources highlights how AI is democratizing technical implementation.</p>
+
+<p><strong>Takeaway</strong>: AI-assisted development can allow product thinkers to build with less technical dependency, but only when the vision is clear.</p>
+
+<h3 id="4-consumer-trust-comes-before-monetization">4. Consumer Trust Comes Before Monetization</h3>
+
+<p>By prioritizing trust over immediate monetization, DebtCat built a foundation for sustainable growth in a highly skeptical market.</p>
+
+<p><strong>Takeaway</strong>: In sensitive domains, establishing trust is worth sacrificing short-term revenue opportunities.</p>
+
+<h2 id="whats-next-the-roadmap-ahead">What’s Next: The Roadmap Ahead</h2>
+
+<p>DebtCat’s future plans focus on expanding capabilities while maintaining the core commitment to accessibility:</p>
+
+<ul>
+  <li><strong>Negotiation Features</strong>: Adding tools that help users negotiate directly with collectors</li>
+  <li><strong>Credit Report Integration</strong>: Allowing users to pull credit reports so they can see all their debts in one place</li>
+  <li><strong>Expanded Education</strong>: Creating more targeted content for specific debt situations</li>
+  <li><strong>Ethical Partnerships</strong>: Forming alliances with reputable debt consolidation and credit counseling services</li>
+</ul>
+
+<p>The team is also exploring the possibility of converting DebtCat into a nonprofit to broaden its reach and impact.</p>
+
+<p>“The debt collection industry isn’t going to change overnight,” says Lyor. “But by empowering consumers with the right tools and knowledge, we can help level the playing field one dispute at a time.”</p>
+
+<h2 id="try-it-yourself">Try It Yourself</h2>
+
+<p>DebtCat is available at debtcat.com, and all core features are free to use without signup. Whether you’re dealing with debt personally or know someone who is, it’s worth exploring as a resource.</p>]]></content><author><name>Lyor Itzhaki</name></author><category term="fintech" /><category term="product-development" /><category term="consumer-empowerment" /><summary type="html"><![CDATA[A product case study of how a former debt collection Product manager built a tool to empower consumers with insider knowledge and actionable steps to challenge unfair debt collection practices.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/debtcat_1.png" /><media:content medium="image" url="http://localhost:4000/assets/images/debtcat_1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

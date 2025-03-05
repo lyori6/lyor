@@ -51,7 +51,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      permalink: /blog/:year/:month/:day/:title/
+      # Removed the default permalink to allow custom permalinks to work
   - scope:
       path: ""
       type: "projects"
