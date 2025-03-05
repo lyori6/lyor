@@ -1,6 +1,6 @@
 name: [DISABLED] Build and Deploy Jekyll site to GitHub Pages
 # This workflow is disabled as we're now using Vercel for deployment
-# See vercel-deploy.yml for the active workflow
+# See build-jekyll.yml for the active workflow
 
 on:
   push:
@@ -13,10 +13,10 @@ jobs:
   jekyll:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Setup Ruby
-      uses: ruby/setup-ruby@v1r
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2'
         bundler-cache: true
