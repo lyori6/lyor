@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "bundle install && bundle exec jekyll build",
+  "buildCommand": "chmod +x ./build.sh && ./build.sh",
   "outputDirectory": "_site",
   "cleanUrls": true,
   "trailingSlash": false,

@@ -16,7 +16,7 @@ This document outlines how to deploy this Jekyll site to Vercel.
 
 2. **Configure Project**:
    - Framework Preset: Other
-   - Build Command: `bundle install && bundle exec jekyll build`
+   - Build Command: `chmod +x ./build.sh && ./build.sh`
    - Output Directory: `_site`
    - Install Command: Leave blank (handled by build command)
 
@@ -32,8 +32,8 @@ This document outlines how to deploy this Jekyll site to Vercel.
 If you encounter build errors:
 
 1. **Ruby Version Issues**:
-   - Vercel uses Ruby 3.2.2 by default, which is specified in our `.ruby-version` file
-   - The Gemfile is configured to work with this version
+   - The project is configured to work with Ruby 3.2.0 (Vercel's default) or 3.2.2 (local development)
+   - The build script automatically handles the version differences between environments
 
 2. **Jekyll Build Errors**:
    - Check the build logs for specific error messages
@@ -49,8 +49,7 @@ If you encounter build errors:
 To test the same build process locally:
 
 ```bash
-bundle install
-bundle exec jekyll build
+./build.sh
 ```
 
 The built site will be in the `_site` directory.
@@ -60,6 +59,7 @@ The built site will be in the `_site` directory.
 Key files for Vercel deployment:
 
 - `vercel.json` - Configures Vercel-specific settings
-- `Gemfile` - Specifies Ruby dependencies
-- `.ruby-version` - Specifies Ruby version
-- `package.json` - Defines build commands and Node.js version
+- `build.sh` - Custom build script that handles environment differences
+- `Gemfile` - Specifies Ruby dependencies with version flexibility
+- `.ruby-version` - Specifies Ruby version for local development
+- `.ruby-version-vercel` - Specifies Ruby version for Vercel deployment
