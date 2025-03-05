@@ -1,0 +1,72 @@
+# Site settings
+title: Lyor Itzhaki - Portfolio
+description: Portfolio of Lyor Itzhaki - Founder & Product Manager specializing in startup growth and product innovation.
+author: Lyor Itzhaki
+url: "https://lyori.com"
+image: "/images/profile.jpg"
+baseurl: ""
+
+# Navigation
+navigation:
+  - title: About
+    url: "/#about"
+  - title: Experience
+    url: "/#experience"
+  - title: Projects
+    url: "/#projects"
+  - title: Testimonials
+    url: "/#testimonials"
+  - title: Contact
+    url: "/#contact"
+  - title: Blog
+    url: "/blog/"
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Pagination
+paginate: 6
+paginate_path: "/blog/page:num/"
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: /blog/:year/:month/:day/:title/
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
