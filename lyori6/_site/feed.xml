@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://lyori.com/lyor/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lyori.com/lyor/" rel="alternate" type="text/html" /><updated>2025-03-04T18:31:13-08:00</updated><id>https://lyori.com/lyor/feed.xml</id><title type="html">Lyor Itzhaki - Portfolio</title><subtitle>Portfolio of Lyor Itzhaki - Founder &amp; Product Manager specializing in startup growth and product innovation.</subtitle><author><name>Lyor Itzhaki</name></author><entry><title type="html">FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem</title><link href="https://lyori.com/lyor/blog/2025/03/01/product-management-essentials/" rel="alternate" type="text/html" title="FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem" /><published>2025-03-01T00:00:00-08:00</published><updated>2025-03-01T00:00:00-08:00</updated><id>https://lyori.com/lyor/blog/2025/03/01/product-management-essentials</id><content type="html" xml:base="https://lyori.com/lyor/blog/2025/03/01/product-management-essentials/"><![CDATA[<p><em>A product case study of building an AI-powered pet adoption platform that connects more animals with loving homes</em></p>
+
+<p><img src="/assets/images/shasta_main.png" alt="Landing page featuring Shasta, the inspiration behind FindMePet" />
+<em>Pictured: The FindMePet landing page featuring Shasta, Lyor’s adopted dog and inspiration for the project</em></p>
+
+<h2 id="the-problem-pet-adoption-is-broken">The Problem: Pet Adoption is Broken</h2>
+
+<p>Let’s talk about a problem that doesn’t get enough attention: pet adoption is fundamentally broken.</p>
+
+<p>Between 10-20% of adopted pets are returned to shelters, often due to mismatched expectations and behavioral issues. A University of Alberta study found that 80% of adopters choose pets based primarily on looks rather than compatibility. Meanwhile, 34% of pet owners buy from breeders instead of adopting, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
+
+<p>These aren’t just statistics—they represent real animals who briefly experienced the joy of a home before being returned to a shelter cage.</p>
+
+<p>This is exactly the problem that product manager and animal lover Lyor set out to solve with FindMePet.</p>
+
+<h2 id="the-vision-match-making-for-humans-and-pets">The Vision: Match-Making for Humans and Pets</h2>
+
+<p>“I adopted my dog Shasta and saw firsthand how challenging the process can be,” says Lyor, who has spent nearly six years as a product manager across various SaaS companies. “I wanted to create a tool that helps more pets find forever homes by matching them with the right owners from the start.”</p>
+
+<p>FindMePet is a Next.js application that combines the PetFinder API with OpenAI to revolutionize how people discover adoptable pets. The core innovation is using AI to provide personalized recommendations based on user preferences and lifestyle compatibility.</p>
+
+<p>“Think of it as match-making, but between humans and pets,” explains Lyor. “I’m trying to reduce the return rate by creating better matches from the beginning.”</p>
+
+<h2 id="building-the-product-hard-choices-and-fast-execution">Building the Product: Hard Choices and Fast Execution</h2>
+
+<p>As an experienced PM, Lyor knew that shipping a focused MVP quickly was more important than building the perfect product. This meant making some hard trade-offs:</p>
+
+<ol>
+  <li>
+    <p><strong>Limited Animal Selection</strong>: While the PetFinder API offers data on everything from dogs and cats to horses and chinchillas, FindMePet launched with just dogs, cats, and rabbits to focus the experience.</p>
+  </li>
+  <li>
+    <p><strong>Streamlined Filtering</strong>: Lyor implemented filtering upfront in the API call rather than allowing users to filter results after the search to simplify the initial experience.</p>
+  </li>
+  <li>
+    <p><strong>Prioritizing Visual Appeal</strong>: Animals without photos are de-prioritized in results, recognizing that visuals drive emotional connection in adoption decisions.</p>
+  </li>
+  <li>
+    <p><strong>Quick Search vs. Guided Flow</strong>: The product includes a “Quick Search” feature for users who want to browse directly, while maintaining the guided questionnaire for those who want personalized recommendations.</p>
+  </li>
+</ol>
+
+<p><img src="/assets/images/results_page.png" alt="Results page showing AI-powered recommendation" />
+<em>The results page highlights an AI-recommended pet with compatibility metrics</em></p>
+
+<h2 id="the-tech-stack-nextjs--ai-powered-development">The Tech Stack: Next.js + AI-Powered Development</h2>
+
+<p>FindMePet is built on Next.js 14 with App Router, with styling via TailwindCSS and deployment on Vercel. The application integrates two key APIs:</p>
+
+<ol>
+  <li>
+    <p><strong>PetFinder API</strong>: Provides real-time data on adoptable pets across the United States</p>
+  </li>
+  <li>
+    <p><strong>OpenAI (GPT-4o-mini)</strong>: Powers the personalized recommendation engine</p>
+  </li>
+</ol>
+
+<p>Lyor encountered several technical challenges, particularly around API integration:</p>
+
+<ul>
+  <li><strong>PetFinder Authentication</strong>: Required implementing OAuth 2.0 via a Cloudflare Worker proxy</li>
+  <li><strong>OpenAI Response Parsing</strong>: Needed careful prompt engineering to generate structured, parseable recommendations</li>
+  <li><strong>Performance Optimization</strong>: Implemented caching to reduce API calls and improve user experience</li>
+</ul>
+
+<p>“One of the more interesting challenges was finding the right balance with the AI prompts,” notes Lyor. “I needed to provide enough context to get relevant recommendations while ensuring consistent, structured responses I could parse reliably.”</p>
+
+<h2 id="building-solo-with-ai-tools">Building Solo with AI Tools</h2>
+
+<p>What makes this case study particularly interesting is how Lyor built the entire application himself using AI-powered development tools:</p>
+
+<ol>
+  <li><strong>v0</strong>: Used for initial prototyping and generating layouts based on wireframes</li>
+  <li><strong>Cursor &amp; Windsurf</strong>: AI-powered IDEs that assisted with coding and refactoring</li>
+  <li><strong>Claude</strong>: Started with Anthropic’s Claude 3.5 Sonnet and later upgraded to Claude 3.7, which helped write cleaner code</li>
+</ol>
+
+<p>“As a PM who’s not a developer by training, these AI tools were incredibly empowering,” says Lyor. “They allowed me to be a builder in the digital world, not just someone who writes specs for others to implement.”</p>
+
+<p>Lyor observed an important pattern in AI-assisted development: “Getting to 70% completion was surprisingly easy with tools like v0. But that last 20-30%—perfecting layouts, adding advanced features, and debugging edge cases—follows the Pareto principle, taking about 80% of the total development time. I’m hoping future AI tools with better reasoning capabilities and larger context windows will make that final stretch easier.”</p>
+
+<p>One crucial tip Lyor discovered: “Always have your AI document what it’s doing and create its own documentation. This serves two purposes: it helps you understand what went wrong when the AI makes mistakes, and it prevents you from exhausting your context window when debugging, since you can refer to specific documentation instead of repeating the entire conversation.”</p>
+
+<p><img src="/assets/images/pet_details.png" alt="Pet details page showing comprehensive information" />
+<em>The pet details page provides comprehensive information to help users make informed decisions</em></p>
+
+<h2 id="the-user-experience-simple-delightful-and-effective">The User Experience: Simple, Delightful, and Effective</h2>
+
+<p>The FindMePet experience is designed to be simple yet emotionally engaging:</p>
+
+<ol>
+  <li>
+    <p><strong>Homepage</strong>: Features a rotating hero component showcasing adoptable pets with minimal text</p>
+  </li>
+  <li>
+    <p><strong>Questionnaire Flow</strong>: Collects location and pet type preferences through a simple, guided process</p>
+  </li>
+  <li>
+    <p><strong>Results</strong>: Displays available pets in a visually-appealing grid with one AI-recommended pet highlighted</p>
+  </li>
+  <li>
+    <p><strong>Pet Details</strong>: Provides comprehensive information on each pet with adoption instructions</p>
+  </li>
+  <li>
+    <p><strong>Quick Search</strong>: Allows returning users to bypass the questionnaire and get directly to browsing</p>
+  </li>
+</ol>
+
+<p>“I deliberately kept the flow simple for the first version,” explains Lyor. “Future iterations will collect more detailed user preferences to further improve the AI recommendations, but I wanted to start with something clean and easy to use.”</p>
+
+<h2 id="roadmap-just-getting-started">Roadmap: Just Getting Started</h2>
+
+<p>FindMePet is just beginning its journey, with several key enhancements planned:</p>
+
+<ol>
+  <li>
+    <p><strong>Enhanced User Input</strong>: Collecting more detailed lifestyle preferences to improve recommendations</p>
+  </li>
+  <li>
+    <p><strong>Multiple Recommendations</strong>: Providing primary, secondary, and tertiary options with comparisons</p>
+  </li>
+  <li>
+    <p><strong>Performance Metrics</strong>: Implementing analytics to track adoption funnel metrics</p>
+  </li>
+  <li>
+    <p><strong>User Research</strong>: Conducting studies to understand user needs and refinement opportunities</p>
+  </li>
+  <li>
+    <p><strong>Success Tracking</strong>: Adding follow-up forms to learn how many users actually adopt pets through the platform</p>
+  </li>
+</ol>
+
+<p>“My north star metric will ultimately be successful adoptions—pets who find permanent homes through the platform,” says Lyor. “In the short term, I’m tracking engagement metrics like clicks on the ‘Adopt’ button to measure interest.”</p>
+
+<h2 id="lessons-for-product-managers">Lessons for Product Managers</h2>
+
+<p>Lyor’s experience building FindMePet offers several valuable lessons for product managers:</p>
+
+<ol>
+  <li>
+    <p><strong>Leverage AI Strategically</strong>: AI can both enhance your development process and deliver unique user value</p>
+  </li>
+  <li>
+    <p><strong>Make Hard Trade-offs</strong>: Focused constraints (like limiting to three animal types) enabled faster delivery</p>
+  </li>
+  <li>
+    <p><strong>Start with Core Value</strong>: Prioritize the primary user need (finding compatible pets) before adding nice-to-have features</p>
+  </li>
+  <li>
+    <p><strong>Personal Passion Drives Product Quality</strong>: Lyor’s love for animals created an authentic foundation for the product</p>
+  </li>
+  <li>
+    <p><strong>Tools Enable Builders</strong>: Modern AI tools are enabling PMs to directly build products without deep technical expertise</p>
+  </li>
+  <li>
+    <p><strong>Document the AI’s Work</strong>: Having AI document its own code and reasoning saves time and provides crucial context for debugging</p>
+  </li>
+</ol>
+
+<p>“The most surprising thing was how quickly I was able to go from concept to functional application,” reflects Lyor. “With the right tools and focused scope, I built something genuinely useful in a fraction of the time it would have taken traditionally.”</p>
+
+<h2 id="try-it-yourself">Try It Yourself</h2>
+
+<p>FindMePet is live at <a href="https://findme.pet">findme.pet</a> and the code is available on GitHub. Whether you’re looking to adopt a pet or just curious about how AI can transform traditional processes, it’s worth checking out.</p>
+
+<hr />
+
+<p><em>This case study was prepared in March 2025 based on the FindMePet project developed by Lyor.</em></p>]]></content><author><name>Lyor Itzhaki</name></author><category term="product management" /><category term="startups" /><category term="user experience" /><summary type="html"><![CDATA[A case study of building an AI-powered pet adoption platform that connects more animals with loving homes.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lyori.com/lyor/assets/images/shasta_main.png" /><media:content medium="image" url="https://lyori.com/lyor/assets/images/shasta_main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech Trends to Watch in 2025</title><link href="https://lyori.com/lyor/blog/2025/01/20/tech-trends-2025/" rel="alternate" type="text/html" title="Tech Trends to Watch in 2025" /><published>2025-01-20T00:00:00-08:00</published><updated>2025-01-20T00:00:00-08:00</updated><id>https://lyori.com/lyor/blog/2025/01/20/tech-trends-2025</id><content type="html" xml:base="https://lyori.com/lyor/blog/2025/01/20/tech-trends-2025/"><![CDATA[<p>As we move further into 2025, several technology trends are emerging that will significantly impact businesses and consumers alike. Based on my experience working with innovative startups and established tech companies, here are the trends I believe will define the year ahead.</p>
+
+<h2 id="ai-integration-becomes-mainstream">AI Integration Becomes Mainstream</h2>
+
+<p>Artificial Intelligence is no longer just for tech giants and specialized startups:</p>
+
+<ul>
+  <li><strong>Democratized AI Tools</strong>: User-friendly AI platforms that require minimal technical expertise</li>
+  <li><strong>AI-Enhanced Productivity</strong>: Tools that automate routine tasks and augment human capabilities</li>
+  <li><strong>Personalization at Scale</strong>: AI-driven personalization across customer touchpoints</li>
+</ul>
+
+<p>The companies that will thrive are those that view AI not as a standalone technology but as a capability that can be woven throughout their products and services.</p>
+
+<h2 id="sustainable-technology">Sustainable Technology</h2>
+
+<p>Environmental concerns are driving innovation in sustainable technology:</p>
+
+<ul>
+  <li><strong>Green Cloud Computing</strong>: Energy-efficient data centers and carbon-neutral cloud services</li>
+  <li><strong>Circular Economy Tech</strong>: Solutions that extend product lifecycles and reduce waste</li>
+  <li><strong>Climate Tech</strong>: Technologies specifically designed to address climate change challenges</li>
+</ul>
+
+<p>Sustainability is no longer just a corporate social responsibility initiative—it’s becoming a core business strategy and competitive advantage.</p>
+
+<h2 id="decentralized-finance-defi-evolution">Decentralized Finance (DeFi) Evolution</h2>
+
+<p>The DeFi landscape continues to mature:</p>
+
+<ul>
+  <li><strong>Institutional Adoption</strong>: Traditional financial institutions embracing DeFi principles</li>
+  <li><strong>Regulatory Clarity</strong>: Clearer regulatory frameworks providing stability to the market</li>
+  <li><strong>Real-World Asset Tokenization</strong>: Bringing tangible assets into the blockchain ecosystem</li>
+</ul>
+
+<p>While cryptocurrency volatility remains a concern, the underlying blockchain technology is finding practical applications beyond speculative investments.</p>
+
+<h2 id="extended-reality-goes-practical">Extended Reality Goes Practical</h2>
+
+<p>Extended Reality (XR)—encompassing virtual, augmented, and mixed reality—is moving beyond gaming:</p>
+
+<ul>
+  <li><strong>Remote Collaboration</strong>: Immersive virtual workspaces that enhance remote team collaboration</li>
+  <li><strong>Industrial Applications</strong>: XR tools for training, maintenance, and design in manufacturing</li>
+  <li><strong>Retail Experiences</strong>: Virtual try-before-you-buy experiences that reduce returns and increase conversion</li>
+</ul>
+
+<p>The hardware is becoming more affordable and comfortable, removing barriers to widespread adoption.</p>
+
+<h2 id="privacy-first-technology">Privacy-First Technology</h2>
+
+<p>As data privacy concerns grow, we’re seeing a shift toward privacy-first approaches:</p>
+
+<ul>
+  <li><strong>Zero-Knowledge Proofs</strong>: Cryptographic methods that verify information without revealing underlying data</li>
+  <li><strong>Federated Learning</strong>: AI models that learn from data without centralizing sensitive information</li>
+  <li><strong>Privacy UX</strong>: User experiences designed around transparency and control of personal data</li>
+</ul>
+
+<p>Companies that build privacy into their products from the ground up will gain consumer trust and avoid regulatory headaches.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>These trends represent significant opportunities for businesses that can adapt quickly and thoughtfully. The most successful organizations will be those that not only adopt these technologies but also consider their ethical implications and align them with genuine customer needs.</p>
+
+<p>What technology trends are you most excited about or concerned with for 2025? I’d love to hear your thoughts in the comments.</p>]]></content><author><name>Lyor Itzhaki</name></author><category term="technology" /><category term="trends" /><category term="innovation" /><summary type="html"><![CDATA[An analysis of emerging technology trends that will shape the business landscape in 2025 and beyond.]]></summary></entry><entry><title type="html">DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt</title><link href="https://lyori.com/lyor/blog/2025/01/11/startup-growth-strategies/" rel="alternate" type="text/html" title="DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt" /><published>2025-01-11T00:00:00-08:00</published><updated>2025-01-11T00:00:00-08:00</updated><id>https://lyori.com/lyor/blog/2025/01/11/startup-growth-strategies</id><content type="html" xml:base="https://lyori.com/lyor/blog/2025/01/11/startup-growth-strategies/"><![CDATA[<p>Growing a startup is one of the most challenging aspects of entrepreneurship. Having worked with several early-stage companies, I’ve seen firsthand what works and what doesn’t when it comes to sustainable growth.</p>
+
+<h2 id="focus-on-product-market-fit-first">Focus on Product-Market Fit First</h2>
+
+<p>Before you can effectively grow, you need to ensure you’ve achieved product-market fit:</p>
+
+<ul>
+  <li><strong>Listen to Early Users</strong>: Your first users provide invaluable feedback that can shape your product</li>
+  <li><strong>Iterate Quickly</strong>: Make rapid improvements based on user feedback</li>
+  <li><strong>Measure Retention</strong>: If users aren’t sticking around, you haven’t found product-market fit yet</li>
+</ul>
+
+<h2 id="customer-acquisition-channels">Customer Acquisition Channels</h2>
+
+<p>Not all growth channels are created equal. The most effective channels for your startup will depend on your specific product and target audience:</p>
+
+<h3 id="organic-channels">Organic Channels</h3>
+
+<ul>
+  <li><strong>Content Marketing</strong>: Creating valuable content that attracts your target audience</li>
+  <li><strong>SEO</strong>: Optimizing your website to rank for relevant search terms</li>
+  <li><strong>Community Building</strong>: Fostering a community around your product or industry</li>
+</ul>
+
+<h3 id="paid-channels">Paid Channels</h3>
+
+<ul>
+  <li><strong>Paid Advertising</strong>: Strategic use of platforms like Google Ads or social media advertising</li>
+  <li><strong>Partnerships</strong>: Collaborating with complementary businesses to reach new audiences</li>
+  <li><strong>Influencer Marketing</strong>: Working with industry influencers to promote your product</li>
+</ul>
+
+<h2 id="growth-metrics-that-matter">Growth Metrics That Matter</h2>
+
+<p>Tracking the right metrics is crucial for understanding your growth trajectory:</p>
+
+<ol>
+  <li><strong>Customer Acquisition Cost (CAC)</strong>: How much does it cost to acquire a new customer?</li>
+  <li><strong>Lifetime Value (LTV)</strong>: How much revenue does a customer generate over their lifetime?</li>
+  <li><strong>LTV:CAC Ratio</strong>: Aim for at least 3:1 to ensure sustainable growth</li>
+  <li><strong>Churn Rate</strong>: What percentage of customers are you losing each month?</li>
+  <li><strong>Activation Rate</strong>: What percentage of new users complete key actions in your product?</li>
+</ol>
+
+<h2 id="building-a-growth-team">Building a Growth Team</h2>
+
+<p>As your startup scales, consider building a dedicated growth team:</p>
+
+<ul>
+  <li><strong>Cross-Functional Expertise</strong>: Include team members with skills in marketing, product, engineering, and data analysis</li>
+  <li><strong>Experimentation Framework</strong>: Establish a systematic approach to testing growth hypotheses</li>
+  <li><strong>Growth Rituals</strong>: Regular meetings to review metrics and prioritize growth initiatives</li>
+</ul>
+
+<h2 id="common-growth-pitfalls">Common Growth Pitfalls</h2>
+
+<p>Avoid these common mistakes that can derail your growth efforts:</p>
+
+<ul>
+  <li><strong>Premature Scaling</strong>: Trying to grow before achieving product-market fit</li>
+  <li><strong>Channel Dependency</strong>: Relying too heavily on a single acquisition channel</li>
+  <li><strong>Ignoring Unit Economics</strong>: Focusing on growth at the expense of profitability</li>
+  <li><strong>Neglecting Customer Experience</strong>: Prioritizing acquisition over retention</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Sustainable startup growth requires a balanced approach that focuses on both acquisition and retention. By finding product-market fit, identifying effective acquisition channels, tracking the right metrics, and building a strong growth team, you can set your startup on a path to long-term success.</p>
+
+<p>What growth strategies have worked for your startup? Share your experiences in the comments below.</p>]]></content><author><name>Lyor Itzhaki</name></author><category term="fintech" /><category term="product-development" /><category term="consumer-empowerment" /><summary type="html"><![CDATA[A product case study of how a former debt collection Product manager built a tool to empower consumers with insider knowledge and actionable steps to challenge unfair debt collection practices.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lyori.com/lyor/assets/images/debtcat_1.png" /><media:content medium="image" url="https://lyori.com/lyor/assets/images/debtcat_1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

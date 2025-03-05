@@ -1,0 +1,31 @@
+<!-- Footer -->
+<footer class="footer bg-primary text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h5>Lyor Itzhaki</h5>
+        <p>Founder & Product Manager specializing in startup growth and product innovation.</p>
+      </div>
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h5>Connect</h5>
+        <ul class="list-unstyled">
+          <li><a href="https://linkedin.com/in/lyori6" target="_blank"><i class="bi bi-linkedin me-2"></i>LinkedIn</a></li>
+          <li><a href="https://github.com/lyori6" target="_blank"><i class="bi bi-github me-2"></i>GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h5>Navigation</h5>
+        <ul class="list-unstyled">
+          {% for item in site.navigation %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="text-center">
+      <p>&copy; {{ site.time | date: '%Y' }} Lyor Itzhaki. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
