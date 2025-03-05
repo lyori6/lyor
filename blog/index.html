@@ -1,0 +1,50 @@
+---
+layout: default
+title: Blog
+description: Thoughts and insights on product management, startups, and technology
+---
+
+<div class="blog-container">
+    <header class="blog-header">
+        <h1>Blog</h1>
+        <p>Thoughts and insights on product management, startups, and technology</p>
+    </header>
+
+    <div class="blog-posts">
+        {% for post in site.posts %}
+        <article class="post-card">
+            <div class="post-card-image">
+                <a href="{{ site.baseurl }}{{ post.url }}">
+                    {% if post.image %}
+                        <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}">
+                    {% else %}
+                        {% assign content_images = post.content | split: '<img ' %}
+                        {% if content_images.size > 1 %}
+                            {% assign img_tag = content_images[1] | split: '>' | first %}
+                            {% assign src_attr = img_tag | split: 'src="' %}
+                            {% if src_attr.size > 1 %}
+                                {% assign img_src = src_attr[1] | split: '"' | first %}
+                                <img src="{{ site.baseurl }}{{ img_src }}" alt="{{ post.title }}">
+                            {% else %}
+                                <img src="{{ site.baseurl }}/assets/images/blog-placeholder.svg" alt="{{ post.title }}">
+                            {% endif %}
+                        {% else %}
+                            <img src="{{ site.baseurl }}/assets/images/blog-placeholder.svg" alt="{{ post.title }}">
+                        {% endif %}
+                    {% endif %}
+                </a>
+            </div>
+            <div class="post-card-content">
+                <h2 class="post-title">
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
+                <div class="post-excerpt">
+                    {{ post.excerpt | strip_html | truncatewords: 30 }}
+                </div>
+                <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,120 @@
+// Custom SCSS file for Bootstrap overrides
+// Define color palette
+$primary: #2c3e50; // Dark blue
+$secondary: #18bc9c; // Teal
+$light: #f8f9fa;
+$dark: #343a40;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Custom styles
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 56px; // For fixed navbar
+}
+
+// Navbar customization
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  .navbar-brand {
+    font-weight: 700;
+    
+    svg {
+      height: 30px;
+      width: auto;
+    }
+  }
+  
+  .nav-link {
+    font-weight: 600;
+    transition: color 0.3s ease;
+    
+    &.active {
+      color: $secondary !important;
+    }
+    
+    &:hover {
+      color: $secondary !important;
+    }
+  }
+}
+
+// Button customization
+.btn-primary {
+  background: $secondary;
+  border-color: darken($secondary, 5%);
+  
+  &:hover {
+    background: darken($secondary, 10%);
+    border-color: darken($secondary, 15%);
+  }
+}
+
+// Section styling
+section {
+  padding: 4rem 0;
+  
+  &:nth-child(even) {
+    background-color: $light;
+  }
+  
+  h2 {
+    margin-bottom: 2rem;
+    color: $primary;
+    font-weight: 700;
+  }
+}
+
+// Footer styling
+footer {
+  background-color: $primary;
+  color: white;
+  padding: 2rem 0;
+  
+  a {
+    color: $secondary;
+    
+    &:hover {
+      color: lighten($secondary, 15%);
+      text-decoration: none;
+    }
+  }
+}
+
+// Card styling
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    color: $primary;
+    font-weight: 700;
+  }
+}
+
+// Blog specific styles
+.blog-post {
+  margin-bottom: 2rem;
+  
+  .blog-post-title {
+    color: $primary;
+    font-weight: 700;
+  }
+  
+  .blog-post-meta {
+    color: $secondary;
+    margin-bottom: 1rem;
+  }
+}

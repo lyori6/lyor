@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <link rel="icon" href="{{ site.baseurl }}/images/favicon.svg" type="image/svg+xml">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQH38Z0QT2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JQH38Z0QT2');
+    </script>
+
+    <!-- MS Clarity-->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "oaj17avmn2");
+    </script>
+
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <!-- Viewport Meta Tag for Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to Google Fonts (including Raleway) -->
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500;700&family=Roboto&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+    {% if page.layout == 'post' or page.url contains '/blog/' %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/blog.css">
+    {% endif %}
+    {% seo %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="{{ site.baseurl }}/">Lyor Itzhaki</a>
+        </div>
+        <div class="menu-icon" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+            <img src="{{ site.baseurl }}/images/menu-hamburger.svg" alt="Menu" class="hamburger-icon">
+            <img src="{{ site.baseurl }}/images/cross.svg" alt="Close" class="close-icon">
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ site.baseurl }}/">Home</a></li>
+            <!--<li><a href="{{ site.baseurl }}/blog/">Articles</a></li> -->
+            <li><a href="{{ site.baseurl }}/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ site.baseurl }}/script.js"></script>
+</body>
+</html>
