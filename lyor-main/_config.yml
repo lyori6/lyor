@@ -4,7 +4,7 @@ description: Portfolio of Lyor Itzhaki - Founder & Product Manager specializing 
 author: Lyor Itzhaki
 url: "https://lyori.com"
 image: "/images/profile.jpg"
-baseurl: ""
+baseurl: "/lyor"
 
 # Navigation
 navigation:

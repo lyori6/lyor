@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="{{ site.baseurl }}/images/favicon.svg" type="image/svg+xml">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQH38Z0QT2"></script>
@@ -29,9 +29,9 @@
     <!-- Link to Google Fonts (including Raleway) -->
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500;700&family=Roboto&family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
     <!-- Link to CSS -->
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
     {% if page.layout == 'post' or page.url contains '/blog/' %}
-    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/blog.css">
     {% endif %}
     {% seo %}
 </head>
@@ -39,16 +39,16 @@
     <!-- Navigation -->
     <nav>
         <div class="logo">
-            <a href="/">Lyor Itzhaki</a>
+            <a href="{{ site.baseurl }}/">Lyor Itzhaki</a>
         </div>
         <div class="menu-icon" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
-            <img src="/images/menu-hamburger.svg" alt="Menu" class="hamburger-icon">
-            <img src="/images/cross.svg" alt="Close" class="close-icon">
+            <img src="{{ site.baseurl }}/images/menu-hamburger.svg" alt="Menu" class="hamburger-icon">
+            <img src="{{ site.baseurl }}/images/cross.svg" alt="Close" class="close-icon">
         </div>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog/">Articles</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li><a href="{{ site.baseurl }}/">Home</a></li>
+            <li><a href="{{ site.baseurl }}/blog/">Articles</a></li>
+            <li><a href="{{ site.baseurl }}/#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -60,6 +60,6 @@
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="{{ site.baseurl }}/script.js"></script>
 </body>
 </html>
