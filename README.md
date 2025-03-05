@@ -4,17 +4,21 @@ This is the source code for Lyor Itzhaki's personal portfolio website and blog, 
 
 ## Deployment Instructions
 
-### GitHub Pages Deployment
+### Vercel Deployment (Primary Method)
 
-This site is configured to deploy automatically to GitHub Pages using GitHub Actions. When you push changes to the main branch, the site will be built and deployed automatically.
+This site is configured to deploy to Vercel using direct GitHub integration. Vercel automatically deploys the site when changes are pushed to the main branch.
 
-The site can be accessed at: https://lyori6.github.io/lyor/
+For detailed setup instructions, see [VERCEL_SETUP.md](VERCEL_SETUP.md).
 
-### Vercel Deployment
+The site can be accessed at your Vercel deployment URL (and eventually at https://lyori.com once the custom domain is configured).
 
-This site is also configured to deploy to Vercel. The Vercel deployment will automatically detect changes and deploy the site.
+### GitHub Actions
 
-The site can be accessed at: https://lyori.com
+A GitHub Actions workflow is set up to build the Jekyll site and verify that it builds correctly. This workflow is defined in `.github/workflows/build-jekyll.yml`.
+
+### GitHub Pages Deployment (Deprecated)
+
+This site was previously configured to deploy to GitHub Pages. This method is now deprecated in favor of Vercel deployment.
 
 ## Local Development
 
@@ -30,7 +34,7 @@ To run the site locally:
    bundle exec jekyll serve
    ```
 
-3. Access the site at http://localhost:4000/lyor/
+3. Access the site at http://localhost:4000/
 
 ## Project Structure
 
@@ -40,3 +44,4 @@ To run the site locally:
 - `blog/`: Contains the blog index page
 - `images/`: Contains images used throughout the site
 - `_config.yml`: Configuration file for Jekyll
+- `vercel.json`: Configuration file for Vercel deployment

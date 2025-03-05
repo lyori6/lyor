@@ -1,8 +1,10 @@
-name: Build and Deploy Jekyll site to GitHub Pages
+name: [DISABLED] Build and Deploy Jekyll site to GitHub Pages
+# This workflow is disabled as we're now using Vercel for deployment
+# See vercel-deploy.yml for the active workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ none ]  # Disable this workflow by setting it to trigger on a non-existent branch
 
 permissions:
   contents: write
@@ -14,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@v1r
       with:
         ruby-version: '3.2'
         bundler-cache: true
