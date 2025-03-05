@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build
 on: [push]
 jobs:
   build:
@@ -16,8 +16,4 @@ jobs:
           bundle install
       - name: Build site
         run: bundle exec jekyll build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+      # Removed GitHub Pages deployment step as we're now using Vercel

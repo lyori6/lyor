@@ -1,4 +1,4 @@
-name: Build and deploy Jekyll site
+name: Build Jekyll site
 
 on:
   push:
@@ -21,10 +21,4 @@ jobs:
         bundle install
         bundle exec jekyll build
     
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
-        publish_branch: gh-pages
-        cname: lyori.com
+    # Removed GitHub Pages deployment step as we're now using Vercel
