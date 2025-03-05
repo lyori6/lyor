@@ -1,52 +1,65 @@
-# Setting Up Vercel Deployment with GitHub Integration
+# Vercel Deployment Setup
 
-This guide will walk you through setting up Vercel deployment for your Jekyll site using direct GitHub integration.
+This document outlines how to deploy this Jekyll site to Vercel.
 
-## Step 1: Connect GitHub Repository to Vercel
+## Prerequisites
 
-1. Create a Vercel account at https://vercel.com if you don't have one already
-2. Go to the Vercel dashboard and click "Add New..." > "Project"
-3. Select "Import Git Repository" and choose your GitHub repository
-4. Authenticate with GitHub if prompted
-5. Configure your project settings:
+- A GitHub account with this repository
+- A Vercel account (can sign up with GitHub)
+
+## Deployment Steps
+
+1. **Connect to Vercel**:
+   - Go to [Vercel](https://vercel.com/) and sign in with GitHub
+   - Click "Add New..." and select "Project"
+   - Select this repository from the list
+
+2. **Configure Project**:
    - Framework Preset: Other
    - Build Command: `bundle install && bundle exec jekyll build`
    - Output Directory: `_site`
-   - Install Command: Leave as default or set to `bundle install`
-6. Click "Deploy"
+   - Install Command: Leave blank (handled by build command)
 
-## Step 2: Configure Environment Variables (if needed)
+3. **Environment Variables**:
+   - No additional environment variables are required for basic setup
 
-1. In the Vercel dashboard, go to your project
-2. Navigate to Settings > Environment Variables
-3. Add any necessary environment variables:
-   - `JEKYLL_ENV`: `production`
-
-## Step 3: Set Up Automatic Deployments
-
-Vercel automatically sets up GitHub webhooks to trigger deployments when you push to your repository. Each push to the main branch will trigger a new deployment.
-
-You can also set up preview deployments for pull requests:
-
-1. In the Vercel dashboard, go to your project
-2. Navigate to Settings > Git
-3. Ensure "Deploy Preview" is enabled for pull requests
-
-## Step 4: Set Up Custom Domain
-
-1. In the Vercel dashboard, go to your project
-2. Navigate to Settings > Domains
-3. Add your custom domain (lyori.com)
-4. Follow Vercel's instructions to configure your DNS settings
-
-## Verifying Your Setup
-
-1. Make a small change to your repository and push it to GitHub
-2. Go to the Vercel dashboard to see the deployment in progress
-3. Once completed, your site will be available at your Vercel URL
+4. **Deploy**:
+   - Click "Deploy"
+   - Vercel will build and deploy your site
 
 ## Troubleshooting
 
-- If deployments fail, check the build logs in the Vercel dashboard
-- Ensure your `vercel.json` file is correctly configured
-- Verify that your Jekyll site builds correctly locally with `bundle exec jekyll build`
+If you encounter build errors:
+
+1. **Ruby Version Issues**:
+   - Vercel uses Ruby 3.2.2 by default, which is specified in our `.ruby-version` file
+   - The Gemfile is configured to work with this version
+
+2. **Jekyll Build Errors**:
+   - Check the build logs for specific error messages
+   - Most common issues are related to gem dependencies, which are handled in our Gemfile
+
+3. **Custom Domain Setup**:
+   - In Vercel dashboard, go to your project settings
+   - Navigate to "Domains"
+   - Add your custom domain and follow the verification steps
+
+## Local Testing
+
+To test the same build process locally:
+
+```bash
+bundle install
+bundle exec jekyll build
+```
+
+The built site will be in the `_site` directory.
+
+## File Configuration
+
+Key files for Vercel deployment:
+
+- `vercel.json` - Configures Vercel-specific settings
+- `Gemfile` - Specifies Ruby dependencies
+- `.ruby-version` - Specifies Ruby version
+- `package.json` - Defines build commands and Node.js version

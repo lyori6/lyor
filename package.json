@@ -1,0 +1,12 @@
+{
+  "name": "lyor-portfolio",
+  "version": "1.0.0",
+  "description": "Lyor Itzhaki's Portfolio Website",
+  "scripts": {
+    "build": "bundle exec jekyll build",
+    "dev": "bundle exec jekyll serve"
+  },
+  "engines": {
+    "node": "18.17.1"
+  }
+}
