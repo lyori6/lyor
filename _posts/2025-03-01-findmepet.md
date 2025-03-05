@@ -5,14 +5,14 @@ author: Lyor Itzhaki
 date: 2025-03-01
 tags: [product management, startups, user experience]
 description: A case study of building an AI-powered pet adoption platform that connects more animals with loving homes.
-image: {{ site.baseurl }}/assets/images/shasta_main.png
+image: /assets/images/shasta_main.png
 permalink: /blog/findmepet/
 ---
 
 
 *A product case study of building an AI-powered pet adoption platform that connects more animals with loving homes*
 
-![Landing page featuring Shasta, the inspiration behind FindMePet]({{ site.baseurl }}/assets/images/shasta_main.png)
+![Landing page featuring Shasta, the inspiration behind FindMePet](/assets/images/shasta_main.png)
 *Pictured: The FindMePet landing page featuring Shasta, Lyor's adopted dog and inspiration for the project*
 
 ## The Problem: Pet Adoption is Broken
@@ -45,7 +45,7 @@ As an experienced PM, Lyor knew that shipping a focused MVP quickly was more imp
 
 4. **Quick Search vs. Guided Flow**: The product includes a "Quick Search" feature for users who want to browse directly, while maintaining the guided questionnaire for those who want personalized recommendations.
 
-![Results page showing AI-powered recommendation]({{ site.baseurl }}/assets/images/results_page.png)
+![Results page showing AI-powered recommendation](/assets/images/results_page.png)
 *The results page highlights an AI-recommended pet with compatibility metrics*
 
 ## The Tech Stack: Next.js + AI-Powered Development
@@ -78,7 +78,7 @@ Lyor observed an important pattern in AI-assisted development: "Getting to 70% c
 
 One crucial tip Lyor discovered: "Always have your AI document what it's doing and create its own documentation. This serves two purposes: it helps you understand what went wrong when the AI makes mistakes, and it prevents you from exhausting your context window when debugging, since you can refer to specific documentation instead of repeating the entire conversation."
 
-![Pet details page showing comprehensive information]({{ site.baseurl }}/assets/images/pet_details.png)
+![Pet details page showing comprehensive information](/assets/images/pet_details.png)
 *The pet details page provides comprehensive information to help users make informed decisions*
 
 ## The User Experience: Simple, Delightful, and Effective
