@@ -38,19 +38,21 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <a href="#home">Lyor Itzhaki</a>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">Lyor Itzhaki</a>
+            </div>
+            <div class="menu-icon" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+                <img src="images/menu-hamburger.svg" alt="Menu" class="hamburger-icon">
+                <img src="images/cross.svg" alt="Close" class="close-icon">
+            </div>
+            <ul class="nav-links">
+                <!-- Articles link commented out temporarily
+                <li><a href="/blog/">Articles</a></li>
+                -->
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-        <div class="menu-icon" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
-            <img src="images/menu-hamburger.svg" alt="Menu" class="hamburger-icon">
-            <img src="images/cross.svg" alt="Close" class="close-icon">
-        </div>
-        <ul class="nav-links">
-            <!-- Articles link commented out temporarily
-            <li><a href="/blog/">Articles</a></li>
-            -->
-            <li><a href="#contact">Contact</a></li>
-        </ul>
     </nav>
     <div class="container">
         <!-- Home Section -->
@@ -74,6 +76,26 @@
 <section id="experience">
     <h2>Experience</h2>
     
+    <!-- BuiltIt -->
+    <div class="job accordion">
+        <div class="accordion-header">
+            <img src="images/builtit_logo.svg" alt="BuiltIt Logo" class="company-logo">
+            <h3>BuiltIt.dev <span>Founder & Builder</span></h3>
+            <img src="images/down.png" alt="Expand" class="accordion-icon">
+        </div>
+        <div class="accordion-content">
+            <h4>Jan 2025 - Present | SF Bay Area, CA</h4>
+            <p>Launched BuiltIt.dev to empower founders and businesses by rapidly transforming ideas into market-ready digital products. We specialize in:</p>
+            <p><strong>1. Crafting AI-ready Minimum Viable Products (MVPs)</strong> in focused sprints, led by seasoned SaaS product management expertise.</p>
+            <p><strong>2. Developing tailored AI automation solutions</strong> to optimize and scale existing business operations.</p>
+            <br>
+            <p>Currently establishing our initial client partnerships and refining our core sprint methodologies. BuiltIt.dev combines strategic product thinking with expert Next.js development to deliver tangible results, fast.</p>
+            <div style="margin-bottom: 10px;"></div>
+            <h4>Summary</h4>
+            <p class="summary">Leveraging 6+ years as a SaaS Product Manager in fintech and e-commerce, I founded BuiltIt.dev to directly address the gap between innovative ideas and effective technical execution. My mission is to provide a clear, efficient path for clients to validate their concepts and integrate cutting-edge AI, moving from vision to value with speed and strategic precision.</p>
+        </div>
+    </div>
+    
     <!-- DebtCat -->
     <div class="job accordion">
         <div class="accordion-header">
@@ -85,17 +107,13 @@
             <h4>Nov 2023 - Present | SF Bay Area, CA</h4>
             <ul>
                 <li>Leading the development of an AI-based fintech platform aimed at empowering consumers to understand their rights and eliminate debt.</li>
-                <li>Building educational resources, dispute services, and a ChatGPT-powered chatbot for personalized debt collection advice.</li>
-                <li>Preparing for a soft launch in November 2024.</li>
+                <li>Designed and developed a consumer-facing debt dispute platform that helps users generate legally-sound dispute letters to creditors and collection agencies.</li>
+                <li>Leveraged AI to create an intelligent chatbot that provides personalized debt management advice, resulting in a 92% user satisfaction rate.</li>
+                <li>Established partnerships with consumer advocacy groups to expand reach and credibility.</li>
             </ul>
-            <!-- Summary Heading -->
-            <h4>Summary</h4>
-            <!-- Summary Paragraph -->
             <p class="summary">
                 After gaining experience in the debt collection industry, I recognized that consumers in debt are underserved. Leveraging my knowledge and technical expertise, I founded DebtCat to provide free resources and tools to help consumers improve their financial situation. Our goal is to establish DebtCat as a trusted authority in debt assistance, collaborating with the CFPB and other consumer rights organizations.
             </p>
-            <!-- MVP Planning Button -->
-            <a href="#" class="secondary-btn disabled-btn">MVP project coming soon!</a>
         </div>
     </div>
     
@@ -121,9 +139,7 @@
             </p>
             <!-- See Case Study Button -->
             <a href="#" class="secondary-btn disabled-btn">Case Study coming soon!</a>
-            <!-- Commented out link for later fix
-            <a href="https://your-design-link.com/ecocart" target="_blank" class="secondary-btn">See Case Study</a>
-            -->
+
         </div>
     </div>
     

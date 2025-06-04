@@ -38,18 +38,20 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <a href="{{ site.baseurl }}/">Lyor Itzhaki</a>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="{{ site.baseurl }}/">Lyor Itzhaki</a>
+            </div>
+            <div class="menu-icon" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+                <img src="{{ site.baseurl }}/images/menu-hamburger.svg" alt="Menu" class="hamburger-icon">
+                <img src="{{ site.baseurl }}/images/cross.svg" alt="Close" class="close-icon">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ site.baseurl }}/">Home</a></li>
+                <li><a href="{{ site.baseurl }}/blog/">Articles</a></li>
+                <li><a href="{{ site.baseurl }}/#contact">Contact</a></li>
+            </ul>
         </div>
-        <div class="menu-icon" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
-            <img src="{{ site.baseurl }}/images/menu-hamburger.svg" alt="Menu" class="hamburger-icon">
-            <img src="{{ site.baseurl }}/images/cross.svg" alt="Close" class="close-icon">
-        </div>
-        <ul class="nav-links">
-            <li><a href="{{ site.baseurl }}/">Home</a></li>
-            <li><a href="{{ site.baseurl }}/blog/">Articles</a></li>
-            <li><a href="{{ site.baseurl }}/#contact">Contact</a></li>
-        </ul>
     </nav>
 
     <main>

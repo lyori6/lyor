@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Call setActiveNavLink on page load
     setActiveNavLink();
 
     // Carousel Functionality
@@ -439,6 +438,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailLink = document.getElementById('email-link');
     if (emailLink) {
         emailLink.setAttribute('href', `mailto:${email}`);
+        
+        // Add copy to clipboard functionality
+        emailLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Copy email to clipboard
+            const emailToCopy = 'hello@lyori.com';
+            navigator.clipboard.writeText(emailToCopy).then(function() {
+                // Show success toast
+                showToast('Email copied to clipboard');
+            }).catch(function(err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = emailToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast('Email copied to clipboard');
+            });
+        });
     } else {
         console.warn("Email link element not found.");
     }
@@ -446,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the visible email address
     const mailAddress = document.getElementById('gmail-address'); // Updated ID
     if (mailAddress) { // Corrected variable name
-        mailAddress.textContent = email;
+        mailAddress.textContent = 'hello@lyori.com';
     } else {
         console.warn("Email address element not found.");
     }

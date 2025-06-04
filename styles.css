@@ -34,11 +34,32 @@ nav {
     top: 0;
     z-index: 100;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 15px 30px;
+    padding: 15px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 10px;
+    }
 }
 
 nav .logo a {
@@ -237,42 +258,23 @@ section h2 {
 }
 
 .intro-text {
-    font-family: 'Catamaran', sans-serif;
-    font-size: clamp(24px, 6vw, 48px);
-    color: var(--primary-color);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-family: 'Raleway', 'Roboto', sans-serif;
     font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: letter-spacing 0.3s ease;
-    animation: slideInFromLeft 1s ease-out forwards;
-}
-
-.intro-text .name {
-    letter-spacing: -1px;
+    color: #333333;
+    opacity: 0;
+    animation: smoothFadeInUp 1.2s ease-out 0.3s forwards;
 }
 
 .intro-subtext {
-    font-family: 'Catamaran', sans-serif;
-    font-size: 2.5em;
-    color: #333;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    animation: slideInFromRight 1.2s ease-out forwards;
-}
-
-.subtitle {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 20px;
-    animation: fadeInUp 1.5s ease-out forwards;
+    font-size: 2em;
+    margin-bottom: 25px;
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #666666;
+    opacity: 0;
+    animation: smoothFadeInUp 1.2s ease-out 0.6s forwards;
 }
 
 .home-content p {
@@ -280,10 +282,13 @@ section h2 {
     margin-bottom: 35px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    opacity: 0;
+    animation: smoothFadeInUp 1.2s ease-out 0.9s forwards;
 }
 
 .home-content .btn {
-    animation: fadeIn 2s ease-out forwards;
+    opacity: 0;
+    animation: smoothFadeInUp 1.2s ease-out 1.2s forwards;
 }
 
 /* Consolidated Button Styles */
@@ -295,22 +300,36 @@ section h2 {
     border: none;
     outline: none;
     border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1em;
+    font-weight: 500;
     cursor: pointer;
-    position: relative;
-    min-width: 150px;
+    display: inline-block;
     text-align: center;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 46px;
-    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--button-hover-color), #0052cc);
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.btn:hover::before {
+    top: 0;
 }
 
 .btn:hover {
-    background-color: var(--button-hover-color);
-    transform: scale(0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 127, 255, 0.3);
 }
 
 /* Disabled button style */
@@ -350,6 +369,47 @@ section h2 {
     opacity: 0.9;
 }
 
+.visit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 0.9em;
+    padding: 10px 20px;
+    min-width: 140px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.visit-btn::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--button-hover-color), #0052cc);
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.visit-btn:hover::before {
+    top: 0;
+}
+
+.visit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 127, 255, 0.3);
+}
+
 /* About, Experience, and Projects Sections Padding */
 #about,
 #experience,
@@ -358,10 +418,36 @@ section h2 {
     padding-right: 20px;
 }
 
+/* About Section */
+#about {
+    padding: 60px 20px;
+}
+
+#about p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #444;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#about p:last-child {
+    margin-bottom: 0;
+}
+
 /* Accordion Styles */
 .accordion {
     border-bottom: 1px solid #eaeaea;
     padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.accordion:hover {
+    background-color: rgba(0, 127, 255, 0.02);
+    border-radius: 8px;
+    padding: 15px 10px;
 }
 
 .accordion-header {
@@ -369,11 +455,17 @@ section h2 {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 5px 0;
+}
+
+.accordion-header:hover {
+    transform: translateY(-1px);
 }
 
 .accordion-header.no-hover:hover {
     color: inherit;
+    transform: none;
 }
 
 .accordion-header img.company-logo {
@@ -864,6 +956,18 @@ section h2 {
     }
 }
 
+/* Smooth Fade In Animation */
+@keyframes smoothFadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Contact Section */
 #contact {
     padding-left: 20px;
@@ -921,30 +1025,46 @@ section h2 {
     align-items: center;
     text-decoration: none;
     color: #333;
-    font-size: 1em;
-    transition: color 0.3s;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
 }
 
 .contact-links a:hover {
     color: var(--primary-color);
+    background-color: rgba(0, 127, 255, 0.05);
+    transform: translateY(-2px);
 }
 
-.contact-icon {
+.contact-links a .contact-icon {
+    margin-right: 12px;
     width: 25px;
     height: 25px;
-    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .contact-links {
+        gap: 15px;
+    }
 }
 
 @media (max-width: 480px) {
     .contact-links {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+    }
+    
+    .contact-links a {
+        justify-content: center;
+        min-width: 200px;
     }
 }
 
-.contact-icon.gmail {
-    width: 25px;
-    height: 25px;
+/* Email Link */
+#email-link {
+    cursor: pointer;
 }
 
 /* Footer */
@@ -1177,6 +1297,45 @@ footer p {
     max-width: 600px;
 }
 
+.contact-form .btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin: 0 auto;
+    display: block;
+}
+
+.contact-form .btn::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--button-hover-color), #0052cc);
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.contact-form .btn:hover::before {
+    top: 0;
+}
+
+.contact-form .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 127, 255, 0.3);
+}
+
 /* Center the form elements and make inputs narrower */
 .contact-form .form-group {
     display: flex;
@@ -1311,27 +1470,33 @@ footer p {
 /* Toast Notification Styles */
 .toast {
     position: fixed;
-    top: 80px;
+    top: 20px;
     left: 50%;
-    transform: translateX(-50%);
-    background-color: #4CAF50;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: #fff;
-    padding: 15px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    min-width: 300px;
+    min-width: 280px;
     max-width: 90%;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .toast.show {
     opacity: 1;
     visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 .toast-icon {
