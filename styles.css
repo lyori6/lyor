@@ -444,7 +444,7 @@ section h2 {
     transition: all 0.3s ease;
 }
 
-.accordion:hover {
+.accordion:hover:not(.open) {
     background-color: rgba(0, 127, 255, 0.02);
     border-radius: 8px;
     padding: 15px 10px;
@@ -459,7 +459,7 @@ section h2 {
     padding: 5px 0;
 }
 
-.accordion-header:hover {
+.accordion:not(.open) .accordion-header:hover {
     transform: translateY(-1px);
 }
 
@@ -477,7 +477,7 @@ section h2 {
     background-color: transparent;
 }
 
-.accordion-header:hover img.company-logo {
+.accordion:not(.open) .accordion-header:hover img.company-logo {
     transform: scale(1.05);
 }
 
@@ -499,8 +499,8 @@ section h2 {
 }
 
 /* Text Color Change on Hover */
-.accordion-header:hover h3,
-.accordion-header:hover h3 span {
+.accordion:not(.open) .accordion-header:hover h3,
+.accordion:not(.open) .accordion-header:hover h3 span {
     color: var(--primary-color);
 }
 
