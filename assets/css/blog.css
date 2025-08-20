@@ -1,8 +1,8 @@
-/* Blog Styles */
+/* Blog Styles - Medium-inspired design */
 
 /* Blog Container */
 .blog-container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -116,52 +116,110 @@
     text-decoration: underline;
 }
 
-/* Single Blog Post */
+/* Single Blog Post - Medium-style */
 .blog-post {
-    max-width: 800px;
+    max-width: 740px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 3rem 2rem;
+    font-family: 'Georgia', serif;
 }
 
 .post-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: center;
 }
 
 .post-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: #333;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #242424;
+    font-weight: 700;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.post-meta {
+    font-size: 1rem;
+    color: #757575;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 .post-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: #242424;
+    font-family: 'Georgia', serif;
 }
 
 .post-content p,
 .post-content ul,
 .post-content ol {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .post-content h2 {
-    font-size: 1.8rem;
-    margin: 2rem 0 1rem;
+    font-size: 2rem;
+    line-height: 1.3;
+    margin: 3rem 0 1.5rem;
+    color: #242424;
+    font-weight: 600;
+    font-family: 'Catamaran', sans-serif;
 }
 
 .post-content h3 {
-    font-size: 1.5rem;
-    margin: 1.8rem 0 0.8rem;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 2.5rem 0 1rem;
+    color: #242424;
+    font-weight: 600;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.post-content h4 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin: 2rem 0 0.8rem;
+    color: #242424;
+    font-weight: 600;
+    font-family: 'Catamaran', sans-serif;
 }
 
 .post-content img {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
-    margin: 1.5rem 0;
+    border-radius: 8px;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.post-content em {
+    font-style: italic;
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 2rem;
+}
+
+.post-content ul,
+.post-content ol {
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.post-content strong {
+    font-weight: 600;
+    color: #1a1a1a;
 }
 
 .post-content a {
@@ -218,20 +276,47 @@
 }
 
 .post-navigation {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e6e6e6;
+}
+
+.post-navigation .back-to-articles {
+    display: inline-block;
+    background-color: #0077cc;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.post-navigation .back-to-articles:hover {
+    background-color: #005fa3;
+    text-decoration: none;
+}
+
+.post-navigation .nav-links {
     display: flex;
     justify-content: space-between;
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eaeaea;
+    margin-top: 1rem;
 }
 
-.post-navigation a {
-    color: #0077cc;
+.post-navigation .prev,
+.post-navigation .next {
+    color: #666;
     text-decoration: none;
+    font-size: 0.95rem;
     max-width: 45%;
+    line-height: 1.4;
 }
 
-.post-navigation a:hover {
+.post-navigation .prev:hover,
+.post-navigation .next:hover {
+    color: #0077cc;
     text-decoration: underline;
 }
 
@@ -253,9 +338,13 @@
 .articles-container .post-card-link {
     text-decoration: none;
     color: inherit;
-    display: flex;
-    flex-direction: column;
+    display: block;
     height: 100%;
+    transition: transform 0.2s ease;
+}
+
+.articles-container .post-card-link:hover {
+    transform: translateY(-2px);
 }
 
 .articles-container .post-card {

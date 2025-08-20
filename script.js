@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentPath === '/' && !exactMatch) {
             // Default to home if no hash
             if (!window.location.hash) {
-                const homeLink = document.querySelector('.nav-links a[href="/"]');
+                const homeLink = document.querySelector('.nav-links a[href="#home"]');
                 if (homeLink) homeLink.classList.add('active');
             } else {
                 // Set active based on hash
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
             
-            // Also set up scroll spy for sections
+            // Also set up scroll spy for sections (only on homepage)
             setupScrollSpy();
         }
     }
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // If we're at the top of the page and no section is active, highlight home
                 if (current === '' && pageYOffset < 100) {
-                    const homeLink = document.querySelector('.nav-links a[href="/"]');
+                    const homeLink = document.querySelector('.nav-links a[href="#home"]');
                     if (homeLink) homeLink.classList.add('active');
                 }
             });
@@ -281,26 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Highlight Active Navigation Link on Scroll
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 70) { // Adjusted offset for better accuracy
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
+    // Note: Scroll spy functionality is handled in setupScrollSpy() function above
+    // This duplicate scroll spy code has been removed to prevent conflicts on article pages
 
     // Contact Form Functionality
     const contactForm = document.getElementById('contact-form');
