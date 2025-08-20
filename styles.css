@@ -484,9 +484,9 @@ section h2 {
 .accordion-header h3 {
     flex-grow: 1;
     font-size: 1.4em;
-    font-weight: 700;
+    font-weight: 900; /* increased weight for stronger emphasis */
     font-family: 'Raleway', 'Roboto', sans-serif;
-    color: #333;
+    color: #444; /* slightly grayer than before */
     transition: color 0.3s ease;
 }
 
@@ -494,7 +494,7 @@ section h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: italic;
-    color: #333;
+    color: #666; /* keep role text lighter to maintain hierarchy */
     transition: color 0.3s ease;
 }
 

@@ -62,6 +62,13 @@
     transition: transform 0.3s ease;
 }
 
+/* Specialized thumbnail treatment for TS case study to avoid stretching */
+.post-card-image img.ts-thumb {
+  object-fit: contain;
+  background: #f6f8fb;
+  padding: 12px;
+}
+
 .post-card:hover .post-card-image img {
     transform: scale(1.05);
 }
@@ -189,11 +196,20 @@
 }
 
 .post-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 2.5rem 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2.5rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Constrain mobile email screenshot */
+.post-content img.mobile-email {
+  max-width: 420px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-content em {
