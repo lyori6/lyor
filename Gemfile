@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Specify Ruby version with more flexibility for Vercel
-ruby "~> 3.2.0"
+ruby ">= 3.2.0"
 
 # Jekyll and plugins
 gem "jekyll", "~> 4.3.2"
