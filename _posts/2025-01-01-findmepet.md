@@ -2,7 +2,7 @@
 layout: post
 title: "FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem"
 author: Lyor Itzhaki
-date: 2025-03-01
+date: 2025-01-01
 tags: [product management, startups, user experience]
 description: A case study of building an AI-powered pet adoption platform that connects more animals with loving homes.
 image: /assets/images/shasta_main.png

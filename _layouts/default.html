@@ -47,8 +47,8 @@
                 <img src="{{ site.baseurl }}/images/cross.svg" alt="Close" class="close-icon">
             </div>
             <ul class="nav-links">
-                <li><a href="{{ site.baseurl }}/">Home</a></li>
-                <li><a href="{{ site.baseurl }}/blog/">Articles</a></li>
+                <li><a href="{{ site.baseurl }}/" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{{ site.baseurl }}/blog/" {% if page.url contains "/blog/" or page.layout == "post" %}class="active"{% endif %}>Articles</a></li>
                 <li><a href="{{ site.baseurl }}/#contact">Contact</a></li>
             </ul>
         </div>
