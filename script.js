@@ -78,34 +78,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set up scroll spy to highlight nav items based on scroll position
     function setupScrollSpy() {
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a[href^="/#"]');
-        
-        if (sections.length > 0 && navLinks.length > 0) {
-            window.addEventListener('scroll', () => {
-                let current = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.offsetHeight;
-                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                        current = '#' + section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
-                    }
-                });
-                
-                // If we're at the top of the page and no section is active, highlight home
-                if (current === '' && pageYOffset < 100) {
-                    const homeLink = document.querySelector('.nav-links a[href="#home"]');
-                    if (homeLink) homeLink.classList.add('active');
+        const navLinksList = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        if (sections.length === 0 || navLinksList.length === 0) return;
+
+        const setActive = (id) => {
+            navLinksList.forEach(link => {
+                const href = link.getAttribute('href');
+                link.classList.toggle('active', href === `#${id}`);
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActive(entry.target.getAttribute('id'));
                 }
             });
-        }
+        }, {
+            rootMargin: '-40% 0px -55% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(section => observer.observe(section));
     }
     
     setActiveNavLink();

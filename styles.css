@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Base Styles */
 body {
     font-family: 'Roboto', sans-serif;
