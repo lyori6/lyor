@@ -457,6 +457,16 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   top: 100px;
 }
 
+.portrait {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin-top: 32px;
+  border-radius: 18px;
+  filter: grayscale(1);
+}
+
 .prose {
   max-width: 62ch;
   font-size: 1.15rem;
@@ -1221,5 +1231,12 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .portrait {
+    max-width: 220px;
+    margin-top: 24px;
   }
 }
