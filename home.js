@@ -67,43 +67,108 @@
     update();
   }
 
-  // Light scroll reveals with GSAP. Each plays once; skipped for reduced motion
-  // or if the library did not load, so content is always visible without it.
-  window.addEventListener('load', () => {
-    if (!window.gsap || !window.ScrollTrigger) return;
-    const { gsap, ScrollTrigger } = window;
-    gsap.registerPlugin(ScrollTrigger);
+  // Motion with GSAP: an intro that plays once, light reveals that play once,
+  // and a rolling band tied to scroll. Skipped for reduced motion; if GSAP never
+  // loads, a timeout in the head un-hides the intro and nothing else is hidden.
+  const root = document.documentElement;
+  const start = () => {
+    const { gsap, ScrollTrigger, SplitText } = window;
+    if (!gsap || !ScrollTrigger || !SplitText) {
+      root.classList.remove('intro');
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger, SplitText);
     const media = gsap.matchMedia();
+
     media.add('(prefers-reduced-motion: no-preference)', () => {
       const ease = 'expo.out';
-      const reveal = (targets, vars = {}) => {
-        ScrollTrigger.batch(targets, {
-          start: 'top 88%',
-          once: true,
-          onEnter: (batch) => gsap.fromTo(batch,
-            { autoAlpha: 0, y: vars.y ?? 28, x: vars.x ?? 0 },
-            { autoAlpha: 1, y: 0, x: 0, duration: vars.duration ?? 1.1, ease, stagger: vars.stagger ?? 0.08, overwrite: true }),
+
+      // Intro: the headline rises line by line out of a mask, then the rest settles in.
+      SplitText.create('.hero-title', {
+        type: 'lines',
+        mask: 'lines',
+        autoSplit: true,
+        onSplit(self) {
+          const tl = gsap.timeline({ defaults: { ease } });
+          tl.set('[data-intro]', { visibility: 'visible' })
+            .from('.hero-hello', { autoAlpha: 0, y: 12, duration: 0.9 })
+            .from(self.lines, { yPercent: 105, duration: 1.4, stagger: 0.12 }, 0.1)
+            .from('.hero-sub, .hero-actions', { autoAlpha: 0, y: 18, duration: 1.1, stagger: 0.08 }, 0.55)
+            .from('.hero-quote', { autoAlpha: 0, y: 32, scale: 0.97, rotate: -1.5, transformOrigin: '50% 100%', duration: 1.4 }, 0.7);
+          root.classList.remove('intro');
+          return tl;
+        },
+      });
+
+      // Section titles rise out of a mask as they enter.
+      gsap.utils.toArray('.section-title, .contact-title').forEach((title) => {
+        SplitText.create(title, {
+          type: 'lines',
+          mask: 'lines',
+          autoSplit: true,
+          onSplit(self) {
+            return gsap.from(self.lines, {
+              yPercent: 105,
+              duration: 1.2,
+              ease,
+              stagger: 0.1,
+              scrollTrigger: { trigger: title, start: 'top 88%', once: true },
+            });
+          },
         });
-        gsap.set(targets, { autoAlpha: 0 });
+      });
+
+      // Everything else fades up once, in small staggered batches.
+      const reveal = (targets, vars = {}) => {
+        gsap.set(targets, { autoAlpha: 0, y: vars.y ?? 24, x: vars.x ?? 0 });
+        ScrollTrigger.batch(targets, {
+          start: 'top 90%',
+          once: true,
+          onEnter: (batch) => gsap.to(batch, {
+            autoAlpha: 1, y: 0, x: 0, duration: vars.duration ?? 1, ease, stagger: vars.stagger ?? 0.07, overwrite: true,
+          }),
+        });
       };
+      reveal('.prose p, .contact-intro > p, .contact-links li, .contact-form', { stagger: 0.08 });
+      reveal('.job', { y: 16, stagger: 0.04, duration: 0.9 });
+      reveal('.case', { y: 36, stagger: 0.12 });
+      reveal('.project', { y: 20 });
+      reveal('.review', { x: 48, y: 0, stagger: 0.08, duration: 1.2 });
 
-      reveal('.section-title', { y: 36 });
-      reveal('.prose p, .contact-intro > *, .contact-form', { stagger: 0.1 });
-      reveal('.job', { y: 18, stagger: 0.05, duration: 0.9 });
-      reveal('.case', { y: 40, stagger: 0.12 });
-      reveal('.project', { y: 24, stagger: 0.08 });
-      reveal('.review', { x: 60, y: 0, stagger: 0.09, duration: 1.2 });
+      // Rolling band: drifts left as you scroll down, right as you scroll up.
+      gsap.fromTo('.band-track', { xPercent: 0 }, {
+        xPercent: -35,
+        ease: 'none',
+        scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+      });
 
-      // Case study screenshots ease out of a slight zoom as they scroll past.
+      // Case study screenshots ease out of a slight zoom as they pass.
       gsap.utils.toArray('.case-image img').forEach((img) => {
-        gsap.fromTo(img, { scale: 1.12 }, {
+        gsap.fromTo(img, { scale: 1.1 }, {
           scale: 1,
           ease: 'none',
           scrollTrigger: { trigger: img, start: 'top bottom', end: 'center center', scrub: 0.6 },
         });
       });
+
+      // The hero quote drifts up a little slower than the page.
+      gsap.to('.hero-quote', {
+        yPercent: -12,
+        ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+      });
     });
-  });
+
+    media.add('(prefers-reduced-motion: reduce)', () => {
+      root.classList.remove('intro');
+    });
+  };
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(start);
+  } else {
+    window.addEventListener('load', start);
+  }
 
   // Copy email.
   document.querySelectorAll('[data-copy]').forEach((button) => {
