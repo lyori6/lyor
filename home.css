@@ -499,6 +499,14 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   padding: 4px;
 }
 
+/* Logos that are already a filled tile skip the white frame. */
+.job-logo-fill {
+  padding: 0;
+  border: 0;
+  background: none;
+  object-fit: cover;
+}
+
 .job-name {
   font-weight: 500;
   font-size: 1.05rem;

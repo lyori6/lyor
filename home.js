@@ -80,6 +80,12 @@
     gsap.registerPlugin(ScrollTrigger, SplitText);
     const media = gsap.matchMedia();
 
+    // Line masks clip at the line box, which cuts off descenders like g and y.
+    // Pad each mask and pull the next line back up so spacing is unchanged.
+    const roomForDescenders = (split) => {
+      gsap.set(split.masks, { paddingBottom: '0.14em', marginBottom: '-0.14em' });
+    };
+
     media.add('(prefers-reduced-motion: no-preference)', () => {
       const ease = 'expo.out';
 
@@ -89,6 +95,7 @@
         mask: 'lines',
         autoSplit: true,
         onSplit(self) {
+          roomForDescenders(self);
           const tl = gsap.timeline({ defaults: { ease } });
           tl.set('[data-intro]', { visibility: 'visible' })
             .from('.hero-hello', { autoAlpha: 0, y: 12, duration: 0.9 })
@@ -108,6 +115,7 @@
           mask: 'lines',
           autoSplit: true,
           onSplit(self) {
+            roomForDescenders(self);
             return gsap.from(self.lines, {
               yPercent: 105,
               duration: 1.2,
