@@ -134,7 +134,16 @@
       reveal('.job', { y: 16, stagger: 0.04, duration: 0.9 });
       reveal('.case', { y: 36, stagger: 0.12 });
       reveal('.project', { y: 20 });
-      reveal('.review', { x: 48, y: 0, stagger: 0.08, duration: 1.2 });
+      // The review gallery comes in as one piece; animating cards inside a
+      // sideways scroller made them arrive out of order.
+      gsap.from('.gallery-nav, .reviews, .gallery-progress, .reviews-more', {
+        autoAlpha: 0,
+        y: 32,
+        duration: 1.1,
+        ease,
+        stagger: 0.08,
+        scrollTrigger: { trigger: '#testimonials', start: 'top 70%', once: true },
+      });
 
       // Rolling band: drifts left as you scroll down, right as you scroll up.
       gsap.fromTo('.band-track', { xPercent: 0 }, {
