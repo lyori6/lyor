@@ -20,6 +20,6 @@ Lyor Itzhaki's personal site, built with Jekyll and deployed on Vercel from `mai
 
 - Light paper background, ink text, one accent color (green `--accent`). No gradients, no gradient text.
 - Display type is Instrument Serif; body is Geist. At most one accent word per page (the italic "trust" in the hero).
-- One motion moment: the hero settles in once on load. No infinite or auto-advancing animation. Respect `prefers-reduced-motion`.
+- Motion: the hero settles in once on load (CSS); sections reveal once on scroll with GSAP + ScrollTrigger, vendored in `assets/js/lib` (standard no-charge license). No infinite or auto-advancing animation. Respect `prefers-reduced-motion`; content must stay visible if GSAP fails to load.
 - Keep copy specific and in Lyor's first-person voice. No invented metrics, quotes, or claims. Reviews are quoted exactly as written on LinkedIn.
 - No em dashes in copy.

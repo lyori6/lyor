@@ -33,6 +33,78 @@
     review.querySelector('.review-text').after(button);
   });
 
+  // Reviews gallery: arrow buttons and a progress bar over a native scroller.
+  const track = document.getElementById('reviews-track');
+  if (track) {
+    const buttons = document.querySelectorAll('.gallery-btn');
+    const bar = document.querySelector('.gallery-progress span');
+    const step = () => {
+      const card = track.querySelector('.review');
+      return card ? card.getBoundingClientRect().width + 20 : track.clientWidth * 0.8;
+    };
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const visible = track.clientWidth / track.scrollWidth;
+      const progress = max > 0 ? visible + (1 - visible) * (track.scrollLeft / max) : 1;
+      if (bar) bar.style.setProperty('--progress', progress.toFixed(3));
+      buttons.forEach((button) => {
+        button.disabled = button.dataset.dir === '-1' ? track.scrollLeft < 4 : track.scrollLeft > max - 4;
+      });
+    };
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        track.scrollBy({ left: step() * Number(button.dataset.dir), behavior: 'smooth' });
+      });
+    });
+    track.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault();
+        track.scrollBy({ left: step() * (event.key === 'ArrowRight' ? 1 : -1), behavior: 'smooth' });
+      }
+    });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  // Light scroll reveals with GSAP. Each plays once; skipped for reduced motion
+  // or if the library did not load, so content is always visible without it.
+  window.addEventListener('load', () => {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    const { gsap, ScrollTrigger } = window;
+    gsap.registerPlugin(ScrollTrigger);
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const ease = 'expo.out';
+      const reveal = (targets, vars = {}) => {
+        ScrollTrigger.batch(targets, {
+          start: 'top 88%',
+          once: true,
+          onEnter: (batch) => gsap.fromTo(batch,
+            { autoAlpha: 0, y: vars.y ?? 28, x: vars.x ?? 0 },
+            { autoAlpha: 1, y: 0, x: 0, duration: vars.duration ?? 1.1, ease, stagger: vars.stagger ?? 0.08, overwrite: true }),
+        });
+        gsap.set(targets, { autoAlpha: 0 });
+      };
+
+      reveal('.section-title', { y: 36 });
+      reveal('.prose p, .contact-intro > *, .contact-form', { stagger: 0.1 });
+      reveal('.job', { y: 18, stagger: 0.05, duration: 0.9 });
+      reveal('.case', { y: 40, stagger: 0.12 });
+      reveal('.project', { y: 24, stagger: 0.08 });
+      reveal('.review', { x: 60, y: 0, stagger: 0.09, duration: 1.2 });
+
+      // Case study screenshots ease out of a slight zoom as they scroll past.
+      gsap.utils.toArray('.case-image img').forEach((img) => {
+        gsap.fromTo(img, { scale: 1.12 }, {
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: { trigger: img, start: 'top bottom', end: 'center center', scrub: 0.6 },
+        });
+      });
+    });
+  });
+
   // Copy email.
   document.querySelectorAll('[data-copy]').forEach((button) => {
     button.addEventListener('click', async () => {
