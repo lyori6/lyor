@@ -94,7 +94,8 @@
             .from('.hero-hello', { autoAlpha: 0, y: 12, duration: 0.9 })
             .from(self.lines, { yPercent: 105, duration: 1.4, stagger: 0.12 }, 0.1)
             .from('.hero-sub, .hero-actions', { autoAlpha: 0, y: 18, duration: 1.1, stagger: 0.08 }, 0.55)
-            .from('.hero-quote', { autoAlpha: 0, y: 32, scale: 0.97, rotate: -1.5, transformOrigin: '50% 100%', duration: 1.4 }, 0.7);
+            .from('.hero-quote', { autoAlpha: 0, y: 32, scale: 0.97, rotate: -1.5, transformOrigin: '50% 100%', duration: 1.4 }, 0.7)
+            .from('.band', { autoAlpha: 0, duration: 1.2, ease: 'power2.out' }, 0.9);
           root.classList.remove('intro');
           return tl;
         },
