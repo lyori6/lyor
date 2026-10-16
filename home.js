@@ -13,7 +13,7 @@
 
   // Long reviews start clamped with a toggle; short ones show in full.
   document.querySelectorAll('.review').forEach((review) => {
-    const text = review.querySelector('.review-text p');
+    const text = review.querySelector('.review-text');
     if (!text) return;
     review.classList.add('is-clamped');
     if (text.scrollHeight - text.clientHeight < 4) {

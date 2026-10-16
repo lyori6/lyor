@@ -137,6 +137,15 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   line-height: 1;
   text-decoration: none;
   margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wordmark-mark {
+  width: 30px;
+  height: 30px;
+  flex: none;
 }
 
 .nav-links {
@@ -499,6 +508,9 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   padding: 4px;
 }
 
+/* A bare mark needs more breathing room inside the frame. */
+.job-logo-mark { padding: 9px; }
+
 /* Logos that are already a filled tile skip the white frame. */
 .job-logo-fill {
   padding: 0;
@@ -820,15 +832,20 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   color: var(--ink);
 }
 
-.review-text p::before {
+.review-text p + p {
+  margin-top: 0.75em;
+}
+
+.review-text p:first-child::before {
   content: "\201C";
 }
 
-.review-text p::after {
+.review-text p:last-child::after {
   content: "\201D";
 }
 
-.review.is-clamped .review-text p {
+/* Clamp counts lines across paragraphs. */
+.review.is-clamped .review-text {
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
