@@ -1,4 +1,4 @@
-/* lyori.com home page. Blog pages keep using styles.css. */
+/* lyori.com home page. Case study pages load this too, then case-study.css. */
 
 :root {
   --paper: #f7f5f0;

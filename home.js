@@ -1,4 +1,4 @@
-// lyori.com home page behavior. Blog pages keep using script.js.
+// lyori.com home page behavior.
 (() => {
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();

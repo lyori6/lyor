@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Share image for a case study, 1200x630. Rendered to images/og/<slug>.png by scripts/og.mjs. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,300..600,0..100&display=block" rel="stylesheet">
+<style>
+  :root { --paper: #f7f5f0; --ink: #17181a; --ink-2: #45484d; --line: #e2ded4; --accent: #2d5e4c; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: "Figtree", sans-serif; position: relative; }
+  .text { position: absolute; left: 72px; top: 64px; bottom: 64px; width: 500px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: "Fraunces", serif; font-weight: 500; font-variation-settings: "SOFT" 100, "opsz" 36; font-size: 30px; letter-spacing: -0.02em; }
+  .brand img { width: 40px; height: 40px; }
+  .label { margin-top: auto; font-size: 20px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  h1 { margin-top: 16px; font-family: "Fraunces", serif; font-weight: 400; font-variation-settings: "SOFT" 60, "opsz" 96; font-size: 64px; line-height: 1.02; letter-spacing: -0.03em; text-wrap: balance; }
+  p { margin-top: 20px; font-size: 25px; line-height: 1.35; color: var(--ink-2); text-wrap: balance; }
+  .shot { position: absolute; left: 632px; top: 72px; width: 640px; border-radius: 18px; border: 1px solid var(--line); overflow: hidden; background: #fff; box-shadow: 0 30px 60px -30px rgba(23, 24, 26, 0.35); }
+  .shot img { display: block; width: 100%; }
+</style>
+</head>
+<body>
+  <div class="text">
+    <div class="brand"><img src="../images/favicon.svg" alt="">Lyor Itzhaki</div>
+    <div class="label">Case study</div>
+    <h1 id="title"></h1>
+    <p id="sub"></p>
+  </div>
+  <div class="shot"><img id="shot" alt=""></div>
+  <script>
+    var q = new URLSearchParams(location.search);
+    document.getElementById('title').textContent = q.get('title');
+    document.getElementById('sub').textContent = q.get('sub');
+    document.getElementById('shot').src = '..' + q.get('shot');
+  </script>
+</body>
+</html>
