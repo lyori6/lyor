@@ -167,17 +167,21 @@
 }
 
 /* At a glance: the four facts a busy reader needs first. */
+.article-body:has(> .glance:first-child) {
+  margin-top: 0;
+}
+
 .article-body .glance {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 32px;
-  margin: 0 0 8px;
-  padding: 24px 0;
+  gap: 28px 40px;
+  margin: 0;
+  padding: 36px 0;
   border-bottom: 1px solid var(--line);
 }
 
 .glance dt {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -185,8 +189,8 @@
 }
 
 .glance dd {
-  margin: 6px 0 0;
-  font-size: 1rem;
+  margin: 8px 0 0;
+  font-size: 1.05rem;
   line-height: 1.5;
   color: var(--ink);
 }

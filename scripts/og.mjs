@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 import { fileURLToPath } from 'node:url';
 
 const cards = [
-  { slug: 'trust-safety-policy-watcher', title: 'Trust & Safety Policy Watcher', sub: 'Building competitive intelligence that never sleeps', shot: '/assets/images/ts_policy_watcher_main.png' },
+  { slug: 'trust-safety-policy-watcher', title: 'Trust & Safety Policy Watcher', sub: 'Know within hours when live shopping rules change', shot: '/assets/images/ts_policy_watcher_main.png' },
   { slug: 'debtcat', title: 'DebtCat', sub: 'A no-BS first aid kit for people drowning in debt', shot: '/assets/images/debtcat_1.png' },
   { slug: 'findmepet', title: 'FindMePet', sub: 'Using AI to solve the pet adoption mismatch problem', shot: '/assets/images/shasta_main.png' },
 ];
