@@ -1,50 +1,162 @@
----
-layout: default
-title: Blog
-description: Thoughts and insights on product management, startups, and technology
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case studies | Lyor Itzhaki</title>
+    <meta name="description" content="Product case studies by Lyor Itzhaki: what I built, the trade-offs I made, and what I learned shipping AI, fintech, and Trust &amp; Safety products.">
+    <meta name="author" content="Lyor Itzhaki">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://lyori.com/blog">
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-<div class="blog-container">
-    <header class="blog-header">
-        <h1>Blog</h1>
-        <p>Thoughts and insights on product management, startups, and technology</p>
+    <!-- Share cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lyor Itzhaki">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://lyori.com/blog">
+    <meta property="og:title" content="Case studies by Lyor Itzhaki">
+    <meta property="og:description" content="Product case studies by Lyor Itzhaki: what I built, the trade-offs I made, and what I learned shipping AI, fintech, and Trust &amp; Safety products.">
+    <meta property="og:image" content="https://lyori.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Lyor Itzhaki. I build products people trust.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Case studies by Lyor Itzhaki">
+    <meta name="twitter:description" content="Product case studies by Lyor Itzhaki: what I built, the trade-offs I made, and what I learned shipping AI, fintech, and Trust &amp; Safety products.">
+    <meta name="twitter:image" content="https://lyori.com/images/og-image.png">
+    <meta name="twitter:image:alt" content="Lyor Itzhaki. I build products people trust.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Case studies by Lyor Itzhaki",
+      "description": "Product case studies by Lyor Itzhaki: what I built, the trade-offs I made, and what I learned shipping AI, fintech, and Trust & Safety products.",
+      "url": "https://lyori.com/blog",
+      "hasPart": [
+        {
+          "@type": "Article",
+          "headline": "Trust & Safety Policy Watcher: Building Competitive Intelligence That Never Sleeps",
+          "url": "https://lyori.com/blog/trust-safety-policy-watcher",
+          "datePublished": "2025-01-11"
+        },
+        {
+          "@type": "Article",
+          "headline": "DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt",
+          "url": "https://lyori.com/blog/debtcat",
+          "datePublished": "2025-01-11"
+        },
+        {
+          "@type": "Article",
+          "headline": "FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem",
+          "url": "https://lyori.com/blog/findmepet",
+          "datePublished": "2025-01-01"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQH38Z0QT2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-JQH38Z0QT2');
+    </script>
+    
+    <!-- MS Clarity-->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "oaj17avmn2");
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/case-study.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="wordmark"><img src="/images/favicon.svg" alt="" width="30" height="30" class="wordmark-mark">Lyor Itzhaki</a>
+            <nav aria-label="Site">
+                <ul class="nav-links">
+                    <li><a href="/#experience">Experience</a></li>
+                    <li><a href="/blog" aria-current="page">Case studies</a></li>
+                    <li><a href="/#testimonials">Reviews</a></li>
+                </ul>
+            </nav>
+            <a href="/#contact" class="btn btn-small btn-ghost">Contact</a>
+        </div>
     </header>
 
-    <div class="blog-posts">
-        {% for post in site.posts %}
-        <article class="post-card">
-            <div class="post-card-image">
-                <a href="{{ site.baseurl }}{{ post.url }}">
-                    {% if post.image %}
-                        <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}">
-                    {% else %}
-                        {% assign content_images = post.content | split: '<img ' %}
-                        {% if content_images.size > 1 %}
-                            {% assign img_tag = content_images[1] | split: '>' | first %}
-                            {% assign src_attr = img_tag | split: 'src="' %}
-                            {% if src_attr.size > 1 %}
-                                {% assign img_src = src_attr[1] | split: '"' | first %}
-                                <img src="{{ site.baseurl }}{{ img_src }}" alt="{{ post.title }}">
-                            {% else %}
-                                <img src="{{ site.baseurl }}/assets/images/blog-placeholder.svg" alt="{{ post.title }}">
-                            {% endif %}
-                        {% else %}
-                            <img src="{{ site.baseurl }}/assets/images/blog-placeholder.svg" alt="{{ post.title }}">
-                        {% endif %}
-                    {% endif %}
-                </a>
+    <main id="main">
+        <header class="index-head wrap">
+            <h1 class="section-title">Case studies</h1>
+            <p>Products I built, the trade-offs I made, and what I learned shipping them.</p>
+        </header>
+
+        <section class="section wrap" aria-label="All case studies">
+            <div class="cases cases-index">
+                <article class="case">
+                    <a href="/blog/trust-safety-policy-watcher" class="case-link">
+                        <div class="case-image">
+                            <img src="/assets/images/ts_policy_watcher_thumb.png" alt="Trust &amp; Safety Policy Watcher dashboard" width="1200" height="675" loading="lazy" decoding="async">
+                        </div>
+                        <h2 class="case-title">Trust &amp; Safety Policy Watcher: Building Competitive Intelligence That Never Sleeps</h2>
+                        <p class="case-date">January 11, 2025</p>
+                        <p class="case-excerpt">A product case study of transforming manual competitive intelligence into an automated AI-powered system monitoring 25+ competitor policies.</p>
+                        <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
+                    </a>
+                </article>
+                <article class="case">
+                    <a href="/blog/debtcat" class="case-link">
+                        <div class="case-image">
+                            <img src="/assets/images/debtcat_cover.png" alt="DebtCat home page" width="1200" height="600" loading="lazy" decoding="async">
+                        </div>
+                        <h2 class="case-title">DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt</h2>
+                        <p class="case-date">January 11, 2025</p>
+                        <p class="case-excerpt">A product case study of a tool to empower consumers with insider knowledge and actionable steps to challenge unfair collection practices.</p>
+                        <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
+                    </a>
+                </article>
+                <article class="case">
+                    <a href="/blog/findmepet" class="case-link">
+                        <div class="case-image">
+                            <img src="/assets/images/shasta_cover.png" alt="FindMePet landing page featuring Shasta" width="1200" height="600" loading="lazy" decoding="async">
+                        </div>
+                        <h2 class="case-title">FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem</h2>
+                        <p class="case-date">January 1, 2025</p>
+                        <p class="case-excerpt">A product case study of building an AI-powered pet adoption platform that connects more animals with loving homes.</p>
+                        <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
+                    </a>
+                </article>
             </div>
-            <div class="post-card-content">
-                <h2 class="post-title">
-                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                </h2>
-                <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
-                <div class="post-excerpt">
-                    {{ post.excerpt | strip_html | truncatewords: 30 }}
-                </div>
-                <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-            </div>
-        </article>
-        {% endfor %}
-    </div>
-</div>
+        </section>
+    </main>
+
+    <footer class="site-footer wrap">
+        <p>&copy; <span id="year">2026</span> Lyor Itzhaki</p>
+        <a href="/" class="link-quiet">Back to home</a>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      (function () {
+        var header = document.querySelector('.site-header');
+        var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+    </script>
+</body>
+</html>

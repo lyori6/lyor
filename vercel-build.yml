@@ -1,7 +1,0 @@
-version: 2
-builds:
-  - src: "**/*"
-    use: "@vercel/static-build"
-    config:
-      distDir: "_site"
-      buildCommand: "bundle install && bundle exec jekyll build"

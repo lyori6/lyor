@@ -4,12 +4,21 @@ Instructions for coding agents working on lyori.com.
 
 ## What this is
 
-Lyor Itzhaki's personal site, built with Jekyll and deployed on Vercel from `main` (`build.sh`). The home page is plain HTML: `index.html` with `home.css` and `home.js`. Blog and case study pages use `_layouts/default.html` with the older `styles.css` and `script.js`; changes to the home page must not touch those.
+Lyor Itzhaki's personal site: plain HTML and CSS, no framework, deployed on Vercel from `main`. `scripts/build.sh` only copies the public files into `_site`; there is no compile step.
+
+- Home page: `index.html` with `home.css` and `home.js`.
+- Case studies: one folder per study, `blog/<slug>/index.html`, served at `/blog/<slug>`. They load `home.css` (tokens, header, buttons, footer) and then `case-study.css`. The list lives in `blog/index.html`.
+- `templates/case-study.html` is the starting point for a new case study; its header comment lists every step. `templates/og-card.html` plus `scripts/og.mjs` render the 1200x630 share images into `images/og/`.
 
 ## Commands
 
-- Quick look: `python3 -m http.server` in the repo root (the home page needs no build)
-- Full build: `bundle install && bundle exec jekyll build` (must pass before asking for review)
+- Quick look: `python3 -m http.server` in the repo root, then open `/blog/<slug>/`
+- Build: `sh scripts/build.sh` (Vercel runs the same; it must pass before asking for review)
+- Share images: `node scripts/og.mjs` (needs Playwright)
+
+## Meta tags
+
+Every page carries its own title (under 60 characters), description (120 to 160), canonical URL without a trailing slash, Open Graph and Twitter tags with a 1200x630 image, and JSON-LD. When a page is added or its URL changes, update `sitemap.xml` too. Keep old URLs alive with `redirects` in `vercel.json`.
 
 ## How work gets approved
 

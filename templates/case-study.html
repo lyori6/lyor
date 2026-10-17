@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+  Case study template. To add one:
+  1. Copy this file to blog/<slug>/index.html and replace every {{...}}.
+     The optional note (class="article-note") goes right after the byline, see blog/findmepet.
+  2. Put screenshots in assets/images/ and add the share image line to scripts/og.mjs,
+     then run node scripts/og.mjs to render images/og/<slug>.png.
+  3. Add a card to blog/index.html (and the home page if it should be featured),
+     and a <url> entry to sitemap.xml.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{SEO_TITLE: under 60 characters, ends with | Lyor Itzhaki}}</title>
+    <meta name="description" content="{{DESCRIPTION: 120 to 160 characters}}">
+    <meta name="author" content="Lyor Itzhaki">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://lyori.com/blog/{{SLUG}}">
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- Share cards -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Lyor Itzhaki">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://lyori.com/blog/{{SLUG}}">
+    <meta property="og:title" content="{{HEADLINE}}">
+    <meta property="og:description" content="{{DESCRIPTION: 120 to 160 characters}}">
+    <meta property="og:image" content="https://lyori.com/images/og/{{SLUG}}.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{SHORT_NAME}}, a case study by Lyor Itzhaki">
+    <meta property="article:published_time" content="{{YYYY-MM-DD}}">
+    <meta property="article:author" content="https://lyori.com/">
+    <meta property="article:tag" content="{{TAG_1}}">
+    <meta property="article:tag" content="{{TAG_2}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{HEADLINE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION: 120 to 160 characters}}">
+    <meta name="twitter:image" content="https://lyori.com/images/og/{{SLUG}}.png">
+    <meta name="twitter:image:alt" content="{{SHORT_NAME}}, a case study by Lyor Itzhaki">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{HEADLINE}}",
+      "description": "{{DESCRIPTION: 120 to 160 characters}}",
+      "image": "https://lyori.com/images/og/{{SLUG}}.png",
+      "datePublished": "{{YYYY-MM-DD}}",
+      "author": {
+        "@type": "Person",
+        "name": "Lyor Itzhaki",
+        "url": "https://lyori.com/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Lyor Itzhaki",
+        "url": "https://lyori.com/"
+      },
+      "mainEntityOfPage": "https://lyori.com/blog/{{SLUG}}"
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQH38Z0QT2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-JQH38Z0QT2');
+    </script>
+    
+    <!-- MS Clarity-->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "oaj17avmn2");
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/case-study.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="wordmark"><img src="/images/favicon.svg" alt="" width="30" height="30" class="wordmark-mark">Lyor Itzhaki</a>
+            <nav aria-label="Site">
+                <ul class="nav-links">
+                    <li><a href="/#experience">Experience</a></li>
+                    <li><a href="/blog">Case studies</a></li>
+                    <li><a href="/#testimonials">Reviews</a></li>
+                </ul>
+            </nav>
+            <a href="/#contact" class="btn btn-small btn-ghost">Contact</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <article class="article wrap">
+            <p class="article-eyebrow"><a href="/blog">Case study</a><span>{{TAG_1}}, {{TAG_2}}</span></p>
+            <h1 class="article-title">{{HEADLINE}}</h1>
+            <p class="article-dek">{{DEK: one or two sentences under the headline}}</p>
+            <div class="article-byline">
+                <img src="/images/lyor-480.jpg" alt="" class="avatar" width="44" height="44">
+                <span><strong>Lyor Itzhaki</strong><time datetime="{{YYYY-MM-DD}}">{{Month D, YYYY}}</time> &middot; {{N}} min read</span>
+            </div>
+
+            <div class="article-body">
+<!-- Body: plain HTML. h2 for sections, h3 below that, p, ul, ol, blockquote.
+     Screenshots go in a figure; add class="is-narrow" for phone screenshots.
+     The first figure uses fetchpriority="high", later ones loading="lazy". -->
+<figure>
+<img src="/assets/images/{{IMAGE}}.png" alt="{{What the screenshot shows}}" width="{{W}}" height="{{H}}" fetchpriority="high" decoding="async">
+<figcaption>{{Optional caption}}</figcaption>
+</figure>
+<h2>{{Section heading}}</h2>
+<p>{{Paragraph}}</p>
+            </div>
+
+            <div class="article-end">
+                <p>Have something in mind? Let's talk.</p>
+                <a href="/#contact" class="btn">Get in touch</a>
+            </div>
+        </article>
+
+        <section class="more-cases wrap" aria-labelledby="more-title">
+            <h2 class="section-title" id="more-title">More case studies</h2>
+            <div class="cases">
+                <!-- Two other case studies: copy their cards from blog/index.html (use h3, drop the date line). -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer wrap">
+        <p>&copy; <span id="year">2026</span> Lyor Itzhaki</p>
+        <a href="/" class="link-quiet">Back to home</a>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      (function () {
+        var header = document.querySelector('.site-header');
+        var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+    </script>
+</body>
+</html>
