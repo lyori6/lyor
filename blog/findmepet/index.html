@@ -99,145 +99,97 @@
         <article class="article wrap">
             <p class="article-eyebrow"><a href="/blog">Case study</a><span>AI, Consumer</span></p>
             <h1 class="article-title">FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem</h1>
-            <p class="article-dek">A product case study of building an AI-powered pet adoption platform that connects more animals with loving homes.</p>
+            <p class="article-dek">Building an AI pet adoption app that matches people with pets that fit their lives, so fewer pets go back to shelters.</p>
             <div class="article-byline">
                 <img src="/images/lyor-480.jpg" alt="" class="avatar" width="44" height="44">
-                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-01">January 1, 2025</time> &middot; 5 min read</span>
+                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-01">January 1, 2025</time> &middot; 4 min read</span>
             </div>
             <p class="article-note">FindMePet was retired in December 2025. This case study describes the product as it ran in 2025.</p>
 
             <div class="article-body">
 <figure>
-<img src="/assets/images/shasta_main.png" alt="Landing page featuring Shasta, the inspiration behind FindMePet" width="1042" height="880" fetchpriority="high" decoding="async">
-<figcaption>Pictured: The FindMePet landing page featuring Shasta, Lyor's adopted dog and inspiration for the project</figcaption>
+<img src="/assets/images/shasta_main.png" alt="FindMePet landing page featuring Shasta, the dog behind the project" width="1042" height="880" fetchpriority="high" decoding="async">
+<figcaption>The FindMePet landing page, featuring Shasta, Lyor's adopted dog and the reason for the project.</figcaption>
 </figure>
-<h2>The Problem: Pet Adoption is Broken</h2>
-<p>Let's talk about a problem that doesn't get enough attention: pet adoption is fundamentally broken.</p>
-<p>Between 10-20% of adopted pets are returned to shelters, often due to mismatched expectations and behavioral issues. A University of Alberta study found that 80% of adopters choose pets based primarily on looks rather than compatibility. Meanwhile, 34% of pet owners buy from breeders instead of adopting, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
-<p>These aren't just statistics. They represent real animals who briefly experienced the joy of a home before being returned to a shelter cage.</p>
-<p>This is exactly the problem that product manager and animal lover Lyor set out to solve with FindMePet.</p>
-<h2>The Vision: Match-Making for Humans and Pets</h2>
-<p>"I adopted my dog Shasta and saw firsthand how challenging the process can be," says Lyor, who has spent nearly six years as a product manager across various SaaS companies. "I wanted to create a tool that helps more pets find forever homes by matching them with the right owners from the start."</p>
-<p>FindMePet is a Next.js application that combines the PetFinder API with OpenAI to revolutionize how people discover adoptable pets. The core innovation is using AI to provide personalized recommendations based on user preferences and lifestyle compatibility.</p>
-<p>"Think of it as match-making, but between humans and pets," explains Lyor. "I'm trying to reduce the return rate by creating better matches from the beginning."</p>
-<h2>Building the Product: Hard Choices and Fast Execution</h2>
-<p>As an experienced PM, Lyor knew that shipping a focused MVP quickly was more important than building the perfect product. This meant making some hard trade-offs:</p>
+<h2>The problem: adoption matches often fail</h2>
+<p>Pet adoption has a problem that doesn't get much attention: too many matches don't work out.</p>
+<p>Between 10 and 20% of adopted pets are returned to shelters, often because of mismatched expectations or behavior issues. A University of Alberta study found that 80% of adopters choose a pet mostly on looks rather than fit. Meanwhile, 34% of pet owners buy from breeders instead of adopting, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
+<p>Behind those numbers are real animals who had a home for a short time and then went back to a shelter.</p>
+<p>That's the problem Lyor, a product manager and animal lover, set out to solve with FindMePet.</p>
+<h2>The idea: matchmaking for people and pets</h2>
+<p>"I adopted my dog Shasta and saw firsthand how hard the process can be," says Lyor, who had spent nearly six years as a product manager at SaaS companies. "I wanted to build a tool that helps more pets find forever homes by matching them with the right owners from the start."</p>
+<p>FindMePet is a Next.js app that combines the PetFinder API with OpenAI. Its core idea is AI recommendations based on a person's preferences and lifestyle.</p>
+<p>"Think of it as matchmaking, but between people and pets," Lyor explains. "I'm trying to lower the return rate by making better matches from the beginning."</p>
+<h2>Building it: hard choices, shipped fast</h2>
+<p>As a PM, Lyor knew a focused MVP shipped quickly beat a perfect product shipped late. That meant some hard trade-offs:</p>
 <ol>
-<li>
-<p><strong>Limited Animal Selection</strong>: While the PetFinder API offers data on everything from dogs and cats to horses and chinchillas, FindMePet launched with just dogs, cats, and rabbits to focus the experience.</p>
-</li>
-<li>
-<p><strong>Streamlined Filtering</strong>: Lyor implemented filtering upfront in the API call rather than allowing users to filter results after the search to simplify the initial experience.</p>
-</li>
-<li>
-<p><strong>Prioritizing Visual Appeal</strong>: Animals without photos are de-prioritized in results, recognizing that visuals drive emotional connection in adoption decisions.</p>
-</li>
-<li>
-<p><strong>Quick Search vs. Guided Flow</strong>: The product includes a "Quick Search" feature for users who want to browse directly, while maintaining the guided questionnaire for those who want personalized recommendations.</p>
-</li>
+<li><strong>Fewer animals</strong>: the PetFinder API covers everything from dogs and cats to horses and chinchillas, but FindMePet launched with just dogs, cats, and rabbits.</li>
+<li><strong>Filters upfront</strong>: filtering happens in the API call, not on the results page, to keep the first version simple.</li>
+<li><strong>Photos first</strong>: animals without photos rank lower, because photos drive the emotional connection in adoption.</li>
+<li><strong>Two ways in</strong>: a Quick Search for people who want to browse, and a guided questionnaire for people who want recommendations.</li>
 </ol>
 <figure>
-<img src="/assets/images/results_page.png" alt="Results page showing AI-powered recommendation" width="1489" height="961" loading="lazy" decoding="async">
-<figcaption>The results page highlights an AI-recommended pet with compatibility metrics</figcaption>
+<img src="/assets/images/results_page.png" alt="FindMePet results page with an AI-recommended pet highlighted" width="1489" height="961" loading="lazy" decoding="async">
+<figcaption>The results page highlights one AI-recommended pet and shows how well it fits.</figcaption>
 </figure>
-<h2>The Tech Stack: Next.js + AI-Powered Development</h2>
-<p>FindMePet is built on Next.js 14 with App Router, with styling via TailwindCSS and deployment on Vercel. The application integrates two key APIs:</p>
+<h2>The tech stack</h2>
+<p>FindMePet runs on Next.js 14 with the App Router, styled with Tailwind CSS and deployed on Vercel. It uses two APIs:</p>
 <ol>
-<li>
-<p><strong>PetFinder API</strong>: Provides real-time data on adoptable pets across the United States</p>
-</li>
-<li>
-<p><strong>OpenAI (GPT-4o-mini)</strong>: Powers the personalized recommendation engine</p>
-</li>
+<li><strong>PetFinder API</strong>: live data on adoptable pets across the United States</li>
+<li><strong>OpenAI (GPT-4o mini)</strong>: the recommendations</li>
 </ol>
-<p>Lyor encountered several technical challenges, particularly around API integration:</p>
+<p>Most of the technical challenges were in the integrations:</p>
 <ul>
-<li><strong>PetFinder Authentication</strong>: Required implementing OAuth 2.0 via a Cloudflare Worker proxy</li>
-<li><strong>OpenAI Response Parsing</strong>: Needed careful prompt engineering to generate structured, parseable recommendations</li>
-<li><strong>Performance Optimization</strong>: Implemented caching to reduce API calls and improve user experience</li>
+<li><strong>PetFinder authentication</strong>: needed OAuth 2.0 through a Cloudflare Worker proxy</li>
+<li><strong>Parsing OpenAI responses</strong>: took careful prompting to get structured recommendations the app could read</li>
+<li><strong>Speed</strong>: caching cut down on API calls and made the app faster</li>
 </ul>
-<p>"One of the more interesting challenges was finding the right balance with the AI prompts," notes Lyor. "I needed to provide enough context to get relevant recommendations while ensuring consistent, structured responses I could parse reliably."</p>
-<h2>Building Solo with AI Tools</h2>
-<p>What makes this case study particularly interesting is how Lyor built the entire application himself using AI-powered development tools:</p>
+<p>"One of the more interesting challenges was getting the AI prompts right," says Lyor. "I had to give enough context for relevant recommendations while keeping the responses consistent enough to parse."</p>
+<h2>Building solo with AI tools</h2>
+<p>Lyor built the whole app himself with AI development tools:</p>
 <ol>
-<li><strong>v0</strong>: Used for initial prototyping and generating layouts based on wireframes</li>
-<li><strong>Cursor &amp; Windsurf</strong>: AI-powered IDEs that assisted with coding and refactoring</li>
-<li><strong>Claude</strong>: Started with Anthropic's Claude 3.5 Sonnet and later upgraded to Claude 3.7, which helped write cleaner code</li>
+<li><strong>v0</strong>: first prototypes and layouts from wireframes</li>
+<li><strong>Cursor and Windsurf</strong>: AI code editors for writing and refactoring</li>
+<li><strong>Claude</strong>: started with Claude 3.5 Sonnet, then moved to Claude 3.7, which wrote cleaner code</li>
 </ol>
-<p>"As a PM who's not a developer by training, these AI tools were incredibly empowering," says Lyor. "They allowed me to be a builder in the digital world, not just someone who writes specs for others to implement."</p>
-<p>Lyor observed an important pattern in AI-assisted development: "Getting to 70% completion was surprisingly easy with tools like v0. But that last 20-30% (perfecting layouts, adding advanced features, and debugging edge cases) follows the Pareto principle, taking about 80% of the total development time. I'm hoping future AI tools with better reasoning capabilities and larger context windows will make that final stretch easier."</p>
-<p>One crucial tip Lyor discovered: "Always have your AI document what it's doing and create its own documentation. This serves two purposes: it helps you understand what went wrong when the AI makes mistakes, and it prevents you from exhausting your context window when debugging, since you can refer to specific documentation instead of repeating the entire conversation."</p>
+<p>"I'm a PM, not a developer by training, and these tools changed what I could do," says Lyor. "They let me build things myself, not just write specs for others to build."</p>
+<p>He noticed a pattern: "Getting to 70% was surprisingly easy with tools like v0. The last 20 to 30% (polishing layouts, adding advanced features, fixing edge cases) took about 80% of the total time. I hope future AI tools with better reasoning and bigger context windows make that last stretch easier."</p>
+<p>His most useful tip: "Have the AI document what it's doing as it goes. When it makes a mistake, you can see what went wrong, and you don't burn your context window re-explaining the whole conversation, because you can point it to the docs."</p>
 <figure>
-<img src="/assets/images/pet_details.png" alt="Pet details page showing comprehensive information" width="1392" height="1328" loading="lazy" decoding="async">
-<figcaption>The pet details page provides comprehensive information to help users make informed decisions</figcaption>
+<img src="/assets/images/pet_details.png" alt="FindMePet pet details page" width="1392" height="1328" loading="lazy" decoding="async">
+<figcaption>The pet details page gives people what they need to make a decision.</figcaption>
 </figure>
-<h2>The User Experience: Simple, Delightful, and Effective</h2>
-<p>The FindMePet experience is designed to be simple yet emotionally engaging:</p>
+<h2>The experience</h2>
+<p>The flow is short and meant to feel warm:</p>
 <ol>
-<li>
-<p><strong>Homepage</strong>: Features a rotating hero component showcasing adoptable pets with minimal text</p>
-</li>
-<li>
-<p><strong>Questionnaire Flow</strong>: Collects location and pet type preferences through a simple, guided process</p>
-</li>
-<li>
-<p><strong>Results</strong>: Displays available pets in a visually-appealing grid with one AI-recommended pet highlighted</p>
-</li>
-<li>
-<p><strong>Pet Details</strong>: Provides comprehensive information on each pet with adoption instructions</p>
-</li>
-<li>
-<p><strong>Quick Search</strong>: Allows returning users to bypass the questionnaire and get directly to browsing</p>
-</li>
+<li><strong>Home page</strong>: a rotating hero of adoptable pets with very little text</li>
+<li><strong>Questionnaire</strong>: a few guided questions about location and the kind of pet</li>
+<li><strong>Results</strong>: a grid of available pets, with one AI pick highlighted</li>
+<li><strong>Pet details</strong>: everything about the pet, plus how to adopt</li>
+<li><strong>Quick Search</strong>: returning visitors can skip the questions and browse</li>
 </ol>
-<p>"I deliberately kept the flow simple for the first version," explains Lyor. "Future iterations will collect more detailed user preferences to further improve the AI recommendations, but I wanted to start with something clean and easy to use."</p>
-<h2>Roadmap: Just Getting Started</h2>
-<p>FindMePet is just beginning its journey, with several key enhancements planned:</p>
+<p>"I kept the first version simple on purpose," says Lyor. "Later versions would ask more about preferences to improve the recommendations, but I wanted to start with something clean and easy to use."</p>
+<h2>What was planned next</h2>
 <ol>
-<li>
-<p><strong>Enhanced User Input</strong>: Collecting more detailed lifestyle preferences to improve recommendations</p>
-</li>
-<li>
-<p><strong>Multiple Recommendations</strong>: Providing primary, secondary, and tertiary options with comparisons</p>
-</li>
-<li>
-<p><strong>Performance Metrics</strong>: Implementing analytics to track adoption funnel metrics</p>
-</li>
-<li>
-<p><strong>User Research</strong>: Conducting studies to understand user needs and refinement opportunities</p>
-</li>
-<li>
-<p><strong>Success Tracking</strong>: Adding follow-up forms to learn how many users actually adopt pets through the platform</p>
-</li>
+<li><strong>Richer questions</strong>: more about lifestyle to sharpen the recommendations</li>
+<li><strong>More than one pick</strong>: a first, second, and third choice, with a comparison</li>
+<li><strong>Analytics</strong>: track the adoption funnel</li>
+<li><strong>User research</strong>: learn what people need and where to improve</li>
+<li><strong>Follow-ups</strong>: ask people whether they actually adopted</li>
 </ol>
-<p>"My north star metric will ultimately be successful adoptions: pets who find permanent homes through the platform," says Lyor. "In the short term, I'm tracking engagement metrics like clicks on the 'Adopt' button to measure interest."</p>
-<h2>Lessons for Product Managers</h2>
-<p>Lyor's experience building FindMePet offers several valuable lessons for product managers:</p>
+<p>"My north star is successful adoptions: pets who find permanent homes through the app," said Lyor at the time. "For now, I'm tracking clicks on the Adopt button to measure interest."</p>
+<h2>Lessons for product managers</h2>
 <ol>
-<li>
-<p><strong>Leverage AI Strategically</strong>: AI can both enhance your development process and deliver unique user value</p>
-</li>
-<li>
-<p><strong>Make Hard Trade-offs</strong>: Focused constraints (like limiting to three animal types) enabled faster delivery</p>
-</li>
-<li>
-<p><strong>Start with Core Value</strong>: Prioritize the primary user need (finding compatible pets) before adding nice-to-have features</p>
-</li>
-<li>
-<p><strong>Personal Passion Drives Product Quality</strong>: Lyor's love for animals created an authentic foundation for the product</p>
-</li>
-<li>
-<p><strong>Tools Enable Builders</strong>: Modern AI tools are enabling PMs to directly build products without deep technical expertise</p>
-</li>
-<li>
-<p><strong>Document the AI's Work</strong>: Having AI document its own code and reasoning saves time and provides crucial context for debugging</p>
-</li>
+<li><strong>Use AI where it counts</strong>: it can speed up building and also be the thing that makes the product useful.</li>
+<li><strong>Make hard trade-offs</strong>: limiting the app to three kinds of animals made it faster to ship.</li>
+<li><strong>Start with the core need</strong>: finding a compatible pet comes before any extras.</li>
+<li><strong>Care about the problem</strong>: Lyor's love of animals shaped the product.</li>
+<li><strong>PMs can build now</strong>: today's AI tools let product managers ship without deep technical skills.</li>
+<li><strong>Have the AI document its work</strong>: it saves time and gives you context when debugging.</li>
 </ol>
-<p>"The most surprising thing was how quickly I was able to go from concept to functional application," reflects Lyor. "With the right tools and focused scope, I built something genuinely useful in a fraction of the time it would have taken traditionally."</p>
-<h2>Try It Yourself</h2>
-<p>FindMePet is live at <a href="https://findme.pet">findme.pet</a> and the code is available on GitHub. Whether you're looking to adopt a pet or just curious about how AI can transform traditional processes, it's worth checking out.</p>
+<p>"The biggest surprise was how fast I went from idea to working app," says Lyor. "With the right tools and a tight scope, I built something useful in a fraction of the usual time."</p>
 <hr />
-<p><em>This case study was prepared in March 2025 based on the FindMePet project developed by Lyor.</em></p>
+<p><em>This case study was written in March 2025 about FindMePet, a project Lyor built.</em></p>
             </div>
 
             <div class="article-end">
@@ -255,7 +207,7 @@
                             <img src="/assets/images/ts_policy_watcher_thumb.png" alt="Trust &amp; Safety Policy Watcher dashboard" width="1200" height="675" loading="lazy" decoding="async">
                         </div>
                         <h3 class="case-title">Trust &amp; Safety Policy Watcher: Building Competitive Intelligence That Never Sleeps</h3>
-                        <p class="case-excerpt">A product case study of transforming manual competitive intelligence into an automated AI-powered system monitoring 25+ competitor policies.</p>
+                        <p class="case-excerpt">Turning manual competitor policy checks into an AI system that watches 25+ policies and flags what changed.</p>
                         <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
                     </a>
                 </article>
@@ -265,7 +217,7 @@
                             <img src="/assets/images/debtcat_cover.png" alt="DebtCat home page" width="1200" height="600" loading="lazy" decoding="async">
                         </div>
                         <h3 class="case-title">DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt</h3>
-                        <p class="case-excerpt">A product case study of a tool to empower consumers with insider knowledge and actionable steps to challenge unfair collection practices.</p>
+                        <p class="case-excerpt">A free tool that helps people understand their rights and dispute unfair debt collection.</p>
                         <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
                     </a>
                 </article>

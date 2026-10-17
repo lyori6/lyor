@@ -109,8 +109,16 @@
   color: var(--ink);
 }
 
+.article-body h4 {
+  margin-top: 1.6em;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
 .article-body h2 + *,
-.article-body h3 + * {
+.article-body h3 + *,
+.article-body h4 + * {
   margin-top: 0.7em;
 }
 

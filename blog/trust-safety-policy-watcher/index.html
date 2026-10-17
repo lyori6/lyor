@@ -99,144 +99,131 @@
         <article class="article wrap">
             <p class="article-eyebrow"><a href="/blog">Case study</a><span>Trust &amp; Safety, AI automation</span></p>
             <h1 class="article-title">Trust &amp; Safety Policy Watcher: Building Competitive Intelligence That Never Sleeps</h1>
-            <p class="article-dek">A product case study of how a senior product manager transformed manual competitive intelligence into an automated AI-powered system that monitors 25+ competitor policies across major platforms, delivering strategic insights to product teams.</p>
+            <p class="article-dek">How I turned manual competitor policy checks into an automated AI system that watches 25+ Trust &amp; Safety policies and tells product teams what changed.</p>
             <div class="article-byline">
                 <img src="/images/lyor-480.jpg" alt="" class="avatar" width="44" height="44">
-                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-11">January 11, 2025</time> &middot; 6 min read</span>
+                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-11">January 11, 2025</time> &middot; 5 min read</span>
             </div>
 
             <div class="article-body">
 <figure>
-<img src="/assets/images/ts_policy_watcher_main.png" alt="Trust &amp; Safety Policy Watcher: main view banner showing policy counts, last check, and next check" width="1140" height="708" fetchpriority="high" decoding="async">
-<figcaption>The primary TS Policy Watcher view: a succinct overview with policies tracked, minutes since check, and time to next check.</figcaption>
+<img src="/assets/images/ts_policy_watcher_main.png" alt="Trust &amp; Safety Policy Watcher main view showing policies tracked, minutes since the last check, and time to the next check" width="1140" height="708" fetchpriority="high" decoding="async">
+<figcaption>The main view: policies tracked, minutes since the last check, and time to the next one.</figcaption>
 </figure>
-<h2>The Problem: Flying Blind in High-Stakes Competition</h2>
-<p>In the fast-moving world of social commerce and live streaming, Trust &amp; Safety policies aren't just legal documents. They're strategic battlegrounds. When TikTok updates their community guidelines or Meta changes their commerce policies, these shifts can signal major market movements, create competitive advantages, or expose strategic risks.</p>
-<p>Yet most product teams were operating with a critical blind spot:</p>
+<h2>The problem: tracking competitors by hand</h2>
+<p>In social commerce and live streaming, Trust &amp; Safety policies are more than legal pages. When TikTok updates its community guidelines or Meta changes its commerce rules, it can signal where the market is heading, open an advantage, or expose a risk.</p>
+<p>Most product teams were tracking these changes by hand, which meant:</p>
 <ul>
-<li><strong>Manual Monitoring Overhead</strong>: Product managers spending hours manually checking competitor policy pages</li>
-<li><strong>Reactive Intelligence</strong>: Learning about policy changes weeks after they happened, when competitive advantage was already lost</li>
-<li><strong>Inconsistent Coverage</strong>: Missing subtle but important changes due to human error and time constraints</li>
-<li><strong>No Historical Context</strong>: Unable to track policy evolution patterns or predict industry trends</li>
-<li><strong>Strategic Gaps</strong>: Making product decisions based on incomplete, outdated competitive intelligence</li>
+<li><strong>Hours of manual checking</strong>: product managers opening competitor policy pages one by one</li>
+<li><strong>Late news</strong>: learning about a change weeks after it happened</li>
+<li><strong>Gaps</strong>: missing small but important edits</li>
+<li><strong>No history</strong>: no way to see how a policy evolved over time</li>
+<li><strong>Decisions on stale information</strong>: product calls made without the latest competitor context</li>
 </ul>
-<p>The statistics were sobering: product teams were checking competitor policies maybe once a month, missing 80%+ of meaningful changes, and spending valuable PM hours on routine monitoring tasks instead of strategic analysis.</p>
-<p>This is exactly where the opportunity emerged. As a senior product manager with deep Trust &amp; Safety experience, I recognized that competitive intelligence could be transformed from a manual burden into an automated strategic asset.</p>
-<h2>The Vision: Zero-Maintenance Competitive Intelligence</h2>
-<p>"The best competitive intelligence system is one that works while you sleep," was the guiding principle. The vision crystallized around creating a fully automated "set it and forget it" system that would serve as the single source of truth for competitor Trust &amp; Safety policies.</p>
-<p>The system needed to be an intelligent agent that could:</p>
+<p>Teams checked competitor policies maybe once a month, missed most of the meaningful changes, and spent PM hours on routine checking instead of analysis.</p>
+<p>I'd spent years in Trust &amp; Safety as a product manager, and this looked like work a machine should do.</p>
+<h2>The goal: a system that runs on its own</h2>
+<p>The idea was simple: the best competitive intelligence system works while you sleep. I wanted a "set it and forget it" tool that would be the single source of truth for competitor Trust &amp; Safety policies.</p>
+<p>It needed to:</p>
 <ul>
-<li><strong>Monitor Reliably</strong>: Automatically check curated competitor policy pages every 6 hours</li>
-<li><strong>Detect Substantively</strong>: Identify meaningful updates while filtering out cosmetic changes</li>
-<li><strong>Analyze with AI</strong>: Generate concise, strategic summaries focused on product manager needs</li>
-<li><strong>Report Intelligently</strong>: Deliver findings through professional email notifications and dashboard</li>
-<li><strong>Monitor Itself</strong>: Transparently report operational health for complete trust in data</li>
+<li><strong>Check reliably</strong>: visit a curated list of competitor policy pages every 6 hours</li>
+<li><strong>Tell real changes from noise</strong>: flag meaningful updates and ignore cosmetic ones</li>
+<li><strong>Summarize with AI</strong>: write short summaries a product manager can act on</li>
+<li><strong>Report</strong>: send email alerts and keep a dashboard up to date</li>
+<li><strong>Watch itself</strong>: report its own health so people can trust the data</li>
 </ul>
-<p>Unlike traditional competitive intelligence tools that require constant maintenance, this system was designed for operational excellence: professional-grade reliability with zero ongoing overhead.</p>
+<p>Most competitive intelligence tools need constant upkeep. This one had to run without any.</p>
 <figure>
-<img src="/assets/images/ts_policy_watcher_policy_matrix.png" alt="Policy Matrix: platforms, tracked policies, status, last updated, and quick actions" width="1766" height="1358" loading="lazy" decoding="async">
-<figcaption>Coverage at a glance: the Policy Matrix organizes platforms and key policies with status and last update timestamps.</figcaption>
+<img src="/assets/images/ts_policy_watcher_policy_matrix.png" alt="Policy Matrix listing platforms, tracked policies, status, last update, and quick actions" width="1766" height="1358" loading="lazy" decoding="async">
+<figcaption>The Policy Matrix: every platform and policy, with status and when it last changed.</figcaption>
 </figure>
-<h2>The Journey: From Manual Process to Automated Intelligence</h2>
-<p>Building the Trust &amp; Safety Policy Watcher required solving several complex technical and product challenges while maintaining the reliability standards expected of business-critical systems.
-<strong>Phase 1: Core System &amp; Reliability</strong>
-The foundation started with robust fetching and change detection. The biggest early challenge was distinguishing meaningful policy changes from cosmetic website updates. Dynamic content, ads, and UI changes created significant false positive rates.</p>
-<p>"I spent weeks debugging why YouTube policies appeared to change daily when the actual content was identical," explains the technical approach. "The breakthrough came from sophisticated HTML cleaning using BeautifulSoup with multi-layer content filtering to isolate core policy text from dynamic elements."</p>
-<p><strong>Phase 2: Intelligence &amp; User Experience</strong><br />
-Once reliable change detection was achieved, the focus shifted to AI-powered analysis. Rather than sending raw diffs to product managers, the system uses Google Gemini to generate strategic summaries answering "What changed and why does it matter to product strategy?"</p>
-<p>The email notification system was optimized for mobile-first consumption: plain text formatting ensures perfect rendering across all devices and email clients, critical for executives checking notifications on mobile.</p>
+<h2>How I built it</h2>
+<p>I built it in three phases.</p>
+<h3>Phase 1: reliable change detection</h3>
+<p>The first job was fetching pages and spotting changes. The hard part was telling real policy edits apart from cosmetic website updates. Dynamic content, ads, and UI changes caused a lot of false alarms.</p>
+<p>I spent weeks figuring out why YouTube policies seemed to change every day when the text was identical. The fix was cleaning the HTML with BeautifulSoup in several layers, so only the core policy text was compared.</p>
+<h3>Phase 2: AI summaries and alerts</h3>
+<p>Once change detection was reliable, I added AI analysis. Instead of sending raw diffs, the system asks Google Gemini to answer one question: what changed, and why does it matter for product strategy?</p>
+<p>Alerts go out as plain text email. That renders cleanly in every email client, including on phones, where executives often check alerts.</p>
 <figure class="is-narrow">
-<img src="/assets/images/ts_policy_watcher_email_mobile.png" alt="Mobile email alert: example of a concise AI-generated policy update summary" width="1179" height="2556" loading="lazy" decoding="async">
-<figcaption>Mobile-first notification: clear subject, platform, specific change summary, and impact notes designed for quick executive scanning.</figcaption>
+<img src="/assets/images/ts_policy_watcher_email_mobile.png" alt="Email alert on a phone with a short AI summary of a policy update" width="1179" height="2556" loading="lazy" decoding="async">
+<figcaption>An alert on a phone: subject, platform, what changed, and why it matters.</figcaption>
 </figure>
-<p><strong>Phase 3: Production Optimization &amp; Health Monitoring</strong>
-The final phase addressed operational excellence. A major enhancement was implementing dual-renderer health monitoring, using both HTTP requests and full browser validation to handle bot-protected sites like Whatnot and TikTok.</p>
-<p>"The health monitoring breakthrough eliminated false positive reporting," notes the system architecture. "We achieved 99.9% monitoring reliability with genuine health validation instead of assumptions."</p>
+<h3>Phase 3: health monitoring</h3>
+<p>The last phase was about staying reliable. Some sites, like Whatnot and TikTok, block bots, so health checks use both plain HTTP requests and a full browser.</p>
+<p>This stopped the system from reporting failures that weren't real, and brought monitoring reliability to 99.9%.</p>
 <figure>
-<img src="/assets/images/ts_policy_watcher_run_error.png" alt="Run error state and system health: recent runs with failure surfaced and triaged" width="1858" height="1110" loading="lazy" decoding="async">
-<figcaption>Operational transparency: system run logs surface failures with timestamps and error counts, enabling rapid investigation and recovery.</figcaption>
+<img src="/assets/images/ts_policy_watcher_run_error.png" alt="Run log showing recent runs, with a failed run flagged" width="1858" height="1110" loading="lazy" decoding="async">
+<figcaption>The run log shows failures with timestamps and error counts, so problems get fixed fast.</figcaption>
 </figure>
-<h3>Technical Innovation: Smart Change Detection</h3>
-<p>The system's core innovation lies in intelligent change detection. Using sophisticated HTML cleaning, it distinguishes between meaningful policy updates and cosmetic changes:</p>
+<h3>How change detection works</h3>
+<p>The core of the system is deciding what counts as a change. It cleans each page before comparing it:</p>
 <ul>
-<li><strong>Content Structure Analysis</strong>: Identifies main policy content using semantic HTML markers</li>
-<li><strong>Dynamic Element Filtering</strong>: Removes ads, scripts, session IDs, and other noise</li>
-<li><strong>Pattern Recognition</strong>: Uses regex to filter out known dynamic patterns like nonce attributes</li>
-<li><strong>Multi-layer Validation</strong>: Combines HTML structure analysis with plain text comparison</li>
+<li><strong>Find the policy text</strong>: use semantic HTML markers to locate the main content</li>
+<li><strong>Strip the noise</strong>: remove ads, scripts, session IDs, and similar elements</li>
+<li><strong>Filter known patterns</strong>: use regex to drop things like nonce attributes</li>
+<li><strong>Compare twice</strong>: check both the HTML structure and the plain text</li>
 </ul>
-<p>This ensures product teams only receive notifications for substantive policy changes, maintaining high signal-to-noise ratio essential for executive-level communications.</p>
-<h2>Product Design: Optimizing for Trust and Actionability</h2>
-<p>For a system handling sensitive competitive intelligence, building trust while maximizing actionability presented unique design challenges:</p>
-<p><strong>Zero-Maintenance Operation</strong>: The system runs entirely on GitHub Actions with automated error recovery and self-healing capabilities</p>
-<p><strong>Professional-Grade Notifications</strong>: Plain text emails optimized for mobile consumption with clean, business-appropriate formatting</p>
-<p><strong>Comprehensive Dashboard</strong>: Real-time policy matrix with historical tracking, health monitoring, and export capabilities</p>
-<p><strong>AI-Augmented Analysis</strong>: Strategic summaries focused on business impact rather than technical details</p>
-<p>"Our biggest design insight was that competitive intelligence systems must be more reliable than the competition they're monitoring," reflects the product philosophy. "Any false alerts or system downtime erodes trust in the strategic insights."</p>
-<h2>Key Challenges: Reliability, Bot Protection, and Signal Quality</h2>
-<h3>1. Bot Protection and Access Issues</h3>
-<p>Major platforms like TikTok, Meta, and Whatnot use sophisticated bot protection that blocks traditional scraping approaches.</p>
-<p>"We solved this with a dual-renderer architecture: HTTP requests for simple pages, full Playwright browser automation for bot-protected sites," explains the technical solution. "This gives us 100% coverage while maintaining performance."</p>
-<h3>2. False Positive Detection</h3>
-<p>Early versions detected changes on every run due to dynamic content like timestamps, session IDs, and rotating ads.</p>
-<p>The solution required building a sophisticated content cleaning pipeline that could identify and filter out 20+ types of dynamic content while preserving actual policy changes.</p>
-<h3>3. Operational Reliability</h3>
-<p>For a system that product teams depend on for strategic decisions, reliability was non-negotiable.</p>
-<p>"We implemented comprehensive health monitoring with proactive alerts, automated error recovery, and transparent operational status," details the reliability approach. "The system now achieves 99.9% uptime with zero silent failures."</p>
-<h2>Current Production Status: Operational Excellence</h2>
-<p><strong>Coverage &amp; Performance</strong>:</p>
+<p>That way, people only hear about real policy changes, and they keep reading the alerts.</p>
+<h2>Designing for trust</h2>
+<p>An intelligence tool is only useful if people trust it. A few choices mattered most:</p>
 <ul>
-<li><strong>25+ Policies</strong> across TikTok, YouTube, Meta, Whatnot, and Twitch</li>
-<li><strong>99.9% Uptime</strong> with proactive health monitoring and zero silent failures</li>
-<li><strong>Under 6 hours detection</strong> on average from policy publication to notification</li>
-<li><strong>Over 95% precision</strong> in identifying meaningful policy changes vs. cosmetic updates</li>
-<li><strong>Professional AI summaries</strong> optimized for executive consumption</li>
+<li><strong>No maintenance</strong>: it runs on GitHub Actions and recovers from errors on its own</li>
+<li><strong>Clean alerts</strong>: plain text email that reads well on a phone</li>
+<li><strong>One dashboard</strong>: the policy matrix, history, health status, and exports in one place</li>
+<li><strong>Summaries about impact</strong>: AI summaries focus on what a change means for the business, not on technical detail</li>
 </ul>
-<p><strong>Business Impact</strong>:</p>
+<p>The biggest lesson: a tool that monitors competitors has to be more reliable than the competitors it watches. One false alert or a quiet outage and people stop trusting it.</p>
+<h2>What was hard</h2>
+<h3>1. Bot protection</h3>
+<p>TikTok, Meta, and Whatnot block ordinary scrapers. I used two fetchers: plain HTTP requests for simple pages and Playwright browser automation for protected ones. That covers every site without slowing the simple ones down.</p>
+<h3>2. False positives</h3>
+<p>Early versions reported a change on every run because of timestamps, session IDs, and rotating ads. I built a cleaning pipeline that filters out more than 20 kinds of dynamic content and keeps the actual policy text.</p>
+<h3>3. Reliability</h3>
+<p>Teams use this for real decisions, so it can't fail quietly. It has health checks, alerts when something breaks, automatic recovery, and a visible status page. It now runs at 99.9% uptime with no silent failures.</p>
+<h2>Where it stands</h2>
+<p><strong>Coverage and performance</strong>:</p>
 <ul>
-<li><strong>Strategic intelligence</strong>: Product teams receive timely, actionable competitor insights</li>
-<li><strong>Time savings</strong>: Eliminates manual policy monitoring overhead (estimated 10+ hours/month per PM)</li>
-<li><strong>Risk mitigation</strong>: Proactive awareness of industry policy trends and system health</li>
-<li><strong>Decision support</strong>: AI summaries enable faster strategic decision-making</li>
-<li><strong>Competitive advantage</strong>: Superior intelligence enables proactive rather than reactive strategy</li>
+<li><strong>25+ policies</strong> across TikTok, YouTube, Meta, Whatnot, and Twitch</li>
+<li><strong>99.9% uptime</strong> with health monitoring and no silent failures</li>
+<li><strong>Under 6 hours</strong> on average from a policy change to the alert</li>
+<li><strong>Over 95% precision</strong> in telling real policy changes from cosmetic ones</li>
 </ul>
-<h2>Lessons for Product Leaders</h2>
-<h3>1. Automation Excellence Requires Product Thinking</h3>
-<p>Technical automation alone isn't enough. The system needed careful product design around user workflows, notification fatigue, and trust-building to be truly valuable.</p>
-<p><strong>Takeaway</strong>: Successful automation products require as much product management rigor as user-facing features.</p>
-<h3>2. AI Integration Must Solve Real Problems</h3>
-<p>The AI summarization wasn't about showcasing technology. It solved the specific problem of turning raw policy diffs into actionable strategic intelligence.</p>
-<p><strong>Takeaway</strong>: AI features should address concrete user pain points, not demonstrate technical capabilities.</p>
-<h3>3. Reliability Is a Product Feature</h3>
-<p>For business-critical systems, operational reliability becomes a core product differentiator, not just a technical requirement.</p>
-<p><strong>Takeaway</strong>: In B2B products, system reliability directly impacts user trust and adoption.</p>
-<h3>4. Signal-to-Noise Ratio Determines Success</h3>
-<p>The most technically sophisticated system fails if it generates false alerts that train users to ignore notifications.</p>
-<p><strong>Takeaway</strong>: For intelligence systems, precision is more valuable than recall.</p>
-<h2>What's Next: The Roadmap Ahead</h2>
-<p>The Trust &amp; Safety Policy Watcher's future development focuses on expanding intelligence capabilities while maintaining operational excellence:</p>
-<p><strong>Advanced Analytics</strong>:</p>
+<p><strong>What it saves</strong>: the manual checking, an estimated 10+ hours a month per PM, and teams hear about competitor changes while they still matter.</p>
+<h2>Lessons for product leaders</h2>
+<h3>1. Automation still needs product thinking</h3>
+<p>Automating the checks wasn't enough. The system needed real product design around how people work, how many alerts they'll tolerate, and how they come to trust it.</p>
+<p><strong>Takeaway</strong>: internal automation deserves the same product rigor as a customer-facing feature.</p>
+<h3>2. Use AI for a specific problem</h3>
+<p>The AI summaries weren't there to show off. They turn raw diffs into something a PM can act on.</p>
+<p><strong>Takeaway</strong>: add AI where it removes a real pain point, not to demonstrate the technology.</p>
+<h3>3. Reliability is a feature</h3>
+<p>For a tool people rely on, uptime is part of the product, not just an engineering concern.</p>
+<p><strong>Takeaway</strong>: in B2B products, reliability drives trust and adoption.</p>
+<h3>4. Signal beats volume</h3>
+<p>A clever system still fails if false alerts teach people to ignore it.</p>
+<p><strong>Takeaway</strong>: for alerting tools, precision matters more than recall.</p>
+<h2>What's next</h2>
+<p><strong>Analysis</strong>:</p>
 <ul>
-<li>Policy trend analysis and pattern recognition across platforms</li>
-<li>Competitive positioning recommendations based on policy gaps</li>
-<li>Predictive modeling for industry policy shifts</li>
+<li>Spot trends and patterns across platforms</li>
+<li>Suggest positioning based on gaps between policies</li>
+<li>Predict where industry policy is heading</li>
 </ul>
-<p><strong>Extended Coverage</strong>:</p>
+<p><strong>Coverage</strong>:</p>
 <ul>
-<li>Additional platforms (Discord, Snapchat, LinkedIn)</li>
-<li>International policy monitoring for global expansion</li>
-<li>Regulatory change tracking integration</li>
+<li>More platforms (Discord, Snapchat, LinkedIn)</li>
+<li>Policies outside the US</li>
+<li>Regulatory changes</li>
 </ul>
-<p><strong>Enhanced Intelligence</strong>:</p>
+<p><strong>Deeper insight</strong>:</p>
 <ul>
-<li>Policy impact assessment modeling</li>
-<li>Automated competitive advantage identification</li>
-<li>Strategic planning dashboard integration</li>
+<li>Estimate the impact of a policy change</li>
+<li>Flag competitive openings automatically</li>
+<li>Connect to strategic planning dashboards</li>
 </ul>
-<p>The system demonstrates how senior product management can transform operational pain points into strategic competitive advantages through thoughtful automation and AI integration.</p>
-<h2>Try It Yourself</h2>
-<p>The Trust &amp; Safety Policy Watcher is fully operational at <a href="https://ts-policy-watcher.vercel.app/">ts-policy-watcher.vercel.app</a>, providing 24/7 competitive intelligence to product teams across the social commerce industry.</p>
-<hr />
-<p><em>This system represents a successful application of senior product management methodologies to create sustainable competitive advantage through intelligent automation, demonstrating technical product leadership and measurable business impact.</em></p>
+<h2>Try it</h2>
+<p>The Policy Watcher is live at <a href="https://ts-policy-watcher.vercel.app/">ts-policy-watcher.vercel.app</a> and checks competitor policies around the clock.</p>
             </div>
 
             <div class="article-end">
@@ -254,7 +241,7 @@ The final phase addressed operational excellence. A major enhancement was implem
                             <img src="/assets/images/debtcat_cover.png" alt="DebtCat home page" width="1200" height="600" loading="lazy" decoding="async">
                         </div>
                         <h3 class="case-title">DebtCat: Building a No-BS First Aid Kit for People Drowning in Debt</h3>
-                        <p class="case-excerpt">A product case study of a tool to empower consumers with insider knowledge and actionable steps to challenge unfair collection practices.</p>
+                        <p class="case-excerpt">A free tool that helps people understand their rights and dispute unfair debt collection.</p>
                         <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
                     </a>
                 </article>
@@ -264,7 +251,7 @@ The final phase addressed operational excellence. A major enhancement was implem
                             <img src="/assets/images/shasta_cover.png" alt="FindMePet landing page featuring Shasta" width="1200" height="600" loading="lazy" decoding="async">
                         </div>
                         <h3 class="case-title">FindMePet: Using AI to Solve the Pet Adoption Mismatch Problem</h3>
-                        <p class="case-excerpt">A product case study of building an AI-powered pet adoption platform that connects more animals with loving homes.</p>
+                        <p class="case-excerpt">An AI pet adoption app that matches people with pets that fit their lives.</p>
                         <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
                     </a>
                 </article>
