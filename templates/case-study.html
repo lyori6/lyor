@@ -2,7 +2,8 @@
 <!--
   Case study template. To add one:
   1. Copy this file to blog/<slug>/index.html and replace every {{...}}.
-     The optional note (class="article-note") goes right after the byline, see blog/findmepet.
+     Start the body with the "glance" list (problem, role, what you built, results).
+     An optional note (class="article-note") can go right after the byline.
   2. Put screenshots in assets/images/ and add the share image line to scripts/og.mjs,
      then run node scripts/og.mjs to render images/og/<slug>.png.
   3. Add a card to blog/index.html (and the home page if it should be featured),
@@ -118,6 +119,12 @@
 <!-- Body: plain HTML. h2 for sections, h3 below that, p, ul, ol, blockquote.
      Screenshots go in a figure; add class="is-narrow" for phone screenshots.
      The first figure uses fetchpriority="high", later ones loading="lazy". -->
+<dl class="glance">
+<div><dt>Problem</dt><dd>{{Who has the problem and why it matters, one line}}</dd></div>
+<div><dt>My role</dt><dd>{{Role and scope}}</dd></div>
+<div><dt>What I built</dt><dd>{{One line}}</dd></div>
+<div><dt>Results</dt><dd>{{Only validated outcomes}}</dd></div>
+</dl>
 <figure>
 <img src="/assets/images/{{IMAGE}}.png" alt="{{What the screenshot shows}}" width="{{W}}" height="{{H}}" fetchpriority="high" decoding="async">
 <figcaption>{{Optional caption}}</figcaption>

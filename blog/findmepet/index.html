@@ -102,94 +102,53 @@
             <p class="article-dek">Building an AI pet adoption app that matches people with pets that fit their lives, so fewer pets go back to shelters.</p>
             <div class="article-byline">
                 <img src="/images/lyor-480.jpg" alt="" class="avatar" width="44" height="44">
-                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-01">January 1, 2025</time> &middot; 4 min read</span>
+                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-01">January 1, 2025</time> &middot; 2 min read</span>
             </div>
-            <p class="article-note">FindMePet was retired in December 2025. This case study describes the product as it ran in 2025.</p>
 
             <div class="article-body">
+<dl class="glance">
+<div><dt>Problem</dt><dd>10 to 20% of adopted pets go back to shelters, often because of a poor match.</dd></div>
+<div><dt>My role</dt><dd>Solo builder. Product, design, and code, with AI tools.</dd></div>
+<div><dt>What I built</dt><dd>An adoption app that recommends pets based on a person's preferences and lifestyle.</dd></div>
+<div><dt>Results</dt><dd>Shipped an MVP fast with a tight scope. Retired in December 2025.</dd></div>
+</dl>
 <figure>
 <img src="/assets/images/shasta_main.png" alt="FindMePet landing page featuring Shasta, the dog behind the project" width="1042" height="880" fetchpriority="high" decoding="async">
-<figcaption>The FindMePet landing page, featuring Shasta, Lyor's adopted dog and the reason for the project.</figcaption>
+<figcaption>The landing page, featuring Shasta, my adopted dog and the reason for the project.</figcaption>
 </figure>
-<h2>The problem: adoption matches often fail</h2>
-<p>Pet adoption has a problem that doesn't get much attention: too many matches don't work out.</p>
-<p>Between 10 and 20% of adopted pets go back to shelters. Mismatched expectations and behavior issues are common reasons. A University of Alberta study found that 80% of adopters choose a pet mostly on looks rather than fit. Meanwhile, 34% of pet owners buy from breeders instead of adopting, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
-<p>Behind those numbers are real animals. They had a home for a short time, then went back to a cage.</p>
-<p>That's the problem Lyor, a product manager and animal lover, set out to solve with FindMePet.</p>
-<h2>The idea: matchmaking for people and pets</h2>
-<p>"I adopted my dog Shasta and saw firsthand how hard the process can be," says Lyor, who had spent nearly six years as a product manager at SaaS companies. "I wanted to build a tool that helps more pets find forever homes by matching them with the right owners from the start."</p>
-<p>FindMePet is a Next.js app built on the PetFinder API and OpenAI. It recommends pets based on a person's preferences and lifestyle.</p>
-<p>"Think of it as matchmaking, but between people and pets," Lyor explains. "I'm trying to lower the return rate by making better matches from the beginning."</p>
-<h2>Building it: hard choices, shipped fast</h2>
-<p>As a PM, Lyor knew a focused MVP shipped fast beats a perfect product shipped late. That meant hard trade-offs:</p>
-<ol>
-<li><strong>Fewer animals</strong>: the PetFinder API covers everything from dogs to chinchillas. FindMePet launched with dogs, cats, and rabbits.</li>
-<li><strong>Filters upfront</strong>: filtering happens in the API call, not on the results page, to keep the first version simple.</li>
-<li><strong>Photos first</strong>: animals without photos rank lower, because photos drive the emotional connection in adoption.</li>
-<li><strong>Two ways in</strong>: a Quick Search for people who want to browse, and a guided questionnaire for people who want recommendations.</li>
-</ol>
+<h2>The problem</h2>
+<p>Too many adoptions don't work out. Between 10 and 20% of adopted pets go back to shelters. Mismatched expectations and behavior issues are common reasons.</p>
+<p>A University of Alberta study found 80% of adopters choose mostly on looks rather than fit. Meanwhile, 34% of pet owners buy from breeders, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
+<p>I adopted my dog Shasta and saw how hard the process is. I wanted fewer returns by making better matches from the start.</p>
+<h2>Key decisions</h2>
+<p>A focused MVP shipped fast beats a perfect product shipped late. So I made hard cuts:</p>
+<ul>
+<li><strong>Three animals, not dozens.</strong> The PetFinder API covers dogs to chinchillas. I launched with dogs, cats, and rabbits.</li>
+<li><strong>Filters upfront.</strong> Filtering happens in the API call, not on the results page. Simpler first version.</li>
+<li><strong>Photos first.</strong> Pets without photos rank lower, because photos drive the emotional connection.</li>
+<li><strong>Two paths.</strong> A guided questionnaire for people who want a recommendation. Quick Search for people who just want to browse.</li>
+<li><strong>One AI pick.</strong> Results show a grid with a single highlighted recommendation, to keep the choice easy.</li>
+</ul>
 <figure>
 <img src="/assets/images/results_page.png" alt="FindMePet results page with an AI-recommended pet highlighted" width="1489" height="961" loading="lazy" decoding="async">
-<figcaption>The results page highlights one AI-recommended pet and shows how well it fits.</figcaption>
+<figcaption>Results highlight one AI-recommended pet and show how well it fits.</figcaption>
 </figure>
-<h2>The tech stack</h2>
-<p>FindMePet runs on Next.js 14 with the App Router, styled with Tailwind CSS and deployed on Vercel. It uses two APIs:</p>
-<ol>
-<li><strong>PetFinder API</strong>: live data on adoptable pets across the United States</li>
-<li><strong>OpenAI (GPT-4o mini)</strong>: the recommendations</li>
-</ol>
-<p>Most of the technical challenges were in the integrations:</p>
-<ul>
-<li><strong>PetFinder authentication</strong>: needed OAuth 2.0 through a Cloudflare Worker proxy</li>
-<li><strong>Parsing OpenAI responses</strong>: took careful prompting to get structured recommendations the app could read</li>
-<li><strong>Speed</strong>: caching cut down on API calls and made the app faster</li>
-</ul>
-<p>"One of the more interesting challenges was getting the AI prompts right," says Lyor. "I had to give enough context for relevant recommendations while keeping the responses consistent enough to parse."</p>
-<h2>Building solo with AI tools</h2>
-<p>Lyor built the whole app himself with AI development tools:</p>
-<ol>
-<li><strong>v0</strong>: first prototypes and layouts from wireframes</li>
-<li><strong>Cursor and Windsurf</strong>: AI code editors for writing and refactoring</li>
-<li><strong>Claude</strong>: started with Claude 3.5 Sonnet, then moved to Claude 3.7, which wrote cleaner code</li>
-</ol>
-<p>"I'm a PM, not a developer by training, and these tools changed what I could do," says Lyor. "I could build things myself instead of writing specs for others."</p>
-<p>He noticed a pattern: "Getting to 70% was surprisingly easy with tools like v0. The last 20 to 30% (polishing layouts, adding advanced features, fixing edge cases) took about 80% of the total time. I hope future AI tools with better reasoning and bigger context windows make that last stretch easier."</p>
-<p>His most useful tip: "Have the AI document what it's doing as it goes. When it makes a mistake, you can see what went wrong. And you can point it to the docs instead of burning your context window re-explaining everything."</p>
+<h2>How I built it</h2>
+<p>Next.js 14 on Vercel, the PetFinder API for live adoptable pets, and OpenAI (GPT-4o mini) for recommendations. PetFinder needed OAuth 2.0 through a Cloudflare Worker proxy. Getting structured, parseable recommendations took careful prompting.</p>
+<p>I built it alone with v0, Cursor, Windsurf, and Claude. Getting to 70% was surprisingly easy. The last 20 to 30% (polish, edge cases, advanced features) took about 80% of the time. My best tip: have the AI document its work as it goes. You see what went wrong, and you can point it to the docs instead of re-explaining everything.</p>
 <figure>
 <img src="/assets/images/pet_details.png" alt="FindMePet pet details page" width="1392" height="1328" loading="lazy" decoding="async">
-<figcaption>The pet details page gives people what they need to make a decision.</figcaption>
+<figcaption>The pet details page gives people what they need to decide.</figcaption>
 </figure>
-<h2>The experience</h2>
-<p>The flow is short and meant to feel warm:</p>
-<ol>
-<li><strong>Home page</strong>: a rotating hero of adoptable pets with very little text</li>
-<li><strong>Questionnaire</strong>: a few guided questions about location and the kind of pet</li>
-<li><strong>Results</strong>: a grid of available pets, with one AI pick highlighted</li>
-<li><strong>Pet details</strong>: everything about the pet, plus how to adopt</li>
-<li><strong>Quick Search</strong>: returning visitors can skip the questions and browse</li>
-</ol>
-<p>"I kept the first version simple on purpose," says Lyor. "Later versions would ask more about preferences to improve the recommendations, but I wanted to start with something clean and easy to use."</p>
-<h2>What was planned next</h2>
-<ol>
-<li><strong>Richer questions</strong>: more about lifestyle to sharpen the recommendations</li>
-<li><strong>More than one pick</strong>: a first, second, and third choice, with a comparison</li>
-<li><strong>Analytics</strong>: track the adoption funnel</li>
-<li><strong>User research</strong>: learn what people need and where to improve</li>
-<li><strong>Follow-ups</strong>: ask people whether they actually adopted</li>
-</ol>
-<p>"My north star is successful adoptions: pets who find permanent homes through the app," said Lyor at the time. "For now, I'm tracking clicks on the Adopt button to measure interest."</p>
-<h2>Lessons for product managers</h2>
-<ol>
-<li><strong>Use AI where it counts</strong>: it can speed up the build and be the core of the product.</li>
-<li><strong>Make hard trade-offs</strong>: limiting the app to three kinds of animals made it faster to ship.</li>
-<li><strong>Start with the core need</strong>: finding a compatible pet comes before any extras.</li>
-<li><strong>Care about the problem</strong>: Lyor's love of animals shaped the product.</li>
-<li><strong>PMs can build now</strong>: today's AI tools let product managers ship without deep technical skills.</li>
-<li><strong>Have the AI document its work</strong>: it saves time and gives you context when debugging.</li>
-</ol>
-<p>"The biggest surprise was how fast I went from idea to working app," says Lyor. "With the right tools and a tight scope, I built something useful in a fraction of the usual time."</p>
-<hr />
-<p>Written in March 2025.</p>
+<h2>Results</h2>
+<p>The north star was successful adoptions. Early on, I tracked clicks on the Adopt button as the leading signal. Next on the list were richer lifestyle questions, a top three with comparisons, funnel analytics, and follow-ups to confirm real adoptions.</p>
+<p>I retired FindMePet in December 2025, after the PetFinder API it depended on went away.</p>
+<h2>Takeaways</h2>
+<ul>
+<li><strong>Tight scope ships.</strong> Three animal types and one AI pick got a working product out fast.</li>
+<li><strong>Set the north star before launch.</strong> Adoptions were the goal. Adopt clicks were the signal I could measure on day one.</li>
+<li><strong>PMs can build now.</strong> With AI tools, I went from idea to working app in a fraction of the usual time.</li>
+</ul>
             </div>
 
             <div class="article-end">

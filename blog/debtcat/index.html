@@ -102,112 +102,72 @@
             <p class="article-dek">How a former debt collection product manager built a free tool that helps people understand their rights and dispute unfair collections.</p>
             <div class="article-byline">
                 <img src="/images/lyor-480.jpg" alt="" class="avatar" width="44" height="44">
-                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-11">January 11, 2025</time> &middot; 5 min read</span>
+                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-11">January 11, 2025</time> &middot; 3 min read</span>
             </div>
 
             <div class="article-body">
+<dl class="glance">
+<div><dt>Problem</dt><dd>People in collections rarely know their rights or how to dispute a bad debt.</dd></div>
+<div><dt>My role</dt><dd>Founder. Former debt collection PM. I led product and built most of it myself with AI tools.</dd></div>
+<div><dt>What I built</dt><dd>A free "first aid kit": plain guides, an AI chatbot, and a dispute letter generator. No sign-up.</dd></div>
+<div><dt>Results</dt><dd>All three tools live and free. Revenue only from optional mailing. Built on three stacks with almost no dev budget.</dd></div>
+</dl>
 <figure>
 <img src="/assets/images/debtcat_1.png" alt="DebtCat home page with the headline Break Debt, Not Sweat" width="1095" height="855" fetchpriority="high" decoding="async">
 </figure>
-<h2>The problem: debt collection isn't fair</h2>
-<p>Everyone knows debt is complicated. Fewer people realize the collection system profits when consumers feel confused and ashamed.</p>
-<p>Over 70 million Americans have debts in collections. Only a small share know their rights or how to dispute a bad claim:</p>
+<h2>The problem</h2>
+<p>Over 70 million Americans have debts in collections. Few know their rights or how to dispute a bad claim:</p>
 <ul>
 <li>35% of American adults with credit files have debts in collection</li>
-<li>44% of consumers say they feel "scared," "confused," or "helpless" when a collector contacts them</li>
-<li>Only 1 in 20 consumers disputes a debt, yet up to 59% of debt portfolios contain errors</li>
-<li>The average consumer spends 45+ hours trying to resolve debt issues</li>
+<li>44% say they feel "scared," "confused," or "helpless" when a collector calls</li>
+<li>Only 1 in 20 disputes a debt, yet up to 59% of debt portfolios contain errors</li>
+<li>The average person spends 45+ hours trying to resolve debt issues</li>
 </ul>
-<p>Talk to these people and a pattern shows up. They aren't trying to dodge real obligations. They want clarity, fairness, and a way to challenge mistakes.</p>
-<p>Lyor had worked inside debt collection. He knew how the system works and where consumers could push back. Very few products helped them do it.</p>
-<h2>The idea: insider knowledge, no subscription</h2>
-<p>"When I worked in collections, I saw firsthand how powerless consumers feel," says Lyor. "People in my community started asking me for help with the system. That's when I thought: what if everyone had the insider knowledge to deal with debt collectors?"</p>
-<p>The idea became a "first aid kit for consumers in debt." Plain explanations and practical tools, with no expensive subscription or counseling plan.</p>
-<p>Unlike most fintech products aimed at debt, DebtCat doesn't:</p>
-<ul>
-<li>Require a sign-up or store personal information</li>
-<li>Push a subscription</li>
-<li>Give general advice without next steps</li>
-<li>Focus on debt consolidation (which often just moves debt around)</li>
-</ul>
-<p>Instead, it does three things:</p>
-<ol>
-<li><strong>Education</strong>: clear, jargon-free guides to consumer rights</li>
-<li><strong>Conversation</strong>: an AI chatbot that answers specific questions</li>
-<li><strong>Action</strong>: a dispute letter generator that writes legally sound letters</li>
-</ol>
+<p>These people aren't trying to dodge real debts. They want clarity, fairness, and a way to fix mistakes. The system profits when they stay confused.</p>
+<h2>Why me</h2>
+<p>I worked inside debt collection as a product manager. I saw how powerless consumers feel. People in my community started asking me for help. That made the question simple: what if everyone had the insider knowledge I had?</p>
+<h2>Key decisions</h2>
+<h3>Free and anonymous, on purpose</h3>
+<p>Debt relief is full of predatory services. To be trusted, DebtCat had to look nothing like them. So no sign-up, no stored personal data, no subscription, and no payment details upfront. The only paid features are optional mailing services. I gave up early revenue to earn trust.</p>
 <figure class="is-narrow">
-<img src="/assets/images/dispute_options.png" alt="DebtCat dispute tool with mailing and do-it-yourself options" width="509" height="1140" loading="lazy" decoding="async">
+<img src="/assets/images/dispute_options.png" alt="DebtCat dispute tool with paid mailing and free do-it-yourself options" width="509" height="1140" loading="lazy" decoding="async">
+<figcaption>Free options sit next to paid mailing. People choose.</figcaption>
 </figure>
-<h2>Three tech stacks</h2>
-<p>DebtCat moved through three tech stacks as its needs changed. Each move was a product decision as much as a technical one.</p>
-<p>"I started with WordPress and Elementor because it was the fastest way to get content online," says Lyor. "But as soon as we brought on a designer, we needed more design freedom."</p>
-<h4>Phase 1: WordPress and Elementor</h4>
-<p><strong>Worked</strong>: fast launch, familiar CMS. <strong>Didn't</strong>: limited design, slow pages.</p>
-<h4>Phase 2: Webflow</h4>
-<p><strong>Worked</strong>: much better design control, visual editing. <strong>Didn't</strong>: cost grew with the content, hard to extend.</p>
-<h4>Phase 3: Firebase</h4>
-<p><strong>Worked</strong>: scales, cheap, full developer control. <strong>Didn't</strong>: lost the CMS, components had to be rebuilt.</p>
-<p>"Moving from Webflow to Firebase was about money," says Lyor. "We were paying for features we didn't need yet, and I wanted that budget for getting users."</p>
-<h2>Building solo with AI</h2>
-<p>DebtCat is also a story about how AI tools let a non-developer build and ship a real web app.</p>
-<p>"A few years ago, DebtCat would have needed a full development team," says Lyor. "With AI coding assistants like ChatGPT, Cursor, and Windsurf, I could build it much faster myself."</p>
-<p>Each feature followed the same steps:</p>
+<h3>Action over advice</h3>
+<p>Most debt products give general tips or push consolidation, which often just moves debt around. I built around three steps that lead somewhere:</p>
 <ol>
-<li><strong>Plan</strong>: define the feature and user flow the usual PM way</li>
-<li><strong>Draft components</strong>: have AI generate the base HTML and CSS</li>
-<li><strong>Wire it up</strong>: use AI to connect components and add behavior</li>
-<li><strong>Debug</strong>: use AI to find and fix problems</li>
+<li><strong>Learn</strong>: jargon-free guides to consumer rights</li>
+<li><strong>Ask</strong>: an AI chatbot for specific questions</li>
+<li><strong>Act</strong>: a generator that writes a legally sound dispute letter</li>
 </ol>
-<p>"The AI didn't replace product thinking," Lyor says. "But it lowered the technical barrier. I could focus on what we should build instead of getting stuck on how to write the code."</p>
+<p>Our designer, Dalma, put it well: "People needed to feel safe before they'd engage." We cut friction wherever we could, even nice-to-have features.</p>
 <figure class="is-narrow">
 <img src="/assets/images/debtcat_chat.png" alt="DebtCat AI chatbot answering a debt question" width="640" height="743" loading="lazy" decoding="async">
 </figure>
-<h2>Designing for trust</h2>
-<p>People bring sensitive financial details to DebtCat. It had to feel safe and take little effort:</p>
-<ul>
-<li><strong>No account</strong>: anyone can generate a dispute letter without signing up or leaving data behind</li>
-<li><strong>Small steps</strong>: information comes in short pieces so it isn't overwhelming</li>
-<li><strong>Clear pricing</strong>: only the mailing services cost money</li>
-<li><strong>Education first</strong>: a library of guides earns trust before asking anyone to act</li>
-</ul>
-<p>"Our biggest design insight was that people needed to feel safe before they'd engage," says Dalma, the product designer. "We removed as much friction as we could, even if it meant dropping some nice-to-have features."</p>
-<h2>What was hard</h2>
-<h3>1. Standing out from the scams</h3>
-<p>Debt relief is full of predatory services. DebtCat had to show it was different.</p>
-<p>"We had to get past the skepticism people have about debt products," says Lyor. "That shaped everything, from our messaging to refusing to ask for payment details upfront."</p>
-<h3>2. Getting the word out</h3>
-<p>"Email providers were wary of us because our content mentioned 'debt'," says Lyor. "Google ads had the same problem. We never expected that helping consumers would trip the same alarms as predatory lending."</p>
-<p>So the team leaned on social media and community work instead of the usual growth tactics.</p>
-<h3>3. Technical debt</h3>
-<p>"When we moved from Webflow to Firebase, a lot of styling and CMS articles broke," says Lyor. "I spent a weekend rebuilding headers, footers, and article pages, knowing I was taking on technical debt to move faster."</p>
+<h3>Let the product pick the stack</h3>
+<p>DebtCat moved through three stacks. WordPress got content online fastest. Webflow gave us the design control we needed. Firebase cut costs, because we were paying for features we didn't need yet and I wanted that budget for users. Each move cost a weekend of rebuilding and some technical debt.</p>
+<h3>Build it myself with AI</h3>
+<p>A few years ago this would have needed a dev team. I planned each feature the usual PM way, then used ChatGPT, Cursor, and Windsurf to draft components, wire them up, and debug. AI didn't replace product thinking. It removed the wait between deciding and shipping.</p>
+<h2>What got in the way</h2>
+<p>Distribution. Email providers and Google Ads flagged us for talking about "debt," the same alarms that catch predatory lenders. So we leaned on social media and community work instead of email and ads.</p>
 <figure>
 <img src="/assets/images/debtcat_guides.png" alt="Consumer guides written for DebtCat" width="861" height="714" loading="lazy" decoding="async">
+<figcaption>The guide library earns trust before asking anyone to act.</figcaption>
 </figure>
-<h2>Lessons for product leaders</h2>
-<h3>1. Insider knowledge reveals products</h3>
-<p>Working in collections showed Lyor both the problem and the fix. Market research rarely gets you that.</p>
-<p><strong>Takeaway</strong>: look for problems your own background lets you see that others miss.</p>
-<h3>2. Let product needs pick the stack</h3>
-<p>Moving between three platforms was a product call each time, not a technical preference.</p>
-<p><strong>Takeaway</strong>: change technical direction when the product needs it, even if it hurts for a while.</p>
-<h3>3. AI changes who can build</h3>
-<p>DebtCat got built with almost no development budget. AI tools made that possible.</p>
-<p><strong>Takeaway</strong>: AI lets product people build more on their own, as long as they know exactly what they want.</p>
-<h3>4. Trust before revenue</h3>
-<p>Putting trust ahead of early revenue gave DebtCat a footing in a skeptical market.</p>
-<p><strong>Takeaway</strong>: in sensitive areas, trust is worth some short-term revenue.</p>
-<h2>What's next</h2>
+<h2>Results</h2>
 <ul>
-<li><strong>Negotiation tools</strong>: help people negotiate directly with collectors</li>
-<li><strong>Credit reports</strong>: pull a credit report to see every debt in one place</li>
-<li><strong>More guides</strong>: content for specific debt situations</li>
-<li><strong>Trusted partners</strong>: work with reputable consolidation and credit counseling services</li>
+<li>Guides, chatbot, and dispute letter generator are live at <a href="https://debtcat.com">debtcat.com</a>, free with no sign-up</li>
+<li>A clear business model: optional paid mailing, nothing else</li>
+<li>Built and run with almost no development budget</li>
 </ul>
-<p>The team is also considering turning DebtCat into a nonprofit to reach more people.</p>
-<p>"The debt collection industry won't change overnight," says Lyor. "But with the right tools and knowledge, people can level the playing field one dispute at a time."</p>
-<h2>Try it</h2>
-<p>DebtCat is at <a href="https://debtcat.com">debtcat.com</a>, and the core features are free with no sign-up. If you or someone you know is dealing with debt, it's worth a look.</p>
+<h2>Takeaways</h2>
+<ul>
+<li><strong>Domain experience finds the problem.</strong> Working in collections showed me both the gap and the fix.</li>
+<li><strong>In a skeptical market, trust comes before revenue.</strong></li>
+<li><strong>Plan distribution early.</strong> In regulated-sounding categories, the usual channels can close on you.</li>
+</ul>
+<h2>What's next</h2>
+<p>Tools to negotiate directly with collectors, credit report imports to see every debt in one place, and partnerships with reputable credit counseling services. I'm also considering making DebtCat a nonprofit to reach more people.</p>
             </div>
 
             <div class="article-end">

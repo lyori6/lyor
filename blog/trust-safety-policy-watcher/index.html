@@ -102,128 +102,70 @@
             <p class="article-dek">How I turned manual competitor policy checks into an automated AI system that watches 25+ Trust &amp; Safety policies and tells product teams what changed.</p>
             <div class="article-byline">
                 <img src="/images/lyor-480.jpg" alt="" class="avatar" width="44" height="44">
-                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-11">January 11, 2025</time> &middot; 5 min read</span>
+                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-11">January 11, 2025</time> &middot; 3 min read</span>
             </div>
 
             <div class="article-body">
+<dl class="glance">
+<div><dt>Problem</dt><dd>Product teams tracked competitor Trust &amp; Safety policies by hand, monthly at best.</dd></div>
+<div><dt>My role</dt><dd>Senior PM. I scoped, designed, and built it end to end.</dd></div>
+<div><dt>What I built</dt><dd>A monitor that checks 25+ policies every 6 hours and emails AI summaries of real changes.</dd></div>
+<div><dt>Results</dt><dd>Alerts in under 6 hours on average, over 95% precision, 99.9% uptime, 10+ PM hours saved a month.</dd></div>
+</dl>
 <figure>
 <img src="/assets/images/ts_policy_watcher_main.png" alt="Trust &amp; Safety Policy Watcher main view showing policies tracked, minutes since the last check, and time to the next check" width="1140" height="708" fetchpriority="high" decoding="async">
 <figcaption>The main view: policies tracked, minutes since the last check, and time to the next one.</figcaption>
 </figure>
-<h2>The problem: tracking competitors by hand</h2>
-<p>In social commerce and live streaming, Trust &amp; Safety policies carry strategy. A new TikTok guideline or Meta commerce rule can signal where the market is going. It can open an advantage or expose a risk.</p>
-<p>Most product teams were tracking these changes by hand, which meant:</p>
+<h2>The problem</h2>
+<p>In social commerce and live streaming, Trust &amp; Safety policy is strategy. A new TikTok guideline or Meta commerce rule can show where the market is going. It can open an advantage or expose a risk.</p>
+<p>Product teams tracked these changes by hand. They checked maybe once a month and missed most meaningful changes. They heard about updates weeks late, with no history to compare against. PM hours went to routine checking instead of analysis.</p>
+<p>I had spent years as a Trust &amp; Safety PM. This was work a machine should do.</p>
+<h2>What success looked like</h2>
+<p>One source of truth that runs with no upkeep. Three bars had to hold:</p>
 <ul>
-<li><strong>Hours of manual checking</strong>: product managers opening competitor policy pages one by one</li>
-<li><strong>Late news</strong>: learning about a change weeks after it happened</li>
-<li><strong>Gaps</strong>: missing small but important edits</li>
-<li><strong>No history</strong>: no way to see how a policy evolved over time</li>
-<li><strong>Decisions on stale information</strong>: product calls made without the latest competitor context</li>
+<li><strong>Fast</strong>: hear about a change within hours, not weeks</li>
+<li><strong>Precise</strong>: only real changes. One noisy alert and people stop reading.</li>
+<li><strong>Trusted</strong>: the system reports its own health, so silence means "nothing changed," not "something broke"</li>
 </ul>
-<p>Teams checked competitor policies maybe once a month. They missed most of the meaningful changes. PM hours went to routine checking instead of analysis.</p>
-<p>I'd spent years in Trust &amp; Safety as a product manager, and this looked like work a machine should do.</p>
-<h2>The goal: a system that runs on its own</h2>
-<p>The best competitive intelligence system works while you sleep. I wanted a "set it and forget it" tool: one source of truth for competitor Trust &amp; Safety policies.</p>
-<p>It needed to:</p>
-<ul>
-<li><strong>Check reliably</strong>: visit a curated list of competitor policy pages every 6 hours</li>
-<li><strong>Tell real changes from noise</strong>: flag meaningful updates and ignore cosmetic ones</li>
-<li><strong>Summarize with AI</strong>: write short summaries a product manager can act on</li>
-<li><strong>Report</strong>: send email alerts and keep a dashboard up to date</li>
-<li><strong>Watch itself</strong>: report its own health so people can trust the data</li>
-</ul>
-<p>Most competitive intelligence tools need constant upkeep. This one had to run without any.</p>
+<h2>Key decisions</h2>
+<h3>Precision over coverage</h3>
+<p>The hard part was telling real policy edits from cosmetic site changes. Ads, timestamps, and session IDs made pages look new on every run. YouTube looked changed daily while the text was identical.</p>
+<p>I chose to filter aggressively. The pipeline strips 20+ kinds of dynamic content and compares both page structure and plain text. Missing a tiny edit costs less than a false alarm, because false alarms train people to ignore the tool.</p>
+<h3>Summaries about impact, not diffs</h3>
+<p>Raw diffs are useless to a busy PM. Each change goes to Google Gemini with one question: what changed, and why does it matter for product strategy? Alerts arrive as plain text email, which reads cleanly on a phone, where executives often check them.</p>
+<figure class="is-narrow">
+<img src="/assets/images/ts_policy_watcher_email_mobile.png" alt="Email alert on a phone with a short AI summary of a policy update" width="1179" height="2556" loading="lazy" decoding="async">
+<figcaption>An alert on a phone: platform, what changed, and why it matters.</figcaption>
+</figure>
+<h3>Two fetchers for bot-protected sites</h3>
+<p>TikTok, Meta, and Whatnot block ordinary scrapers. Plain HTTP requests handle simple pages. Playwright browser automation handles protected ones. Every site gets covered, and simple ones stay fast.</p>
+<h3>Zero maintenance as a requirement</h3>
+<p>It runs on GitHub Actions and recovers from errors on its own. A run log and health checks surface any failure, so problems get fixed before anyone notices stale data.</p>
 <figure>
 <img src="/assets/images/ts_policy_watcher_policy_matrix.png" alt="Policy Matrix listing platforms, tracked policies, status, last update, and quick actions" width="1766" height="1358" loading="lazy" decoding="async">
 <figcaption>The Policy Matrix: every platform and policy, with status and when it last changed.</figcaption>
 </figure>
-<h2>How I built it</h2>
-<p>I built it in three phases.</p>
-<h3>Phase 1: reliable change detection</h3>
-<p>The first job was fetching pages and spotting changes. The hard part was telling real policy edits from cosmetic site updates. Dynamic content, ads, and UI tweaks caused a lot of false alarms.</p>
-<p>I spent weeks on one bug. YouTube policies seemed to change daily, but the text was identical. The fix was layered HTML cleaning with BeautifulSoup, so only the core policy text gets compared.</p>
-<h3>Phase 2: AI summaries and alerts</h3>
-<p>Once change detection was reliable, I added AI analysis. The system doesn't send raw diffs. It asks Google Gemini one question: what changed, and why does it matter for product strategy?</p>
-<p>Alerts go out as plain text email. That renders cleanly in every email client, including on phones, where executives often check alerts.</p>
-<figure class="is-narrow">
-<img src="/assets/images/ts_policy_watcher_email_mobile.png" alt="Email alert on a phone with a short AI summary of a policy update" width="1179" height="2556" loading="lazy" decoding="async">
-<figcaption>An alert on a phone: subject, platform, what changed, and why it matters.</figcaption>
-</figure>
-<h3>Phase 3: health monitoring</h3>
-<p>The last phase was about staying reliable. Whatnot and TikTok block bots. So health checks use both plain HTTP requests and a full browser.</p>
-<p>This stopped the system from reporting failures that weren't real, and brought monitoring reliability to 99.9%.</p>
+<h2>Results</h2>
+<ul>
+<li><strong>25+ policies</strong> tracked across TikTok, YouTube, Meta, Whatnot, and Twitch</li>
+<li><strong>Under 6 hours</strong> on average from a policy change to the alert, down from weeks</li>
+<li><strong>Over 95% precision</strong> telling real changes from cosmetic ones</li>
+<li><strong>99.9% uptime</strong> with no silent failures</li>
+<li><strong>10+ hours a month</strong> saved per PM, by estimate</li>
+</ul>
 <figure>
 <img src="/assets/images/ts_policy_watcher_run_error.png" alt="Run log showing recent runs, with a failed run flagged" width="1858" height="1110" loading="lazy" decoding="async">
-<figcaption>The run log shows failures with timestamps and error counts, so problems get fixed fast.</figcaption>
+<figcaption>The run log shows failures with timestamps and error counts, so nothing fails quietly.</figcaption>
 </figure>
-<h3>How change detection works</h3>
-<p>The core of the system is deciding what counts as a change. It cleans each page before comparing it:</p>
+<h2>Takeaways</h2>
 <ul>
-<li><strong>Find the policy text</strong>: use semantic HTML markers to locate the main content</li>
-<li><strong>Strip the noise</strong>: remove ads, scripts, session IDs, and similar elements</li>
-<li><strong>Filter known patterns</strong>: use regex to drop things like nonce attributes</li>
-<li><strong>Compare twice</strong>: check both the HTML structure and the plain text</li>
+<li><strong>Internal tools need product rigor.</strong> Automating the checks was the easy part. Alert volume and trust decided whether anyone used it.</li>
+<li><strong>For alerting, precision beats recall.</strong> A tool that cries wolf gets muted.</li>
+<li><strong>Reliability is a feature.</strong> If people rely on it, uptime belongs on the roadmap.</li>
 </ul>
-<p>People only hear about real policy changes. So they keep reading the alerts.</p>
-<h2>Designing for trust</h2>
-<p>An intelligence tool is only useful if people trust it. A few choices mattered most:</p>
-<ul>
-<li><strong>No maintenance</strong>: it runs on GitHub Actions and recovers from errors on its own</li>
-<li><strong>Clean alerts</strong>: plain text email that reads well on a phone</li>
-<li><strong>One dashboard</strong>: the policy matrix, history, health status, and exports in one place</li>
-<li><strong>Summaries about impact</strong>: AI summaries focus on what a change means for the business, not on technical detail</li>
-</ul>
-<p>The biggest lesson: a tool that monitors competitors must be more reliable than the competitors it watches. One false alert or quiet outage, and people stop trusting it.</p>
-<h2>What was hard</h2>
-<h3>1. Bot protection</h3>
-<p>TikTok, Meta, and Whatnot block ordinary scrapers. I used two fetchers. Plain HTTP requests handle simple pages. Playwright browser automation handles protected ones. Every site gets covered, and the simple ones stay fast.</p>
-<h3>2. False positives</h3>
-<p>Early versions reported a change on every run. Timestamps, session IDs, and rotating ads were the cause. I built a cleaning pipeline that filters out 20+ kinds of dynamic content and keeps the policy text.</p>
-<h3>3. Reliability</h3>
-<p>Teams use this for real decisions, so it can't fail quietly. It has health checks, breakage alerts, automatic recovery, and a status page. It runs at 99.9% uptime with no silent failures.</p>
-<h2>Where it stands</h2>
-<p><strong>Coverage and performance</strong>:</p>
-<ul>
-<li><strong>25+ policies</strong> across TikTok, YouTube, Meta, Whatnot, and Twitch</li>
-<li><strong>99.9% uptime</strong> with health monitoring and no silent failures</li>
-<li><strong>Under 6 hours</strong> on average from a policy change to the alert</li>
-<li><strong>Over 95% precision</strong> in telling real policy changes from cosmetic ones</li>
-</ul>
-<p><strong>What it saves</strong>: an estimated 10+ hours a month per PM of manual checking. Teams also hear about competitor changes while they still matter.</p>
-<h2>Lessons for product leaders</h2>
-<h3>1. Automation still needs product thinking</h3>
-<p>Automating the checks wasn't enough. The system needed product design: how people work, how many alerts they'll tolerate, and how they learn to trust it.</p>
-<p><strong>Takeaway</strong>: internal automation deserves the same product rigor as a customer-facing feature.</p>
-<h3>2. Use AI for a specific problem</h3>
-<p>The AI summaries turn raw diffs into something a PM can act on. That was the whole point.</p>
-<p><strong>Takeaway</strong>: add AI where it removes a real pain point, not to demonstrate the technology.</p>
-<h3>3. Reliability is a feature</h3>
-<p>For a tool people rely on, uptime is part of the product. It belongs on the roadmap next to features.</p>
-<p><strong>Takeaway</strong>: in B2B products, reliability drives trust and adoption.</p>
-<h3>4. Signal beats volume</h3>
-<p>A clever system still fails if false alerts teach people to ignore it.</p>
-<p><strong>Takeaway</strong>: for alerting tools, precision matters more than recall.</p>
 <h2>What's next</h2>
-<p><strong>Analysis</strong>:</p>
-<ul>
-<li>Spot trends and patterns across platforms</li>
-<li>Suggest positioning based on gaps between policies</li>
-<li>Predict where industry policy is heading</li>
-</ul>
-<p><strong>Coverage</strong>:</p>
-<ul>
-<li>More platforms (Discord, Snapchat, LinkedIn)</li>
-<li>Policies outside the US</li>
-<li>Regulatory changes</li>
-</ul>
-<p><strong>Deeper insight</strong>:</p>
-<ul>
-<li>Estimate the impact of a policy change</li>
-<li>Flag competitive openings automatically</li>
-<li>Connect to strategic planning dashboards</li>
-</ul>
-<h2>Try it</h2>
-<p>The Policy Watcher is live at <a href="https://ts-policy-watcher.vercel.app/">ts-policy-watcher.vercel.app</a> and checks competitor policies around the clock.</p>
+<p>More platforms (Discord, Snapchat, LinkedIn), policies outside the US, and trend analysis across platforms to flag competitive openings.</p>
+<p>The Policy Watcher is live at <a href="https://ts-policy-watcher.vercel.app/">ts-policy-watcher.vercel.app</a>.</p>
             </div>
 
             <div class="article-end">

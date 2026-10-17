@@ -166,6 +166,31 @@
   border-top: 1px solid var(--line);
 }
 
+/* At a glance: the four facts a busy reader needs first. */
+.article-body .glance {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 32px;
+  margin: 0 0 8px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.glance dt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.glance dd {
+  margin: 6px 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
 /* Screenshots run wider than the text column. */
 .article-body figure {
   max-width: var(--wide);
@@ -263,6 +288,10 @@
 
   .article-dek {
     font-size: 1.1rem;
+  }
+
+  .article-body .glance {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .article-body figure img {
