@@ -111,7 +111,7 @@
 <figcaption>The main view: policies tracked, minutes since the last check, and time to the next one.</figcaption>
 </figure>
 <h2>The problem: tracking competitors by hand</h2>
-<p>In social commerce and live streaming, Trust &amp; Safety policies are more than legal pages. When TikTok updates its community guidelines or Meta changes its commerce rules, it can signal where the market is heading, open an advantage, or expose a risk.</p>
+<p>In social commerce and live streaming, Trust &amp; Safety policies carry strategy. A new TikTok guideline or Meta commerce rule can signal where the market is going. It can open an advantage or expose a risk.</p>
 <p>Most product teams were tracking these changes by hand, which meant:</p>
 <ul>
 <li><strong>Hours of manual checking</strong>: product managers opening competitor policy pages one by one</li>
@@ -120,10 +120,10 @@
 <li><strong>No history</strong>: no way to see how a policy evolved over time</li>
 <li><strong>Decisions on stale information</strong>: product calls made without the latest competitor context</li>
 </ul>
-<p>Teams checked competitor policies maybe once a month, missed most of the meaningful changes, and spent PM hours on routine checking instead of analysis.</p>
+<p>Teams checked competitor policies maybe once a month. They missed most of the meaningful changes. PM hours went to routine checking instead of analysis.</p>
 <p>I'd spent years in Trust &amp; Safety as a product manager, and this looked like work a machine should do.</p>
 <h2>The goal: a system that runs on its own</h2>
-<p>The idea was simple: the best competitive intelligence system works while you sleep. I wanted a "set it and forget it" tool that would be the single source of truth for competitor Trust &amp; Safety policies.</p>
+<p>The best competitive intelligence system works while you sleep. I wanted a "set it and forget it" tool: one source of truth for competitor Trust &amp; Safety policies.</p>
 <p>It needed to:</p>
 <ul>
 <li><strong>Check reliably</strong>: visit a curated list of competitor policy pages every 6 hours</li>
@@ -140,17 +140,17 @@
 <h2>How I built it</h2>
 <p>I built it in three phases.</p>
 <h3>Phase 1: reliable change detection</h3>
-<p>The first job was fetching pages and spotting changes. The hard part was telling real policy edits apart from cosmetic website updates. Dynamic content, ads, and UI changes caused a lot of false alarms.</p>
-<p>I spent weeks figuring out why YouTube policies seemed to change every day when the text was identical. The fix was cleaning the HTML with BeautifulSoup in several layers, so only the core policy text was compared.</p>
+<p>The first job was fetching pages and spotting changes. The hard part was telling real policy edits from cosmetic site updates. Dynamic content, ads, and UI tweaks caused a lot of false alarms.</p>
+<p>I spent weeks on one bug. YouTube policies seemed to change daily, but the text was identical. The fix was layered HTML cleaning with BeautifulSoup, so only the core policy text gets compared.</p>
 <h3>Phase 2: AI summaries and alerts</h3>
-<p>Once change detection was reliable, I added AI analysis. Instead of sending raw diffs, the system asks Google Gemini to answer one question: what changed, and why does it matter for product strategy?</p>
+<p>Once change detection was reliable, I added AI analysis. The system doesn't send raw diffs. It asks Google Gemini one question: what changed, and why does it matter for product strategy?</p>
 <p>Alerts go out as plain text email. That renders cleanly in every email client, including on phones, where executives often check alerts.</p>
 <figure class="is-narrow">
 <img src="/assets/images/ts_policy_watcher_email_mobile.png" alt="Email alert on a phone with a short AI summary of a policy update" width="1179" height="2556" loading="lazy" decoding="async">
 <figcaption>An alert on a phone: subject, platform, what changed, and why it matters.</figcaption>
 </figure>
 <h3>Phase 3: health monitoring</h3>
-<p>The last phase was about staying reliable. Some sites, like Whatnot and TikTok, block bots, so health checks use both plain HTTP requests and a full browser.</p>
+<p>The last phase was about staying reliable. Whatnot and TikTok block bots. So health checks use both plain HTTP requests and a full browser.</p>
 <p>This stopped the system from reporting failures that weren't real, and brought monitoring reliability to 99.9%.</p>
 <figure>
 <img src="/assets/images/ts_policy_watcher_run_error.png" alt="Run log showing recent runs, with a failed run flagged" width="1858" height="1110" loading="lazy" decoding="async">
@@ -164,7 +164,7 @@
 <li><strong>Filter known patterns</strong>: use regex to drop things like nonce attributes</li>
 <li><strong>Compare twice</strong>: check both the HTML structure and the plain text</li>
 </ul>
-<p>That way, people only hear about real policy changes, and they keep reading the alerts.</p>
+<p>People only hear about real policy changes. So they keep reading the alerts.</p>
 <h2>Designing for trust</h2>
 <p>An intelligence tool is only useful if people trust it. A few choices mattered most:</p>
 <ul>
@@ -173,14 +173,14 @@
 <li><strong>One dashboard</strong>: the policy matrix, history, health status, and exports in one place</li>
 <li><strong>Summaries about impact</strong>: AI summaries focus on what a change means for the business, not on technical detail</li>
 </ul>
-<p>The biggest lesson: a tool that monitors competitors has to be more reliable than the competitors it watches. One false alert or a quiet outage and people stop trusting it.</p>
+<p>The biggest lesson: a tool that monitors competitors must be more reliable than the competitors it watches. One false alert or quiet outage, and people stop trusting it.</p>
 <h2>What was hard</h2>
 <h3>1. Bot protection</h3>
-<p>TikTok, Meta, and Whatnot block ordinary scrapers. I used two fetchers: plain HTTP requests for simple pages and Playwright browser automation for protected ones. That covers every site without slowing the simple ones down.</p>
+<p>TikTok, Meta, and Whatnot block ordinary scrapers. I used two fetchers. Plain HTTP requests handle simple pages. Playwright browser automation handles protected ones. Every site gets covered, and the simple ones stay fast.</p>
 <h3>2. False positives</h3>
-<p>Early versions reported a change on every run because of timestamps, session IDs, and rotating ads. I built a cleaning pipeline that filters out more than 20 kinds of dynamic content and keeps the actual policy text.</p>
+<p>Early versions reported a change on every run. Timestamps, session IDs, and rotating ads were the cause. I built a cleaning pipeline that filters out 20+ kinds of dynamic content and keeps the policy text.</p>
 <h3>3. Reliability</h3>
-<p>Teams use this for real decisions, so it can't fail quietly. It has health checks, alerts when something breaks, automatic recovery, and a visible status page. It now runs at 99.9% uptime with no silent failures.</p>
+<p>Teams use this for real decisions, so it can't fail quietly. It has health checks, breakage alerts, automatic recovery, and a status page. It runs at 99.9% uptime with no silent failures.</p>
 <h2>Where it stands</h2>
 <p><strong>Coverage and performance</strong>:</p>
 <ul>
@@ -189,16 +189,16 @@
 <li><strong>Under 6 hours</strong> on average from a policy change to the alert</li>
 <li><strong>Over 95% precision</strong> in telling real policy changes from cosmetic ones</li>
 </ul>
-<p><strong>What it saves</strong>: the manual checking, an estimated 10+ hours a month per PM, and teams hear about competitor changes while they still matter.</p>
+<p><strong>What it saves</strong>: an estimated 10+ hours a month per PM of manual checking. Teams also hear about competitor changes while they still matter.</p>
 <h2>Lessons for product leaders</h2>
 <h3>1. Automation still needs product thinking</h3>
-<p>Automating the checks wasn't enough. The system needed real product design around how people work, how many alerts they'll tolerate, and how they come to trust it.</p>
+<p>Automating the checks wasn't enough. The system needed product design: how people work, how many alerts they'll tolerate, and how they learn to trust it.</p>
 <p><strong>Takeaway</strong>: internal automation deserves the same product rigor as a customer-facing feature.</p>
 <h3>2. Use AI for a specific problem</h3>
-<p>The AI summaries weren't there to show off. They turn raw diffs into something a PM can act on.</p>
+<p>The AI summaries turn raw diffs into something a PM can act on. That was the whole point.</p>
 <p><strong>Takeaway</strong>: add AI where it removes a real pain point, not to demonstrate the technology.</p>
 <h3>3. Reliability is a feature</h3>
-<p>For a tool people rely on, uptime is part of the product, not just an engineering concern.</p>
+<p>For a tool people rely on, uptime is part of the product. It belongs on the roadmap next to features.</p>
 <p><strong>Takeaway</strong>: in B2B products, reliability drives trust and adoption.</p>
 <h3>4. Signal beats volume</h3>
 <p>A clever system still fails if false alerts teach people to ignore it.</p>

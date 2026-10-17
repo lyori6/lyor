@@ -113,17 +113,17 @@
 </figure>
 <h2>The problem: adoption matches often fail</h2>
 <p>Pet adoption has a problem that doesn't get much attention: too many matches don't work out.</p>
-<p>Between 10 and 20% of adopted pets are returned to shelters, often because of mismatched expectations or behavior issues. A University of Alberta study found that 80% of adopters choose a pet mostly on looks rather than fit. Meanwhile, 34% of pet owners buy from breeders instead of adopting, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
-<p>Behind those numbers are real animals who had a home for a short time and then went back to a shelter.</p>
+<p>Between 10 and 20% of adopted pets go back to shelters. Mismatched expectations and behavior issues are common reasons. A University of Alberta study found that 80% of adopters choose a pet mostly on looks rather than fit. Meanwhile, 34% of pet owners buy from breeders instead of adopting, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
+<p>Behind those numbers are real animals. They had a home for a short time, then went back to a cage.</p>
 <p>That's the problem Lyor, a product manager and animal lover, set out to solve with FindMePet.</p>
 <h2>The idea: matchmaking for people and pets</h2>
 <p>"I adopted my dog Shasta and saw firsthand how hard the process can be," says Lyor, who had spent nearly six years as a product manager at SaaS companies. "I wanted to build a tool that helps more pets find forever homes by matching them with the right owners from the start."</p>
-<p>FindMePet is a Next.js app that combines the PetFinder API with OpenAI. Its core idea is AI recommendations based on a person's preferences and lifestyle.</p>
+<p>FindMePet is a Next.js app built on the PetFinder API and OpenAI. It recommends pets based on a person's preferences and lifestyle.</p>
 <p>"Think of it as matchmaking, but between people and pets," Lyor explains. "I'm trying to lower the return rate by making better matches from the beginning."</p>
 <h2>Building it: hard choices, shipped fast</h2>
-<p>As a PM, Lyor knew a focused MVP shipped quickly beat a perfect product shipped late. That meant some hard trade-offs:</p>
+<p>As a PM, Lyor knew a focused MVP shipped fast beats a perfect product shipped late. That meant hard trade-offs:</p>
 <ol>
-<li><strong>Fewer animals</strong>: the PetFinder API covers everything from dogs and cats to horses and chinchillas, but FindMePet launched with just dogs, cats, and rabbits.</li>
+<li><strong>Fewer animals</strong>: the PetFinder API covers everything from dogs to chinchillas. FindMePet launched with dogs, cats, and rabbits.</li>
 <li><strong>Filters upfront</strong>: filtering happens in the API call, not on the results page, to keep the first version simple.</li>
 <li><strong>Photos first</strong>: animals without photos rank lower, because photos drive the emotional connection in adoption.</li>
 <li><strong>Two ways in</strong>: a Quick Search for people who want to browse, and a guided questionnaire for people who want recommendations.</li>
@@ -152,9 +152,9 @@
 <li><strong>Cursor and Windsurf</strong>: AI code editors for writing and refactoring</li>
 <li><strong>Claude</strong>: started with Claude 3.5 Sonnet, then moved to Claude 3.7, which wrote cleaner code</li>
 </ol>
-<p>"I'm a PM, not a developer by training, and these tools changed what I could do," says Lyor. "They let me build things myself, not just write specs for others to build."</p>
+<p>"I'm a PM, not a developer by training, and these tools changed what I could do," says Lyor. "I could build things myself instead of writing specs for others."</p>
 <p>He noticed a pattern: "Getting to 70% was surprisingly easy with tools like v0. The last 20 to 30% (polishing layouts, adding advanced features, fixing edge cases) took about 80% of the total time. I hope future AI tools with better reasoning and bigger context windows make that last stretch easier."</p>
-<p>His most useful tip: "Have the AI document what it's doing as it goes. When it makes a mistake, you can see what went wrong, and you don't burn your context window re-explaining the whole conversation, because you can point it to the docs."</p>
+<p>His most useful tip: "Have the AI document what it's doing as it goes. When it makes a mistake, you can see what went wrong. And you can point it to the docs instead of burning your context window re-explaining everything."</p>
 <figure>
 <img src="/assets/images/pet_details.png" alt="FindMePet pet details page" width="1392" height="1328" loading="lazy" decoding="async">
 <figcaption>The pet details page gives people what they need to make a decision.</figcaption>
@@ -180,7 +180,7 @@
 <p>"My north star is successful adoptions: pets who find permanent homes through the app," said Lyor at the time. "For now, I'm tracking clicks on the Adopt button to measure interest."</p>
 <h2>Lessons for product managers</h2>
 <ol>
-<li><strong>Use AI where it counts</strong>: it can speed up building and also be the thing that makes the product useful.</li>
+<li><strong>Use AI where it counts</strong>: it can speed up the build and be the core of the product.</li>
 <li><strong>Make hard trade-offs</strong>: limiting the app to three kinds of animals made it faster to ship.</li>
 <li><strong>Start with the core need</strong>: finding a compatible pet comes before any extras.</li>
 <li><strong>Care about the problem</strong>: Lyor's love of animals shaped the product.</li>
@@ -189,7 +189,7 @@
 </ol>
 <p>"The biggest surprise was how fast I went from idea to working app," says Lyor. "With the right tools and a tight scope, I built something useful in a fraction of the usual time."</p>
 <hr />
-<p><em>This case study was written in March 2025 about FindMePet, a project Lyor built.</em></p>
+<p>Written in March 2025.</p>
             </div>
 
             <div class="article-end">
