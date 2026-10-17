@@ -8,7 +8,7 @@ Lyor Itzhaki's personal site: plain HTML and CSS, no framework, deployed on Verc
 
 - Home page: `index.html` with `home.css` and `home.js`.
 - Case studies: one folder per study, `blog/<slug>/index.html`, served at `/blog/<slug>`. They load `home.css` (tokens, header, buttons, footer) and then `case-study.css`. The list lives in `blog/index.html`.
-- `templates/case-study.html` is the starting point for a new case study; its header comment lists every step. `templates/og-card.html` plus `scripts/og.mjs` render the 1200x630 share images into `images/og/`.
+- `templates/case-study.html` is the starting point for a new case study, and `docs/case-study-guide.md` says how to write one; its header comment lists every step. `templates/og-card.html` plus `scripts/og.mjs` render the 1200x630 share images into `images/og/`.
 
 ## Commands
 
