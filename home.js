@@ -3,10 +3,19 @@
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // Hairline under the header once the page scrolls.
+  // Hairline under the header once the page scrolls, and it tucks away while reading.
   const header = document.querySelector('.site-header');
   if (header) {
-    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      header.classList.toggle('is-scrolled', y > 8);
+      // Hide once past the hero while scrolling down; show again on the way up.
+      if (Math.abs(y - lastY) > 4) {
+        header.classList.toggle('is-hidden', y > lastY && y > 400);
+        lastY = y;
+      }
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }

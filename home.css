@@ -114,11 +114,16 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   z-index: 50;
   background: color-mix(in srgb, var(--paper) 94%, transparent);
   border-bottom: 1px solid transparent;
-  transition: border-color 200ms ease;
+  transition: border-color 200ms ease, transform 300ms var(--ease-out);
 }
 
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
+}
+
+/* Slides away while reading down, comes back on any scroll up. */
+.site-header.is-hidden:not(:focus-within) {
+  transform: translateY(-100%);
 }
 
 .header-inner {
@@ -187,6 +192,12 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
 
 .btn:hover {
   background: var(--accent);
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
 }
 
 .btn:active {
@@ -670,6 +681,14 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   border: 1px solid var(--line);
   background: var(--surface);
   margin-bottom: 8px;
+  transition: transform 250ms var(--ease-out), box-shadow 250ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  .case-link:hover .case-image {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -14px rgb(0 0 0 / 0.25);
+  }
 }
 
 .case-image img {
