@@ -1,13 +1,5 @@
-# Jekyll
+# Build output
 _site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-vendor/
-
-# Ruby
-.bundle/
-vendor/bundle
 
 # Node
 node_modules/

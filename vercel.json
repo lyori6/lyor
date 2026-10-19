@@ -1,11 +1,12 @@
 {
-  "version": 2,
-  "buildCommand": "chmod +x ./build.sh && ./build.sh",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "sh scripts/build.sh",
   "outputDirectory": "_site",
   "cleanUrls": true,
   "trailingSlash": false,
-  "github": {
-    "enabled": true,
-    "silent": false
-  }
+  "redirects": [
+    { "source": "/case-studies", "destination": "/blog", "permanent": true },
+    { "source": "/feed.xml", "destination": "/blog", "permanent": true }
+  ]
 }

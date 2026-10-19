@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindMePet case study: AI pet adoption matching | Lyor Itzhaki</title>
+    <meta name="description" content="How I built FindMePet, an AI-powered pet adoption app that matched people with adoptable pets to reduce returns to shelters.">
+    <meta name="author" content="Lyor Itzhaki">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://lyori.com/blog/findmepet">
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- Share cards -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Lyor Itzhaki">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://lyori.com/blog/findmepet">
+    <meta property="og:title" content="FindMePet: Fixing Pet Adoption Mismatches">
+    <meta property="og:description" content="How I built FindMePet, an AI-powered pet adoption app that matched people with adoptable pets to reduce returns to shelters.">
+    <meta property="og:image" content="https://lyori.com/images/og/findmepet.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FindMePet, a case study by Lyor Itzhaki">
+    <meta property="article:published_time" content="2025-01-01">
+    <meta property="article:author" content="https://lyori.com/">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Consumer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FindMePet: Fixing Pet Adoption Mismatches">
+    <meta name="twitter:description" content="How I built FindMePet, an AI-powered pet adoption app that matched people with adoptable pets to reduce returns to shelters.">
+    <meta name="twitter:image" content="https://lyori.com/images/og/findmepet.png">
+    <meta name="twitter:image:alt" content="FindMePet, a case study by Lyor Itzhaki">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "FindMePet: Fixing Pet Adoption Mismatches",
+      "description": "How I built FindMePet, an AI-powered pet adoption app that matched people with adoptable pets to reduce returns to shelters.",
+      "image": "https://lyori.com/images/og/findmepet.png",
+      "datePublished": "2025-01-01",
+      "author": {
+        "@type": "Person",
+        "name": "Lyor Itzhaki",
+        "url": "https://lyori.com/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Lyor Itzhaki",
+        "url": "https://lyori.com/"
+      },
+      "mainEntityOfPage": "https://lyori.com/blog/findmepet"
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQH38Z0QT2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-JQH38Z0QT2');
+    </script>
+    
+    <!-- MS Clarity-->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "oaj17avmn2");
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/case-study.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="wordmark"><img src="/images/favicon.svg" alt="" width="30" height="30" class="wordmark-mark">Lyor Itzhaki</a>
+            <nav aria-label="Site">
+                <ul class="nav-links">
+                    <li><a href="/#experience">Experience</a></li>
+                    <li><a href="/blog">Case studies</a></li>
+                    <li><a href="/#testimonials">Reviews</a></li>
+                </ul>
+            </nav>
+            <a href="/#contact" class="btn btn-small btn-ghost">Contact</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <article class="article wrap">
+            <p class="article-eyebrow"><a href="/blog">Case study</a><span>AI, Consumer</span></p>
+            <h1 class="article-title">FindMePet: Fixing Pet Adoption Mismatches</h1>
+            <p class="article-dek">Building an AI pet adoption app that matches people with pets that fit their lives, so fewer pets go back to shelters.</p>
+            <div class="article-byline">
+                <img src="/images/lyor-480.jpg" alt="" class="avatar" width="44" height="44">
+                <span><strong>Lyor Itzhaki</strong><time datetime="2025-01-01">January 1, 2025</time> &middot; 2 min read</span>
+            </div>
+
+            <div class="article-body">
+<dl class="glance">
+<div><dt>Problem</dt><dd>10 to 20% of adopted pets go back to shelters, often because of a poor match.</dd></div>
+<div><dt>My role</dt><dd>Solo builder. Product, design, and code, with AI tools.</dd></div>
+<div><dt>What I built</dt><dd>An adoption app that recommends pets based on a person's preferences and lifestyle.</dd></div>
+<div><dt>Results</dt><dd>Shipped an MVP fast with a tight scope. Retired in December 2025.</dd></div>
+</dl>
+<figure>
+<img src="/assets/images/shasta_main.png" alt="FindMePet landing page featuring Shasta, the dog behind the project" width="1042" height="880" fetchpriority="high" decoding="async">
+<figcaption>The landing page, featuring Shasta, my adopted dog and the reason for the project.</figcaption>
+</figure>
+<h2>The problem</h2>
+<p>Too many adoptions don't work out. Between 10 and 20% of adopted pets go back to shelters. Mismatched expectations and behavior issues are common reasons.</p>
+<p>A University of Alberta study found 80% of adopters choose mostly on looks rather than fit. Meanwhile, 34% of pet owners buy from breeders, and 47% wrongly believe shelters only have older or poorly trained animals.</p>
+<p>I adopted my dog Shasta and saw how hard the process is. I wanted fewer returns by making better matches from the start.</p>
+<h2>What success looked like</h2>
+<p>The north star was successful adoptions: pets who find permanent homes. On day one, clicks on the Adopt button were the signal I could measure.</p>
+<h2>Key decisions</h2>
+<p>A focused MVP shipped fast beats a perfect product shipped late. So I made hard cuts:</p>
+<ul>
+<li><strong>Three animals, not dozens.</strong> The PetFinder API covers dogs to chinchillas. I launched with dogs, cats, and rabbits.</li>
+<li><strong>Filters upfront.</strong> Filtering happens in the API call, not on the results page. Simpler first version.</li>
+<li><strong>Photos first.</strong> Pets without photos rank lower, because photos drive the emotional connection.</li>
+<li><strong>Two paths.</strong> A guided questionnaire for people who want a recommendation. Quick Search for people who just want to browse.</li>
+<li><strong>One AI pick.</strong> Results show a grid with a single highlighted recommendation, to keep the choice easy.</li>
+</ul>
+<figure>
+<img src="/assets/images/results_page.png" alt="FindMePet results page with an AI-recommended pet highlighted" width="1489" height="961" loading="lazy" decoding="async">
+<figcaption>Results highlight one AI-recommended pet and show how well it fits.</figcaption>
+</figure>
+<h2>How I built it</h2>
+<p>Next.js 14 on Vercel, the PetFinder API for live adoptable pets, and OpenAI (GPT-4o mini) for recommendations. PetFinder needed OAuth 2.0 through a Cloudflare Worker proxy. Getting structured, parseable recommendations took careful prompting.</p>
+<p>I built it alone with v0, Cursor, Windsurf, and Claude. Getting to 70% was surprisingly easy. The last 20 to 30% (polish, edge cases, advanced features) took about 80% of the time. My best tip: have the AI document its work as it goes. You see what went wrong, and you can point it to the docs instead of re-explaining everything.</p>
+<figure>
+<img src="/assets/images/pet_details.png" alt="FindMePet pet details page" width="1392" height="1328" loading="lazy" decoding="async">
+<figcaption>The pet details page gives people what they need to decide.</figcaption>
+</figure>
+<h2>Results</h2>
+<p>The MVP shipped with a tight scope and tracked Adopt clicks from launch. Next on the list were richer lifestyle questions, a top three with comparisons, funnel analytics, and follow-ups to confirm real adoptions.</p>
+<p>I retired FindMePet in December 2025, after the PetFinder API it depended on went away.</p>
+<h2>Takeaways</h2>
+<ul>
+<li><strong>Tight scope ships.</strong> Three animal types and one AI pick got a working product out fast.</li>
+<li><strong>Set the north star before launch.</strong> Adoptions were the goal. Adopt clicks were the signal I could measure on day one.</li>
+<li><strong>PMs can build now.</strong> With AI tools, I went from idea to working app in a fraction of the usual time.</li>
+</ul>
+            </div>
+
+            <div class="article-end">
+                <p>Have something in mind? Let's talk.</p>
+                <a href="/#contact" class="btn">Get in touch</a>
+            </div>
+        </article>
+
+        <section class="more-cases wrap" aria-labelledby="more-title">
+            <h2 class="section-title" id="more-title">More case studies</h2>
+            <div class="cases">
+                <article class="case">
+                    <a href="/blog/trust-safety-policy-watcher" class="case-link">
+                        <div class="case-image">
+                            <img src="/assets/images/ts_policy_watcher_thumb.png" alt="Trust &amp; Safety Policy Watcher dashboard" width="1200" height="675" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="case-title">T&amp;S Policy Watcher: Know When Live Shopping Rules Change</h3>
+                        <p class="case-excerpt">Turning manual competitor policy checks into an AI system that watches 25+ policies and flags what changed.</p>
+                        <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
+                    </a>
+                </article>
+                <article class="case">
+                    <a href="/blog/debtcat" class="case-link">
+                        <div class="case-image">
+                            <img src="/assets/images/debtcat_cover.png" alt="DebtCat home page" width="1200" height="600" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="case-title">DebtCat: A No-BS First Aid Kit for Debt</h3>
+                        <p class="case-excerpt">A free tool that helps people understand their rights and dispute unfair debt collection.</p>
+                        <span class="link-arrow">Read the case study <span aria-hidden="true">&rarr;</span></span>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer wrap">
+        <p>&copy; <span id="year">2026</span> Lyor Itzhaki</p>
+        <a href="/" class="link-quiet">Back to home</a>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      (function () {
+        var header = document.querySelector('.site-header');
+        var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+    </script>
+</body>
+</html>

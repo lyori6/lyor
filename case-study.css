@@ -1,0 +1,304 @@
+/* Case study pages and the case study index. Loads after home.css and reuses its tokens, header, buttons and footer. */
+
+.article {
+  --measure: 42rem;
+  --wide: 56rem;
+  padding-block: clamp(40px, 7vw, 88px) clamp(56px, 8vw, 96px);
+}
+
+.article > * {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+/* Header */
+
+.article-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 0.92rem;
+  color: var(--ink-3);
+}
+
+.article-eyebrow a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.article-eyebrow a:hover {
+  text-decoration: underline;
+}
+
+.article-title {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variation-settings: "SOFT" 60, "opsz" 96;
+  font-size: clamp(2.1rem, 4.6vw, 3.3rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.article-dek {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.article-byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+  color: var(--ink-3);
+}
+
+.article-byline strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.article-note {
+  margin-top: 28px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--ink-2);
+  font-size: 0.95rem;
+}
+
+/* Body copy */
+
+.article-body {
+  margin-top: 40px;
+  font-size: 1.08rem;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+
+.article-body > * + * {
+  margin-top: 1.1em;
+}
+
+.article-body h2 {
+  margin-top: 2.4em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variation-settings: "SOFT" 60, "opsz" 72;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.article-body h3 {
+  margin-top: 2em;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.article-body h4 {
+  margin-top: 1.6em;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.article-body h2 + *,
+.article-body h3 + *,
+.article-body h4 + * {
+  margin-top: 0.7em;
+}
+
+.article-body strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.article-body a {
+  color: var(--accent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.article-body a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: currentColor;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.3em;
+}
+
+.article-body li + li {
+  margin-top: 0.5em;
+}
+
+.article-body li > p + p {
+  margin-top: 0.5em;
+}
+
+.article-body li::marker {
+  color: var(--ink-3);
+}
+
+.article-body blockquote {
+  padding-left: 20px;
+  border-left: 2px solid var(--accent);
+  font-style: italic;
+}
+
+.article-body hr {
+  margin-block: 2.6em;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+/* At a glance: the four facts a busy reader needs first. */
+.article-body:has(> .glance:first-child) {
+  margin-top: 0;
+}
+
+.article-body .glance {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 40px;
+  margin: 0;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.glance dt {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.glance dd {
+  margin: 8px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Screenshots run wider than the text column. */
+.article-body figure {
+  max-width: var(--wide);
+  margin: 2.4em auto;
+  width: min(var(--wide), 100vw - var(--gutter) * 2);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.article-body figure img {
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.article-body figure.is-narrow img {
+  max-width: 400px;
+}
+
+.article-body figcaption {
+  max-width: var(--measure);
+  margin: 12px auto 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+/* End of the article */
+
+.article-end {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.article-end p {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 60, "opsz" 48;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.more-cases {
+  padding-top: clamp(48px, 7vw, 80px);
+  padding-bottom: clamp(56px, 8vw, 96px);
+  background: linear-gradient(var(--line), var(--line)) center top / calc(100% - var(--gutter) * 2) 1px no-repeat;
+}
+
+.more-cases .section-title {
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+}
+
+/* Case study index */
+
+.index-head {
+  padding-block: clamp(48px, 8vw, 96px) 0;
+}
+
+.index-head p {
+  max-width: 42rem;
+  margin-top: 16px;
+  font-size: 1.15rem;
+  color: var(--ink-2);
+}
+
+.index-head + .section {
+  background: none;
+  padding-top: 0;
+}
+
+@media (min-width: 901px) {
+  .cases-index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.case-date {
+  font-size: 0.9rem;
+  color: var(--ink-3);
+}
+
+@media (max-width: 640px) {
+  .article-body {
+    font-size: 1.02rem;
+  }
+
+  .article-dek {
+    font-size: 1.1rem;
+  }
+
+  .article-body .glance {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .article-body figure img {
+    border-radius: 10px;
+  }
+}
