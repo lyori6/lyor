@@ -68,7 +68,7 @@
   }
 
   // Motion with GSAP: an intro that plays once, light reveals that play once,
-  // and a rolling band tied to scroll. Skipped for reduced motion; if GSAP never
+  // and a slow band tied to scroll. Skipped for reduced motion; if GSAP never
   // loads, a timeout in the head un-hides the intro and nothing else is hidden.
   const root = document.documentElement;
   const start = () => {
@@ -87,9 +87,11 @@
     };
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
-      const ease = 'expo.out';
+      // One quiet rhythm for the whole page: short, decelerating, small moves.
+      // The headline is the only line-by-line reveal; everything else just settles in.
+      const ease = 'power3.out';
 
-      // Intro: the headline rises line by line out of a mask, then the rest settles in.
+      // Intro: the headline rises out of a mask, then the rest fades in under it.
       SplitText.create('.hero-title', {
         type: 'lines',
         mask: 'lines',
@@ -98,82 +100,48 @@
           roomForDescenders(self);
           const tl = gsap.timeline({ defaults: { ease } });
           tl.set('[data-intro]', { visibility: 'visible' })
-            .from('.hero-hello', { autoAlpha: 0, y: 12, duration: 0.9 })
-            .from(self.lines, { yPercent: 105, duration: 1.4, stagger: 0.12 }, 0.1)
-            .from('.hero-sub, .hero-actions', { autoAlpha: 0, y: 18, duration: 1.1, stagger: 0.08 }, 0.55)
-            .from('.hero-quote', { autoAlpha: 0, y: 32, scale: 0.97, rotate: -1.5, transformOrigin: '50% 100%', duration: 1.4 }, 0.7)
-            .from('.band', { autoAlpha: 0, duration: 1.2, ease: 'power2.out' }, 0.9);
+            .from('.hero-hello', { autoAlpha: 0, duration: 0.6 })
+            .from(self.lines, { yPercent: 100, duration: 0.9, stagger: 0.08 }, 0.05)
+            .from('.hero-sub, .hero-actions', { autoAlpha: 0, y: 8, duration: 0.7, stagger: 0.06 }, 0.45)
+            .from('.hero-quote', { autoAlpha: 0, y: 12, duration: 0.8 }, 0.6)
+            .from('.band', { autoAlpha: 0, duration: 0.6, ease: 'power1.out' }, 0.8);
           root.classList.remove('intro');
           return tl;
         },
       });
 
-      // Section titles rise out of a mask as they enter.
-      gsap.utils.toArray('.section-title, .contact-title').forEach((title) => {
-        SplitText.create(title, {
-          type: 'lines',
-          mask: 'lines',
-          autoSplit: true,
-          onSplit(self) {
-            roomForDescenders(self);
-            return gsap.from(self.lines, {
-              yPercent: 105,
-              duration: 1.2,
-              ease,
-              stagger: 0.1,
-              scrollTrigger: { trigger: title, start: 'top 88%', once: true },
-            });
-          },
-        });
-      });
-
-      // Everything else fades up once, in small staggered batches.
+      // Sections fade up once as they enter, in small staggered batches.
       const reveal = (targets, vars = {}) => {
-        gsap.set(targets, { autoAlpha: 0, y: vars.y ?? 24, x: vars.x ?? 0 });
+        gsap.set(targets, { autoAlpha: 0, y: vars.y ?? 12 });
         ScrollTrigger.batch(targets, {
           start: 'top 90%',
           once: true,
           onEnter: (batch) => gsap.to(batch, {
-            autoAlpha: 1, y: 0, x: 0, duration: vars.duration ?? 1, ease, stagger: vars.stagger ?? 0.07, overwrite: true,
+            autoAlpha: 1, y: 0, duration: 0.6, ease, stagger: vars.stagger ?? 0.05, overwrite: true,
           }),
         });
       };
-      reveal('.prose p, .contact-intro > p, .contact-links li, .contact-form', { stagger: 0.08 });
-      reveal('.job', { y: 16, stagger: 0.04, duration: 0.9 });
-      reveal('.case', { y: 36, stagger: 0.12 });
-      reveal('.project', { y: 20 });
+      reveal('.section-title, .contact-title', { y: 10 });
+      reveal('.prose p, .contact-intro > p, .contact-links li, .contact-form');
+      reveal('.job', { y: 8, stagger: 0.04 });
+      reveal('.case', { y: 16, stagger: 0.08 });
+      reveal('.project');
       // The review gallery comes in as one piece; animating cards inside a
       // sideways scroller made them arrive out of order.
       gsap.from('.gallery-nav, .reviews, .gallery-progress, .reviews-more', {
         autoAlpha: 0,
-        y: 32,
-        duration: 1.1,
+        y: 12,
+        duration: 0.6,
         ease,
-        stagger: 0.08,
-        scrollTrigger: { trigger: '#testimonials', start: 'top 70%', once: true },
+        stagger: 0.05,
+        scrollTrigger: { trigger: '#testimonials', start: 'top 75%', once: true },
       });
 
-      // Rolling band: drifts left as you scroll down, right as you scroll up.
+      // Rolling band: a slow drift tied to scroll, left going down, right going up.
       gsap.fromTo('.band-track', { xPercent: 0 }, {
-        xPercent: -35,
+        xPercent: -15,
         ease: 'none',
-        scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: 0.8 },
-      });
-
-      // Case study screenshots ease out of a slight zoom as they pass.
-      gsap.utils.toArray('.case-image img').forEach((img) => {
-        gsap.fromTo(img, { scale: 1.1 }, {
-          scale: 1,
-          ease: 'none',
-          scrollTrigger: { trigger: img, start: 'top bottom', end: 'center center', scrub: 0.6 },
-        });
-      });
-
-      // The hero quote drifts up a little slower than the page.
-      gsap.to('.hero-quote', {
-        yPercent: -12,
-        ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+        scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: 0.5 },
       });
     });
 
