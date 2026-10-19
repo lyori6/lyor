@@ -479,7 +479,7 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
 }
 
 /* About: the bio starts level with the portrait, not the heading */
-@media (min-width: 901px) {
+@media (width > 900px) {
   .about-side {
     display: contents;
   }
