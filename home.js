@@ -72,43 +72,26 @@
   // loads, a timeout in the head un-hides the intro and nothing else is hidden.
   const root = document.documentElement;
   const start = () => {
-    const { gsap, ScrollTrigger, SplitText } = window;
-    if (!gsap || !ScrollTrigger || !SplitText) {
+    const { gsap, ScrollTrigger } = window;
+    if (!gsap || !ScrollTrigger) {
       root.classList.remove('intro');
       return;
     }
-    gsap.registerPlugin(ScrollTrigger, SplitText);
+    gsap.registerPlugin(ScrollTrigger);
     const media = gsap.matchMedia();
-
-    // Line masks clip at the line box, which cuts off descenders like g and y.
-    // Pad each mask and pull the next line back up so spacing is unchanged.
-    const roomForDescenders = (split) => {
-      gsap.set(split.masks, { paddingBottom: '0.14em', marginBottom: '-0.14em' });
-    };
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
       // One quiet rhythm for the whole page: short, decelerating, small moves.
-      // The headline is the only line-by-line reveal; everything else just settles in.
       const ease = 'power3.out';
 
-      // Intro: the headline rises out of a mask, then the rest fades in under it.
-      SplitText.create('.hero-title', {
-        type: 'lines',
-        mask: 'lines',
-        autoSplit: true,
-        onSplit(self) {
-          roomForDescenders(self);
-          const tl = gsap.timeline({ defaults: { ease } });
-          tl.set('[data-intro]', { visibility: 'visible' })
-            .from('.hero-hello', { autoAlpha: 0, duration: 0.6 })
-            .from(self.lines, { yPercent: 100, duration: 0.9, stagger: 0.08 }, 0.05)
-            .from('.hero-sub, .hero-actions', { autoAlpha: 0, y: 8, duration: 0.7, stagger: 0.06 }, 0.45)
-            .from('.hero-quote', { autoAlpha: 0, y: 12, duration: 0.8 }, 0.6)
-            .from('.band', { autoAlpha: 0, duration: 0.6, ease: 'power1.out' }, 0.8);
-          root.classList.remove('intro');
-          return tl;
-        },
-      });
+      // Intro, Apple style: the headline comes into focus as one piece with a
+      // soft blur and a small rise, then the rest fades in beneath it.
+      gsap.timeline({ defaults: { ease: 'power2.out' } })
+        .set('[data-intro]', { visibility: 'visible' })
+        .from('.hero-hello, .hero-title', { autoAlpha: 0, y: 10, filter: 'blur(8px)', duration: 1.1, stagger: 0.08, clearProps: 'filter' })
+        .from('.hero-sub, .hero-actions', { autoAlpha: 0, y: 6, duration: 0.8 }, 0.45)
+        .from('.hero-quote, .band', { autoAlpha: 0, duration: 0.9 }, 0.6);
+      root.classList.remove('intro');
 
       // Sections fade up once as they enter, in small staggered batches.
       const reveal = (targets, vars = {}) => {
