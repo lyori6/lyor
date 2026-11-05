@@ -193,8 +193,21 @@
     emailError.textContent = '';
     emailInput.removeAttribute('aria-invalid');
 
+    // Mark the empty fields so screen readers announce them, and move focus to the first one.
+    const nameInput = form.fullName;
+    const messageInput = form.message;
+    [[nameInput, fullName], [messageInput, message]].forEach(([field, value]) => {
+      if (value) {
+        field.removeAttribute('aria-invalid');
+        field.removeAttribute('aria-describedby');
+      } else {
+        field.setAttribute('aria-invalid', 'true');
+        field.setAttribute('aria-describedby', 'form-feedback');
+      }
+    });
     if (!fullName || !message) {
       setFeedback('Please add your name and a short message.');
+      (fullName ? messageInput : nameInput).focus();
       return;
     }
 

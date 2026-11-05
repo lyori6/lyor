@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility | Lyor Itzhaki</title>
+    <meta name="description" content="How I make lyori.com usable for everyone: the WCAG 2.2 AA standard I follow, how I test the site, and how to reach me about a barrier.">
+    <meta name="author" content="Lyor Itzhaki">
+    <meta name="theme-color" content="#F7F5F0">
+    <link rel="canonical" href="https://lyori.com/accessibility">
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- Share cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lyor Itzhaki">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://lyori.com/accessibility">
+    <meta property="og:title" content="Accessibility statement for lyori.com">
+    <meta property="og:description" content="How I make lyori.com usable for everyone: the WCAG 2.2 AA standard I follow, how I test the site, and how to reach me about a barrier.">
+    <meta property="og:image" content="https://lyori.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Lyor Itzhaki. I build products people trust.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Accessibility statement for lyori.com">
+    <meta name="twitter:description" content="How I make lyori.com usable for everyone: the WCAG 2.2 AA standard I follow, how I test the site, and how to reach me about a barrier.">
+    <meta name="twitter:image" content="https://lyori.com/images/og-image.png">
+    <meta name="twitter:image:alt" content="Lyor Itzhaki. I build products people trust.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Accessibility statement for lyori.com",
+      "description": "How I make lyori.com usable for everyone: the WCAG 2.2 AA standard I follow, how I test the site, and how to reach me about a barrier.",
+      "url": "https://lyori.com/accessibility",
+      "dateModified": "2026-11-05",
+      "author": { "@type": "Person", "name": "Lyor Itzhaki", "url": "https://lyori.com/" }
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQH38Z0QT2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-JQH38Z0QT2');
+    </script>
+    
+    <!-- MS Clarity-->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "oaj17avmn2");
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/case-study.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="wordmark"><img src="/images/favicon.svg" alt="" width="30" height="30" class="wordmark-mark">Lyor Itzhaki</a>
+            <nav aria-label="Site">
+                <ul class="nav-links">
+                    <li><a href="/#experience">Experience</a></li>
+                    <li><a href="/blog">Case studies</a></li>
+                    <li><a href="/#testimonials">Reviews</a></li>
+                </ul>
+            </nav>
+            <a href="/#contact" class="btn btn-small btn-ghost">Contact</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <article class="article wrap">
+            <h1 class="article-title">Accessibility</h1>
+            <p class="article-dek">I want everyone to be able to read this site, look through my work, and get in touch, whatever device or assistive technology they use.</p>
+
+            <div class="article-body">
+<h2>The standard I follow</h2>
+<p>I aim for lyori.com to conform to the <a href="https://www.w3.org/TR/WCAG22/">Web Content Accessibility Guidelines (WCAG) 2.2</a> at Level AA. WCAG is the standard the U.S. Department of Justice points to for the Americans with Disabilities Act, and the one most accessibility laws around the world build on.</p>
+<h2>What I do</h2>
+<ul>
+<li>Every page works with a keyboard alone, with a visible focus ring and a "Skip to content" link.</li>
+<li>Pages use real headings, lists, landmarks, and labels so screen readers can move through them.</li>
+<li>Images that carry meaning have text descriptions. Decorative images are hidden from screen readers.</li>
+<li>Text and controls meet WCAG contrast ratios, and the layout holds up at 320 pixels wide, at 200% zoom, and with larger text spacing.</li>
+<li>Animation is kept short and plays once. If your device asks for reduced motion, the site turns it off.</li>
+<li>The contact form has labels, announces errors, and does not use a CAPTCHA.</li>
+</ul>
+<h2>How I test</h2>
+<p>I check every page with automated tools (axe-core) and by hand: keyboard only, zoom and text resizing, narrow screens, and reduced motion. I test again whenever I add a page or change the design.</p>
+<p>Last reviewed: <time datetime="2026-11-05">November 5, 2026</time>.</p>
+<h2>Known limits</h2>
+<ul>
+<li>Screenshots in the case studies show other products. Each has a text description, but the small text inside the images may not meet contrast rules. The case study text covers what they show.</li>
+<li>Some links go to sites I don't control, like LinkedIn, GitHub, and Figma. Their accessibility is up to them.</li>
+</ul>
+<h2>Tell me about a barrier</h2>
+<p>If something on this site is hard to use, or you need any of it in another format, email me at <a href="mailto:hello@lyori.com">hello@lyori.com</a>. Tell me the page and what went wrong. I'll reply within 5 business days and work on a fix.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer wrap">
+        <p>&copy; <span id="year">2026</span> Lyor Itzhaki &middot; <a href="/accessibility" class="link-quiet">Accessibility</a></p>
+        <a href="/" class="link-quiet">Back to home</a>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      (function () {
+        var header = document.querySelector('.site-header');
+        var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+    </script>
+</body>
+</html>
