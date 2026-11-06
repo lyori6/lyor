@@ -35,17 +35,15 @@ Every page carries its own title (under 60 characters), description (120 to 160)
 
 ## Accessibility rules (WCAG 2.2 AA)
 
-The site targets WCAG 2.2 AA, the standard used for the ADA. The public statement is `accessibility/index.html` (`/accessibility`, linked in every footer); update its "Last reviewed" date after each audit. Every change keeps these rules:
+The site targets WCAG 2.2 AA, the standard used for the ADA. The public statement is `accessibility/index.html` (`/accessibility`, linked in every footer); update its "Last reviewed" date, tested browsers, and known limits after each audit, and only claim what was tested. Log every accessibility change in `CHANGELOG.md`. Every change keeps these rules:
 
-- Contrast: body text at least 4.5:1, large text and UI parts (borders that mark a control, icons, focus rings) at least 3:1. Checked pairs: `--ink-3` on `--paper` is 5.05:1, the lowest text color in use; `--accent` on `--paper` 6.84:1; `--on-deep-2` on `--deep` 8.36:1. `--line` (1.2:1) is for decoration only, never for the only edge of a control.
+- Contrast: body text at least 4.5:1, large text and UI parts (borders that mark a control, icons, focus rings) at least 3:1. Checked pairs: `--ink-3` on `--paper` is 5.05:1, the lowest text color in use; `--accent` on `--paper` 6.84:1; `--on-deep-2` on `--deep` 8.36:1. `--line` (1.2:1) is for decoration only, never for the only edge of a control. Form fields use `--field-border` (`#85888d`, 3.26:1 on `--paper`, 3.53:1 on `--surface`).
 - Focus: every interactive element shows `:focus-visible` (2px `--accent` outline, 3px offset). On the dark reviews band (`.section-dark`) the ring switches to `--on-deep`, because green on `--deep` is 1.7:1; inside the light review cards it goes back to `--accent`. Never remove an outline without an equally visible replacement.
 - Headings: one `h1` per page, no skipped levels. Job details on the home page are `h3` under the Experience `h2`.
 - Links: a link with `target="_blank"` ends with `<span class="sr-only"> (opens in a new tab)</span>`. The visible arrow stays `aria-hidden`.
 - Images: real `alt` text when the image carries meaning; `alt=""` when it is decorative or sits inside a link whose text already names it (case study card thumbnails, logos next to a name, avatars next to a name).
-- Forms: every field has a `<label>`. On an error, set `aria-invalid="true"`, point `aria-describedby` at the message, show it in text, and move focus to the first bad field. No CAPTCHA.
+- Forms: every field has a `<label>`. On an error, set `aria-invalid="true"`, point `aria-describedby` at the message, show it in text, and move focus to the first bad field. While sending, mark the button `aria-disabled="true"` instead of `disabled` (a disabled button drops focus to the page); after a failure keep the message filled in and put focus back on the button. No CAPTCHA.
 - Motion: respect `prefers-reduced-motion` (GSAP runs only under `no-preference`); nothing auto-plays or loops.
 - Layout: no horizontal scroll at 320px, and nothing clips with WCAG text-spacing overrides. Targets are at least 24x24px or spaced so a 24px circle around them touches nothing else.
 - Use `.sr-only` from `home.css` for text meant only for screen readers.
 - Before review: run axe-core (WCAG 2.0, 2.1, 2.2 A and AA tags) on every page at 1440px and 390px, with reduced motion on and off, and tab through each page with the keyboard.
-
-Known gap, waiting on a design decision: the contact form fields use `--line` borders (1.2:1 against the field, WCAG 1.4.11 asks for 3:1). The proposed fix is `#85888d` (3.26:1 on `--paper`, 3.53:1 on `--surface`).

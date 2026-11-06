@@ -211,9 +211,14 @@
       return;
     }
 
+    // Stay focusable while sending (a disabled button drops focus to the page),
+    // and ignore repeat presses until the request finishes.
+    if (form.dataset.sending === 'true') return;
+    form.dataset.sending = 'true';
     const label = submit.textContent;
-    submit.disabled = true;
+    submit.setAttribute('aria-disabled', 'true');
     submit.textContent = 'Sending...';
+    let failed = false;
 
     try {
       const response = await fetch(endpoint, {
@@ -226,13 +231,18 @@
         form.reset();
         setFeedback('Thanks! Your message is on its way. I will get back to you soon.', true);
       } else {
+        failed = true;
         setFeedback((result && result.message) || 'Something went wrong. Please email hello@lyori.com instead.');
       }
     } catch (error) {
+      failed = true;
       setFeedback('Something went wrong. Please email hello@lyori.com instead.');
     } finally {
-      submit.disabled = false;
+      delete form.dataset.sending;
+      submit.removeAttribute('aria-disabled');
       submit.textContent = label;
+      // After a failure the message stays filled in; keep focus on Send so a retry is one key away.
+      if (failed) submit.focus();
     }
   });
 })();

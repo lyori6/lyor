@@ -34,7 +34,7 @@
       "name": "Accessibility statement for lyori.com",
       "description": "How I make lyori.com usable for everyone: the WCAG 2.2 AA standard I follow, how I test the site, and how to reach me about a barrier.",
       "url": "https://lyori.com/accessibility",
-      "dateModified": "2026-11-05",
+      "dateModified": "2026-11-06",
       "author": { "@type": "Person", "name": "Lyor Itzhaki", "url": "https://lyori.com/" }
     }
     </script>
@@ -88,26 +88,33 @@
 
             <div class="article-body">
 <h2>The standard I follow</h2>
-<p>I aim for lyori.com to conform to the <a href="https://www.w3.org/TR/WCAG22/">Web Content Accessibility Guidelines (WCAG) 2.2</a> at Level AA. WCAG is the standard the U.S. Department of Justice points to for the Americans with Disabilities Act, and the one most accessibility laws around the world build on.</p>
-<h2>What I do</h2>
+<p>I aim to meet the <a href="https://www.w3.org/TR/WCAG22/">Web Content Accessibility Guidelines (WCAG) 2.2</a> at Level AA. WCAG is the standard the U.S. Department of Justice points to for the Americans with Disabilities Act, and the one most accessibility laws around the world build on.</p>
+<h2>What I've done</h2>
 <ul>
-<li>Every page works with a keyboard alone, with a visible focus ring and a "Skip to content" link.</li>
-<li>Pages use real headings, lists, landmarks, and labels so screen readers can move through them.</li>
-<li>Images that carry meaning have text descriptions. Decorative images are hidden from screen readers.</li>
-<li>Text and controls meet WCAG contrast ratios, and the layout holds up at 320 pixels wide, at 200% zoom, and with larger text spacing.</li>
-<li>Animation is kept short and plays once. If your device asks for reduced motion, the site turns it off.</li>
-<li>The contact form has labels, announces errors, and does not use a CAPTCHA.</li>
+<li>Pages can be used with a keyboard alone, with a visible focus ring and a "Skip to content" link.</li>
+<li>Pages use headings, lists, landmarks, and form labels in the HTML, so assistive technology can find its way around.</li>
+<li>Images that carry meaning have text descriptions. Decorative images are hidden from assistive technology.</li>
+<li>Text, form field edges, and focus rings meet WCAG contrast ratios. The layout works at 320 pixels wide and with larger text spacing.</li>
+<li>Animation is short and plays once. If your device asks for reduced motion, the site turns it off.</li>
+<li>The contact form has visible labels, says which field needs attention, keeps your message if sending fails, and does not use a CAPTCHA.</li>
 </ul>
-<h2>How I test</h2>
-<p>I check every page with automated tools (axe-core) and by hand: keyboard only, zoom and text resizing, narrow screens, and reduced motion. I test again whenever I add a page or change the design.</p>
-<p>Last reviewed: <time datetime="2026-11-05">November 5, 2026</time>.</p>
+<h2>How it was tested</h2>
+<p>Last reviewed <time datetime="2026-11-06">November 6, 2026</time>. The checks below covered every page at 1440, 390, and 320 pixels wide:</p>
+<ul>
+<li>Automated scans with axe-core 4.10 (WCAG 2.0, 2.1, and 2.2 A and AA rules), plus a second review with IBM Equal Access and HTML_CodeSniffer.</li>
+<li>Keyboard-only use in Chromium, including the review gallery, the job list, and the contact form's error and failure states.</li>
+<li>Contrast measured for every text and control color pair, text-spacing overrides, and reduced motion.</li>
+<li>An independent AI-assisted review of the code and the rendered pages.</li>
+</ul>
+<p>Testing so far used Chromium-based browsers. Safari, Firefox, and screen readers such as VoiceOver and NVDA have not been tested yet.</p>
 <h2>Known limits</h2>
 <ul>
+<li>The site has not yet been checked with a screen reader. If you use one and something doesn't work, please tell me.</li>
 <li>Screenshots in the case studies show other products. Each has a text description, but the small text inside the images may not meet contrast rules. The case study text covers what they show.</li>
 <li>Some links go to sites I don't control, like LinkedIn, GitHub, and Figma. Their accessibility is up to them.</li>
 </ul>
 <h2>Tell me about a barrier</h2>
-<p>If something on this site is hard to use, or you need any of it in another format, email me at <a href="mailto:hello@lyori.com">hello@lyori.com</a>. Tell me the page and what went wrong. I'll reply within 5 business days and work on a fix.</p>
+<p>If something on this site is hard to use, or you need any of it in another format, email me at <a href="mailto:hello@lyori.com">hello@lyori.com</a>. Tell me the page and what went wrong. I aim to reply within 5 business days and work on a fix.</p>
             </div>
         </article>
     </main>
