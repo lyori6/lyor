@@ -7,6 +7,7 @@
   --ink-2: #45484d;
   --ink-3: #66696f;
   --line: #e2ded4;
+  --field-border: #85888d; /* form field edges: 3.26:1 on --paper, 3.53:1 on --surface (WCAG 1.4.11) */
   --accent: #2d5e4c;
   --accent-hover: #224a3c;
   --accent-soft: #e4ece7;
@@ -88,6 +89,19 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   max-width: calc(var(--wrap) + var(--gutter) * 2);
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+/* Text for screen readers only, such as "(opens in a new tab)". */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .skip-link {
@@ -204,7 +218,8 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   transform: scale(0.98);
 }
 
-.btn[disabled] {
+.btn[disabled],
+.btn[aria-disabled="true"] {
   opacity: 0.6;
   cursor: progress;
 }
@@ -451,6 +466,15 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   text-decoration-color: currentColor;
 }
 
+/* The green focus ring disappears on the deep band, so it switches to the light ink there. */
+.section-dark :focus-visible {
+  outline-color: var(--on-deep);
+}
+
+.section-dark .review :focus-visible {
+  outline-color: var(--accent);
+}
+
 .section-dark ::selection {
   background: var(--on-deep);
   color: var(--deep);
@@ -609,14 +633,14 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
   max-width: calc(68ch + 7.5rem + 76px);
 }
 
-.job-body h4 {
+.job-body h3 {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--ink-3);
   margin: 20px 0 8px;
 }
 
-.job-body h4:first-child {
+.job-body h3:first-child {
   margin-top: 0;
 }
 
@@ -1090,7 +1114,7 @@ h1, h2, h3, h4, p, ul, ol, figure, blockquote {
 .field textarea {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--field-border);
   border-radius: 10px;
   background: var(--paper);
   color: var(--ink);
