@@ -45,5 +45,6 @@ The site targets WCAG 2.2 AA, the standard used for the ADA. The public statemen
 - Forms: every field has a `<label>`. On an error, set `aria-invalid="true"`, point `aria-describedby` at the message, show it in text, and move focus to the first bad field. While sending, mark the button `aria-disabled="true"` instead of `disabled` (a disabled button drops focus to the page); after a failure keep the message filled in and put focus back on the button. No CAPTCHA.
 - Motion: respect `prefers-reduced-motion` (GSAP runs only under `no-preference`); nothing auto-plays or loops.
 - Layout: no horizontal scroll at 320px, and nothing clips with WCAG text-spacing overrides. Targets are at least 24x24px or spaced so a 24px circle around them touches nothing else.
+- Privacy: `/privacy` lists every tracker and what the contact form collects. Adding or removing an analytics tool, embed, or form field means updating that page and its date in the same PR.
 - Use `.sr-only` from `home.css` for text meant only for screen readers.
 - Before review: run axe-core (WCAG 2.0, 2.1, 2.2 A and AA tags) on every page at 1440px and 390px, with reduced motion on and off, and tab through each page with the keyboard.
