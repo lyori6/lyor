@@ -2,6 +2,10 @@
 
 Notable changes to lyori.com. Newest first.
 
+## 2026-11-08: Security headers
+
+- `vercel.json` sends `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` and `Content-Security-Policy: frame-ancestors 'self'` on every response. Other sites can no longer show lyori.com inside a frame. Nothing visible changes. Vercel already adds HSTS.
+
 ## 2026-11-08: Privacy wording narrowed
 
 - `/privacy` no longer promises that Clarity masks form input, a fixed deletion step for messages, or specific analytics retention periods, since none of those were confirmed in the tool settings. It now says only what is known.
@@ -16,6 +20,7 @@ Notable changes to lyori.com. Newest first.
 
 - The site has no logins, cookies of its own, or stored user data. The contact form posts to a Cloudflare Worker (`lyori-contact`) whose code is not in this repo.
 - When adding a tracker or a new form field, update `/privacy` in the same PR.
+- Security headers live in `vercel.json` (`headers`). There is no script CSP; adding one means listing GA, Clarity, Google Fonts and the contact Worker first, in report-only mode.
 
 ## 2026-11-06: Accessibility, round 2 (PR #6)
 
