@@ -6,7 +6,38 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/case-studies", "destination": "/blog", "permanent": true },
-    { "source": "/feed.xml", "destination": "/blog", "permanent": true }
+    {
+      "source": "/case-studies",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/feed.xml",
+      "destination": "/blog",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self'"
+        }
+      ]
+    }
   ]
 }
