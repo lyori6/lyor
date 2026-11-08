@@ -2,6 +2,10 @@
 
 Notable changes to lyori.com. Newest first.
 
+## 2026-11-08: Privacy wording narrowed
+
+- `/privacy` no longer promises that Clarity masks form input, a fixed deletion step for messages, or specific analytics retention periods, since none of those were confirmed in the tool settings. It now says only what is known.
+
 ## 2026-11-08: Privacy policy
 
 - New `/privacy` page: what the contact form and analytics (Google Analytics, Microsoft Clarity) collect, who helps run the site (Vercel, Cloudflare, Google Fonts), retention, and how to ask for access or deletion. Clarity's terms require this disclosure.
