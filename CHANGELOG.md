@@ -2,6 +2,17 @@
 
 Notable changes to lyori.com. Newest first.
 
+## 2026-11-08: Privacy policy
+
+- New `/privacy` page: what the contact form and analytics (Google Analytics, Microsoft Clarity) collect, who helps run the site (Vercel, Cloudflare, Google Fonts), retention, and how to ask for access or deletion. Clarity's terms require this disclosure.
+- "Privacy" link added next to "Accessibility" in every footer, including the case study template.
+- Added to `sitemap.xml` and `scripts/build.sh`.
+
+## Security
+
+- The site has no logins, cookies of its own, or stored user data. The contact form posts to a Cloudflare Worker (`lyori-contact`) whose code is not in this repo.
+- When adding a tracker or a new form field, update `/privacy` in the same PR.
+
 ## 2026-11-06: Accessibility, round 2 (PR #6)
 
 - Contact form fields get a visible edge: new `--field-border` token (`#85888d`), up from `--line` at 1.2:1. Meets WCAG 1.4.11.
